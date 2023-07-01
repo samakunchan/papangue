@@ -1,0 +1,30 @@
+on:
+  pull_request:
+    branches:
+      - developpement
+
+name: 🚚 [PR DEVELOPPEMENT] Workflow pour le lancement des tests lors de la PR pour le developpement
+jobs:
+  test-devppg-api:
+    name: 🛂 Test de Papangue
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
+
+      - name: 💿 Use Node.js 14
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: 📚 Installation des dépendences
+        run: |
+          npm install
+
+      - name: 🚧 Construction du projet
+        run: |
+          npm run build
+
+      - name: 🛂 Test du projet
+        run: |
+          npm run test
