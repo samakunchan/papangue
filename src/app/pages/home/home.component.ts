@@ -3,7 +3,7 @@ import { AuthenticationService } from '../../authentication/services/authenticat
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { ErrorMessage, KeycloakConfig } from '../../core/utils/config.core';
-import { StorageCore } from '../../core/storage/storage.core';
+import { StorageService } from '../../core/services/storage.service';
 
 @Component({
   selector: 'app-home',
@@ -15,11 +15,11 @@ export class HomeComponent implements OnInit {
   hrefLogin: string = '';
   hrefLogout: string = '';
 
-  constructor(private authenticationService: AuthenticationService, private router: Router, private storage: StorageCore) {}
+  constructor(private authenticationService: AuthenticationService, private router: Router, private storage: StorageService) {}
 
   ngOnInit(): void {
     this.hrefLogin = `${KeycloakConfig.loginKeycloakUrl}`;
-    if(this.storage.idToken != ErrorMessage.noIdToken) {
+    if (this.storage.idToken != ErrorMessage.noIdToken) {
       this.hrefLogout = `${KeycloakConfig.keycloakUrlForLogout(this.storage.idToken)}`;
     }
 
@@ -32,7 +32,6 @@ export class HomeComponent implements OnInit {
    */
   additionnalActionWithLogout(): void {
     if (this.storage.idToken != ErrorMessage.noIdToken) {
-      console.log('OKKKKKKK');
       this.storage.deleteTokens();
     }
   }

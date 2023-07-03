@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ErrorMessage, KeycloakConfig } from '../../core/utils/config.core';
 import { BehaviorSubject, iif, mergeMap, Observable, of, tap, throwError } from 'rxjs';
-import { StorageCore } from '../../core/storage/storage.core';
+
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthUser } from '../../core/models/auth-user.model';
+import { StorageService } from '../../core/services/storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,7 @@ export class AuthenticationService {
   private loadedBehaviorSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public loaded$: Observable<boolean> = this.loadedBehaviorSubject.asObservable();
 
-  constructor(private httpClient: HttpClient, private storage: StorageCore, private jwtHelperService: JwtHelperService) {}
+  constructor(private httpClient: HttpClient, private storage: StorageService, private jwtHelperService: JwtHelperService) {}
 
   /**
    * @description Récupère le token, le refresh token, l'id token ect... à partir du code dans les params de l'url
