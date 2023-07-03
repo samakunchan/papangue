@@ -1,0 +1,7 @@
+<section>
+  <a [href]="hrefLogin">Connection</a>
+  <ng-container *ngIf='isUserLoaded$ | async as isUserLoaded'>
+    <p>Vous êtes connectés</p>
+    <a [href]="hrefLogout" (click)= additionnalActionWithLogout()>Se deconnecter</a>
+  </ng-container>
+</section>
