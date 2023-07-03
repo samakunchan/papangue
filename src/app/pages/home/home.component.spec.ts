@@ -3,16 +3,16 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HomeComponent } from './home.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
-import { StorageCore } from '../../core/storage/storage.core';
 import { ErrorMessage } from '../../core/utils/config.core';
+import { StorageService } from '../../core/services/storage.service';
 
 describe('HomeComponent', (): void => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
-  let storageDeleteTokenSpy: jasmine.SpyObj<StorageCore>;
+  let storageDeleteTokenSpy: jasmine.SpyObj<StorageService>;
 
   beforeEach(async (): Promise<void> => {
-    storageDeleteTokenSpy = jasmine.createSpyObj<StorageCore>('StorageCore', ['deleteTokens'], ['idToken']);
+    storageDeleteTokenSpy = jasmine.createSpyObj<StorageService>('StorageService', ['deleteTokens'], ['idToken']);
     storageDeleteTokenSpy.idToken = 'not null to trigger true some condition';
     storageDeleteTokenSpy.deleteTokens.and.callThrough();
 
@@ -27,9 +27,7 @@ describe('HomeComponent', (): void => {
           },
         }),
       ],
-      providers: [
-        JwtHelperService,
-      ],
+      providers: [JwtHelperService],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HomeComponent);

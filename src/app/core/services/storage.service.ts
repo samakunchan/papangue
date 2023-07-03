@@ -11,12 +11,8 @@ enum storageKey {
 @Injectable({
   providedIn: 'root',
 })
-export class StorageCore {
+export class StorageService {
   public readonly STORAGE_KEY: string;
-  private CURRENT_USER?: string | null;
-  private ACCESS_TOKEN?: string | null;
-  private REFRESH_TOKEN?: string | null;
-  private ID_TOKEN?: string | null;
 
   constructor() {
     this.STORAGE_KEY = 'PPG_';
@@ -34,7 +30,6 @@ export class StorageCore {
    * @param user string
    */
   set currentUser(user: string) {
-    this.CURRENT_USER = user;
     this.setStorageItem(storageKey.user, user);
   }
 
@@ -50,7 +45,6 @@ export class StorageCore {
    * @param accessToken
    */
   set accessToken(accessToken: string) {
-    this.ACCESS_TOKEN = accessToken;
     this.setStorageItem(storageKey.accessToken, accessToken);
   }
 
@@ -66,7 +60,6 @@ export class StorageCore {
    * @param refreshToken string
    */
   set refreshToken(refreshToken: string) {
-    this.REFRESH_TOKEN = refreshToken;
     this.setStorageItem(storageKey.refreshToken, refreshToken);
   }
 
@@ -82,7 +75,6 @@ export class StorageCore {
    * @param idToken
    */
   set idToken(idToken: string) {
-    this.ID_TOKEN = idToken;
     this.setStorageItem(storageKey.idToken, idToken);
   }
 
@@ -92,16 +84,6 @@ export class StorageCore {
   deleteTokens(): void {
     return this.clearStorage();
   }
-
-  // /**
-  //  * Méthode qui charge les données contenu dans le storage
-  //  */
-  // public init(): void {
-  //   this.CURRENT_USER = this.getStorageItem(storageKey.user);
-  //   this.ACCESS_TOKEN = this.getStorageItem(storageKey.accessToken);
-  //   this.REFRESH_TOKEN = this.getStorageItem(storageKey.refreshToken);
-  //   this.ID_TOKEN = this.getStorageItem(storageKey.idToken);
-  // }
 
   /**
    * Permet d'ajouter une clé/valeur dans le local storage
@@ -115,7 +97,7 @@ export class StorageCore {
 
   /**
    * Méthode qui permet de récupérer une clé et sa valeur dans le storage
-   * @param key
+   * @param key string
    * @private
    */
   private getStorageItem(key: string): string | null {

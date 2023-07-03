@@ -2,11 +2,11 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/c
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { KeycloakConfig } from '../utils/config.core';
-import { StorageCore } from '../storage/storage.core';
+import { StorageService } from '../services/storage.service';
 
 @Injectable()
 export class HttpApiInterceptor implements HttpInterceptor {
-  constructor(private storageCore: StorageCore) {}
+  constructor(private storageCore: StorageService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     request = request.clone({
