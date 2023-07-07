@@ -1,0 +1,6 @@
+<h3>Menus</h3>
+<button (click)= toNavigateMenu()>Home</button>
+<ng-container *ngFor="let menu of menus">
+  <button (click)= toNavigateMenu(menu)>{{menu}}</button>
+</ng-container>
+<router-outlet></router-outlet>

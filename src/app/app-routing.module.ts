@@ -1,12 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-// import { canActivateAdminPage } from './core/guards/logged.guard';
+import { canActivateAdminPage } from './core/guards/logged.guard';
+import { RouteName } from './core/utils/config.core';
 
+/**
+ * Lazy loading
+ * Route public
+ * Route authentifié
+ */
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  // { path: 'admin', component: AdminComponent, canActivate: [canActivateAdminPage] },
+  { path: '', loadChildren: () => import('./pages/pages-public/pages-public.module').then((m) => m.PagesPublicModule) },
+  {
+    path: RouteName.admin,
+    loadChildren: () => import('./pages/secured-pages/secured-pages.module').then((m) => m.SecuredPagesModule),
+    canActivate: [canActivateAdminPage],
+  },
   { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({
