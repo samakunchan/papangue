@@ -4,5 +4,6 @@
   <ng-container *ngIf='isUserLoaded$ | async as isUserLoaded'>
     <p *ngIf="isUserLoaded">Vous êtes connectés</p>
     <button (click)= logout()>Se deconnecter</button>
+    <button (click)= toAdmin()>Vers la page Admin</button>
   </ng-container>
 </section>

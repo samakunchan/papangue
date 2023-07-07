@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SecuredPagesComponent } from './secured-pages.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('PagesWithAuthComponent', (): void => {
   let component: SecuredPagesComponent;
@@ -8,6 +9,7 @@ describe('PagesWithAuthComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
       declarations: [SecuredPagesComponent],
     }).compileComponents();
 

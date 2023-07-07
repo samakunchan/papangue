@@ -1,1 +1,5 @@
-<p>pages-with-auth works!</p>
+<h3>Menus- Admin</h3>
+<ng-container *ngFor="let menu of menus">
+  <button (click)= toNavigateMenu(menu)>{{menu}}</button>
+</ng-container>
+<router-outlet></router-outlet>
