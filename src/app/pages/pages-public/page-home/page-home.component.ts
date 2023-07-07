@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../../authentication/services/authentication.service';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { KeycloakConfig } from '../../core/utils/config.core';
-import { StorageService } from '../../core/services/storage.service';
+import { AuthenticationService } from '../../../authentication/services/authentication.service';
+import { Router } from '@angular/router';
+import { StorageService } from '../../../core/services/storage.service';
+import { KeycloakConfig } from '../../../core/utils/config.core';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  selector: 'app-page-home',
+  templateUrl: './page-home.component.html',
+  styleUrls: ['./page-home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class PageHomeComponent {
   isUserLoaded$: Observable<boolean> = of(false);
 
   constructor(private authenticationService: AuthenticationService, private router: Router, private storage: StorageService) {}

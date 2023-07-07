@@ -14,18 +14,20 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from './authentication/services/authentication.service';
 import { dectectionApiReady, dectectionAuthUserConnected } from './core/utils/initializer';
-import { HomeComponent } from './pages/home/home.component';
+import { PagesPublicModule } from './pages/pages-public/pages-public.module';
+
 
 registerLocaleData(localeFr, 'fr');
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
     AuthenticationModule,
+    PagesPublicModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => '',

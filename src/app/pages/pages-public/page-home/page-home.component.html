@@ -1,7 +1,8 @@
 <section>
+<h3>Processus de connexion</h3>
   <button (click)="login()">Connection</button>
   <ng-container *ngIf='isUserLoaded$ | async as isUserLoaded'>
-    <p>Vous êtes connectés</p>
+    <p *ngIf="isUserLoaded">Vous êtes connectés</p>
     <button (click)= logout()>Se deconnecter</button>
   </ng-container>
 </section>
