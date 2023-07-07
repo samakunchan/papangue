@@ -5,6 +5,18 @@ Toutes les modifications notables apportées à ce projet seront documentées da
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 et ce projet adhère à [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 🚀 0.3.0 - 07/07/2023
+### Added
+- Ajout des modules et components en lazy loading front/back
+- Ajout des routes front/back
+- Création d'une structure pour le front/back
+### Changed
+- Suppression de l'ancien component home
+### Fixed
+- Pas de fixe
+
+---
+
 ## 🔨 0.2.2 - 03/07/2023
 ### Added
 - Aucun élément supplémentaire ajouter
