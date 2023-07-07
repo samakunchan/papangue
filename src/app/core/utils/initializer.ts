@@ -59,9 +59,7 @@ export const dectectionAuthUserConnected = (
   route.queryParams
     .pipe(
       filter((params: Params): boolean => params['code'] != null),
-      switchMap(
-        (params: Params): Observable<Record<string, any>> => authenticationService.storeTokensWithCodeAndReturnUser(params['code']),
-      ),
+      switchMap((params: Params): Observable<Record<string, any>> => authenticationService.storeTokensWithCodeAndReturnUser(params['code'])),
       switchMap(() => authenticationService.checkUserIsLogged()),
       tap(() => router.navigate(['/'])),
     )

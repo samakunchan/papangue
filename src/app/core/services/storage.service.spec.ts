@@ -69,5 +69,5 @@ describe('StorageService', (): void => {
 
   afterEach((): void => {
     service.deleteTokens();
-  })
+  });
 });
