@@ -1,21 +1,45 @@
-# PAPANGUE
+# CHANGELOG PAPANGUE
 
+Toutes les modifications notables apportées à ce projet seront documentées dans ce fichier.
+
+Le format est basé sur [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+et ce projet adhère à [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## 🔨 0.2.2 - 03/07/2023
+### Added
+- Aucun élément supplémentaire ajouter
+### Changed
+- Changement dans la procdure de récupération de tokens, on call une nouvelle url avec seulement le "code" ou le "refresh_token"
+- Changement du client id
+- Remise en place des méthodes login/logout de la home page
+### Fixed
+- Pas de fixe
+
+---
 ## 🚀 0.2.0 - 25/06/2023
-
+### Added
 - Ajout et configuration d'eslint
-- Suppression de Jasmine et Karma
 - Installation de Jest comme moteur pour les tests
 - Gestion de l'authentification depuis l'initializer de l'app module
 - Gestion de l'expiration du token depuis l'initializer de l'authentication module
 - Création d'un guard pour gérer les pages `/admin`
 - Création d'un component `admin`
+### Changed
+- Suppression de Jasmine et Karma
 - Refacto structure
+### Fixed
+- Pas de fixe
 
+---
 ## 🚀 0.1.0 - 01/02/2023
-
+### Added
 - Initialisation du projet
 - Ajout d'un système d'interceptor
 - Ajout d'un système de gestion des érreurs
 - Ajout d'une librairies de toast pour les notifications
 - Ajout d'un système de storage
 - Branchement de keycloak et de l'API sur l'APP INITIALIZER
+### Changed
+- Pas de changement
+### Fixed
+- Pas de fixe

@@ -7,8 +7,9 @@ import { HttpClient } from '@angular/common/http';
 import { of } from 'rxjs';
 import { FakeTestDatas } from '../../core/utils/fake-test-datas';
 import { ErrorMessage } from '../../core/utils/config.core';
-import { StorageCore } from '../../core/storage/storage.core';
+
 import { AuthUser } from '../../core/models/auth-user.model';
+import { StorageService } from '../../core/services/storage.service';
 
 describe('AuthenticationService', (): void => {
   const body: URLSearchParams = new URLSearchParams();
@@ -16,7 +17,7 @@ describe('AuthenticationService', (): void => {
   let service: AuthenticationService;
   let httpClientSpy: jasmine.SpyObj<HttpClient>;
   let jwtDecodeSpy: jasmine.SpyObj<JwtHelperService>;
-  let storageSpy: jasmine.SpyObj<StorageCore>;
+  let storageSpy: jasmine.SpyObj<StorageService>;
 
   describe('When everything work well', (): void => {
     beforeEach((): void => {
@@ -34,7 +35,7 @@ describe('AuthenticationService', (): void => {
       // @ts-ignore
       jwtDecodeSpy.isTokenExpired.and.resolveTo(false).and.returnValue(false);
 
-      storageSpy = jasmine.createSpyObj<StorageCore>('StorageCore', ['accessToken', 'refreshToken', 'idToken', 'currentUser']);
+      storageSpy = jasmine.createSpyObj<StorageService>('StorageService', ['accessToken', 'refreshToken', 'idToken', 'currentUser']);
 
       TestBed.configureTestingModule({
         imports: [
@@ -56,7 +57,7 @@ describe('AuthenticationService', (): void => {
             useValue: jwtDecodeSpy,
           },
           {
-            provide: StorageCore,
+            provide: StorageService,
             useValue: storageSpy,
           },
         ],

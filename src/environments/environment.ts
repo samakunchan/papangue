@@ -5,10 +5,11 @@
 export const environment = {
   production: false,
   apiUrl: 'https://freelance-api.devpapangue.com',
+  // apiUrl: 'http://localhost:3000',
   keycloak: {
     domain: 'secure-connect.devpapangue.com',
     realm: 'ppg-connect',
-    clientId: 'portblog',
+    clientId: 'papangue',
     redirectUri: 'http://localhost:4200',
     codeChallenge: 'nOL61O-gDehx8hjOPEEG4yZ7GwoGG7MjrdIQ2Lkq1Zk',
     codeChallengeMethod: 'S256',
