@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../authentication/services/authentication.service';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { ErrorMessage, KeycloakConfig } from '../../core/utils/config.core';
+import { KeycloakConfig } from '../../core/utils/config.core';
 import { StorageService } from '../../core/services/storage.service';
 
 @Component({
@@ -12,27 +12,27 @@ import { StorageService } from '../../core/services/storage.service';
 })
 export class HomeComponent implements OnInit {
   isUserLoaded$: Observable<boolean> = of(false);
-  hrefLogin: string = '';
-  hrefLogout: string = '';
 
   constructor(private authenticationService: AuthenticationService, private router: Router, private storage: StorageService) {}
 
   ngOnInit(): void {
-    this.hrefLogin = `${KeycloakConfig.loginKeycloakUrl}`;
-    if (this.storage.idToken != ErrorMessage.noIdToken) {
-      this.hrefLogout = `${KeycloakConfig.keycloakUrlForLogout(this.storage.idToken)}`;
-    }
-
     this.isUserLoaded$ = this.authenticationService.loaded$;
+  }
+
+  /**
+   * @author Samakunchan
+   * Url de connexion via keycloak
+   */
+  login(): void {
+    window.location.href = `${KeycloakConfig.loginKeycloakUrl}`;
   }
 
   /**
    * @author Samakunchan
    * Url de logout via keycloak
    */
-  additionnalActionWithLogout(): void {
-    if (this.storage.idToken != ErrorMessage.noIdToken) {
-      this.storage.deleteTokens();
-    }
+  logout(): void {
+    window.location.href = `${KeycloakConfig.keycloakUrlForLogout(this.storage.idToken)}`;
+    this.storage.deleteTokens();
   }
 }

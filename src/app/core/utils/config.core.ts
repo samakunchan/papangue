@@ -10,7 +10,6 @@ export class KeycloakConfig {
   static codeChallengeMethod: string = environment.keycloak.codeChallengeMethod;
   static scope: string = environment.keycloak.scope;
   static state: string = environment.keycloak.state;
-  static codeVerifier: string = environment.keycloak.codeVerifier;
 
   /**
    * Endpoint Keycloak se connecter et récupérer le code dans les params url

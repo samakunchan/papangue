@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ErrorMessage, KeycloakConfig } from '../../core/utils/config.core';
+import { ErrorMessage } from '../../core/utils/config.core';
 import { BehaviorSubject, iif, mergeMap, Observable, of, tap, throwError } from 'rxjs';
 
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthUser } from '../../core/models/auth-user.model';
 import { StorageService } from '../../core/services/storage.service';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -68,13 +69,7 @@ export class AuthenticationService {
    * ```
    */
   storeTokensWithCodeAndReturnUser(code: string): Observable<Record<string, any>> {
-    const body: URLSearchParams = new URLSearchParams();
-    body.set('grant_type', 'authorization_code');
-    body.set('client_id', KeycloakConfig.clientId);
-    body.set('code', code);
-    body.set('redirect_uri', KeycloakConfig.redirectUri);
-    body.set('code_verifier', KeycloakConfig.codeVerifier);
-    return this.httpClient.post<Record<string, any>>(`${KeycloakConfig.keycloakUrlForToken}`, body.toString()).pipe(
+    return this.httpClient.post<Record<string, any>>(`${environment.apiUrl}/authentication/credentials`, { code }).pipe(
       mergeMap((response: Record<string, any>): Observable<any> => {
         this.storage.idToken = response['id_token'];
         this.storage.refreshToken = response['refresh_token'];
