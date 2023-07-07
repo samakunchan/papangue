@@ -3,11 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SecuredPageDashboardComponent } from './secured-page-dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [
-  { path: 'dashboard', component: SecuredPageDashboardComponent },
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
-];
+const routes: Routes = [{ path: '', component: SecuredPageDashboardComponent }];
 
 @NgModule({
   declarations: [SecuredPageDashboardComponent],

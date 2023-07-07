@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { RouteName } from '../../core/utils/config.core';
 
 @Component({
   selector: 'app-pages-public',
@@ -7,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./pages-public.component.scss'],
 })
 export class PagesPublicComponent {
-  menus: string[] = ['a-propos-de-moi', 'mes-services', 'mon-portfolio', 'mon-blog'] as string[];
+  menus: string[] = [RouteName.about, RouteName.services, RouteName.portfolio, RouteName.blog] as string[];
 
   constructor(private router: Router) {}
 

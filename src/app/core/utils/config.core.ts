@@ -59,3 +59,64 @@ export enum ErrorMessage {
   isNotValidUrl = 'is not a valid URL.',
   sessionExpired = 'Votre session est expiré.',
 }
+
+export class RouteName {
+  /**
+   * @description Navigation: /page-introuvable
+   */
+  static notFound: string = 'page-introuvable';
+  /**
+   * @description Navigation: /page-introuvable
+   */
+  static unAuthorized: string = 'page-non-autorisé';
+  /**
+   * @description Navigation: /admin
+   */
+  static admin: string = 'admin';
+  /**
+   * @description Navigation: /tableau-de-bord
+   */
+  static dashboard: string = 'tableau-de-bord';
+  /**
+   * @description Navigation front: /mes-services
+   * @description Navigation back: /services
+   * @description NB: Pour la route back, utilisez le code suivant pour garder que le dernier mot clé:
+   * @example```ts
+   * RouteName.services.split('-').reverse()[0]
+   */
+  static services: string = 'mes-services';
+  /**
+   * @description Navigation front: /mon-blog
+   * @description Navigation back: /blog
+   * @description NB: Pour la route back, utilisez le code suivant pour garder que le dernier mot clé:
+   * @example```ts
+   * RouteName.blog.split('-').reverse()[0]
+   * ```
+   */
+  static blog: string = 'mon-blog';
+  /**
+   * @description Navigation front: /mon-portfolio
+   * @description Navigation back: /portfolio
+   * @description NB: Pour la route back, utilisez le code suivant pour garder que le dernier mot clé:
+   * @example```ts
+   * RouteName.portfolio.split('-').reverse()[0]
+   * ```
+   */
+  static portfolio: string = 'mon-portfolio';
+  /**
+   * @description Navigation: /bibliothèque
+   */
+  static documents: string = 'bibliothèque';
+  /**
+   * @description Navigation: /environnements
+   */
+  static environments: string = 'environnements';
+  /**
+   * @description Navigation: /a-propos-de-moi
+   */
+  static about: string = 'a-propos-de-moi';
+  /**
+   * @description Navigation: /cgv
+   */
+  static cgv: string = 'cgv';
+}

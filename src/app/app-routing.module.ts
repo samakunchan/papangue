@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { canActivateAdminPage } from './core/guards/logged.guard';
+import { RouteName } from './core/utils/config.core';
 
 /**
  * Lazy loading
@@ -10,7 +11,7 @@ import { canActivateAdminPage } from './core/guards/logged.guard';
 const routes: Routes = [
   { path: '', loadChildren: () => import('./pages/pages-public/pages-public.module').then((m) => m.PagesPublicModule) },
   {
-    path: 'admin',
+    path: RouteName.admin,
     loadChildren: () => import('./pages/secured-pages/secured-pages.module').then((m) => m.SecuredPagesModule),
     canActivate: [canActivateAdminPage],
   },
