@@ -2,11 +2,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageServicesComponent } from './page-services.component';
 
-describe('PageServicesComponent', () => {
+describe('PageServicesComponent', (): void => {
   let component: PageServicesComponent;
   let fixture: ComponentFixture<PageServicesComponent>;
 
-  beforeEach(async () => {
+  beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
       declarations: [PageServicesComponent],
     }).compileComponents();
@@ -16,7 +16,7 @@ describe('PageServicesComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', (): void => {
     expect(component).toBeTruthy();
   });
 });

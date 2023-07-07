@@ -2,11 +2,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SecuredPageDashboardComponent } from './secured-page-dashboard.component';
 
-describe('DashboardPageComponent', () => {
+describe('DashboardPageComponent', (): void => {
   let component: SecuredPageDashboardComponent;
   let fixture: ComponentFixture<SecuredPageDashboardComponent>;
 
-  beforeEach(async () => {
+  beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
       declarations: [SecuredPageDashboardComponent],
     }).compileComponents();
@@ -16,7 +16,7 @@ describe('DashboardPageComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', (): void => {
     expect(component).toBeTruthy();
   });
 });

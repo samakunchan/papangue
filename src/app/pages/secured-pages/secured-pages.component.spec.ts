@@ -2,11 +2,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SecuredPagesComponent } from './secured-pages.component';
 
-describe('PagesWithAuthComponent', () => {
+describe('PagesWithAuthComponent', (): void => {
   let component: SecuredPagesComponent;
   let fixture: ComponentFixture<SecuredPagesComponent>;
 
-  beforeEach(async () => {
+  beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
       declarations: [SecuredPagesComponent],
     }).compileComponents();
@@ -16,7 +16,7 @@ describe('PagesWithAuthComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', (): void => {
     expect(component).toBeTruthy();
   });
 });

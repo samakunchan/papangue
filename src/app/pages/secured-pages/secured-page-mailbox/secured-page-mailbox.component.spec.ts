@@ -2,11 +2,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SecuredPageMailboxComponent } from './secured-page-mailbox.component';
 
-describe('SecuredPageMailboxComponent', () => {
+describe('SecuredPageMailboxComponent', (): void => {
   let component: SecuredPageMailboxComponent;
   let fixture: ComponentFixture<SecuredPageMailboxComponent>;
 
-  beforeEach(async () => {
+  beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
       declarations: [SecuredPageMailboxComponent],
     }).compileComponents();
@@ -16,7 +16,7 @@ describe('SecuredPageMailboxComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', (): void => {
     expect(component).toBeTruthy();
   });
 });

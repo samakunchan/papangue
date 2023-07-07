@@ -2,11 +2,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PagePortfolioComponent } from './page-portfolio.component';
 
-describe('PagePortfolioComponent', () => {
+describe('PagePortfolioComponent', (): void => {
   let component: PagePortfolioComponent;
   let fixture: ComponentFixture<PagePortfolioComponent>;
 
-  beforeEach(async () => {
+  beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
       declarations: [PagePortfolioComponent],
     }).compileComponents();
@@ -16,7 +16,7 @@ describe('PagePortfolioComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', (): void => {
     expect(component).toBeTruthy();
   });
 });

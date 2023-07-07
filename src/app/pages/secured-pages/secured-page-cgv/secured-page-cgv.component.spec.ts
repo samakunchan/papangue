@@ -2,11 +2,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SecuredPageCgvComponent } from './secured-page-cgv.component';
 
-describe('SecuredPageCgvComponent', () => {
+describe('SecuredPageCgvComponent', (): void => {
   let component: SecuredPageCgvComponent;
   let fixture: ComponentFixture<SecuredPageCgvComponent>;
 
-  beforeEach(async () => {
+  beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
       declarations: [SecuredPageCgvComponent],
     }).compileComponents();
@@ -16,7 +16,7 @@ describe('SecuredPageCgvComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', (): void => {
     expect(component).toBeTruthy();
   });
 });

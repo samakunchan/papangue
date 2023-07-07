@@ -2,11 +2,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SecuredPagePortfolioComponent } from './secured-page-portfolio.component';
 
-describe('SecuredPagePortfolioComponent', () => {
+describe('SecuredPagePortfolioComponent', (): void => {
   let component: SecuredPagePortfolioComponent;
   let fixture: ComponentFixture<SecuredPagePortfolioComponent>;
 
-  beforeEach(async () => {
+  beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
       declarations: [SecuredPagePortfolioComponent],
     }).compileComponents();
@@ -16,7 +16,7 @@ describe('SecuredPagePortfolioComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', (): void => {
     expect(component).toBeTruthy();
   });
 });
