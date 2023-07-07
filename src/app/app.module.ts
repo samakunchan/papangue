@@ -15,7 +15,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from './authentication/services/authentication.service';
 import { dectectionApiReady, dectectionAuthUserConnected } from './core/utils/initializer';
 import { PagesPublicModule } from './pages/pages-public/pages-public.module';
-
+import { SecuredPagesModule } from './pages/secured-pages/secured-pages.module';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -28,6 +28,7 @@ registerLocaleData(localeFr, 'fr');
     BrowserAnimationsModule,
     AuthenticationModule,
     PagesPublicModule,
+    SecuredPagesModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => '',
