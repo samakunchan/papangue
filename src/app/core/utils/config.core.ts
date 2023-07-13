@@ -70,6 +70,11 @@ export class RouteName {
    */
   static unAuthorized: string = 'page-non-autorisé';
   /**
+   * @description Titre de l'application
+   */
+  static home: string = 'papangue';
+
+  /**
    * @description Navigation: /admin
    */
   static admin: string = 'admin';

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { canActivateAdminPage } from './core/guards/logged.guard';
 import { RouteName } from './core/utils/config.core';
 
@@ -9,7 +9,10 @@ import { RouteName } from './core/utils/config.core';
  * Route authentifié
  */
 const routes: Routes = [
-  { path: '', loadChildren: () => import('./pages/pages-public/pages-public.module').then((m) => m.PagesPublicModule) },
+  {
+    path: '',
+    loadChildren: () => import('./pages/pages-public/pages-public.module').then((m) => m.PagesPublicModule),
+  },
   {
     path: RouteName.admin,
     loadChildren: () => import('./pages/secured-pages/secured-pages.module').then((m) => m.SecuredPagesModule),
@@ -20,7 +23,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
+      scrollPositionRestoration: 'enabled',
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

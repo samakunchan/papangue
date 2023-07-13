@@ -34,7 +34,11 @@ export class FakeTestDatas {
     date: '2023-07-01T23:01:01.333Z',
   };
 
-  fakeTokens: Record<string, any> = { access_token: 'test_access_token', refresh_token: 'test_refresh_token', id_token: 'test_id_token' };
+  fakeTokens: Record<string, any> = {
+    access_token: 'test_access_token',
+    refresh_token: 'test_refresh_token',
+    id_token: 'test_id_token',
+  };
   fakeDecodedToken: Record<string, any> = {
     exp: 1682844140,
     iat: 1682842340,

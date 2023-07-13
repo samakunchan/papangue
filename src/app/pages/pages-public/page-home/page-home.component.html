@@ -1,9 +1,427 @@
-<section>
-<h3>Processus de connexion</h3>
-  <button (click)="login()">Connection</button>
-  <ng-container *ngIf='isUserLoaded$ | async as isUserLoaded'>
-    <p *ngIf="isUserLoaded">Vous êtes connectés</p>
-    <button (click)= logout()>Se deconnecter</button>
-    <button (click)= toAdmin()>Vers la page Admin</button>
-  </ng-container>
+<!--================ Hero Section =================-->
+<section class="hero" id="hero">
+  <div class="container position-relative">
+    <div class="row gy-5 h-full d-flex align-content-center" data-aos="fade-in">
+      <div class="col-lg-6 d-flex flex-column align-items-right justify-content-center text-left caption">
+        <h2>Developpement</h2>
+        <h3 class="heading-secondy">Logiciel</h3>
+        <p>Je vous aide à faire évoluer votre entreprise, en proposant un système informatique sur mesure, en étant un acteur de l'optimisation de solution
+          numérique.</p>
+        <div class="d-flex">
+          <a class="btn-contact-me mx-1" href="javascript:void(0)">En savoir plus</a>
+          <a class="btn-get-started mx-1" href="javascript:void(0)">Me contacter</a>
+        </div>
+      </div>
+      <div class="col-lg-6 d-flex flex-column align-items-right justify-content-center">
+        <img alt="" class="img-fluid rounded-4 mb-4 mt-m70" src="{{ 'assets/images/hero.png' }}">
+      </div>
+    </div>
+  </div>
 </section>
+<!--================ End Hero Section =================-->
+
+<!--================ Services Section =================-->
+<section class="the-main-service text-center section" id="services">
+  <div class="section-header">
+    <h2>Services</h2>
+  </div>
+  <div class="container">
+    <div class="row our-offer-items less-carousel">
+      <!-- Main Service -->
+      <div class="col-md-4 col-sm-12 equal-height">
+        <div class="item">
+          <i class="fa fa-pencil"></i>
+          <h4>Création de projet</h4>
+          <p>
+            Etude de projet et choix de la stack technique (choix des outils)
+          </p>
+        </div>
+      </div>
+      <!-- End Main Service -->
+
+      <!-- Main Service -->
+      <div class="col-md-4 col-sm-12 equal-height">
+        <div class="item">
+          <i class="fa fa-pie-chart"></i>
+          <h4>Développement logiciel</h4>
+          <p>
+            Construction des web app, CRM, etc... avec une documentation et un versionning
+          </p>
+        </div>
+      </div>
+      <!-- End Main Service -->
+
+      <!--      &lt;!&ndash; Main Service &ndash;&gt;-->
+      <!--      <div class="col-md-4 col-sm-12 equal-height">-->
+      <!--        <div class="item">-->
+      <!--          <i class="fa fa-tasks"></i>-->
+      <!--          <h4>Cross browser compatibility</h4>-->
+      <!--          <p>-->
+      <!--            Support par les navigateurs populaires: Chrome, Firefox, Safari, Microsoft Edge-->
+      <!--          </p>-->
+      <!--        </div>-->
+      <!--      </div>-->
+      <!--      &lt;!&ndash; End Main Service &ndash;&gt;-->
+
+      <!--      &lt;!&ndash; Main Service &ndash;&gt;-->
+      <!--      <div class="col-md-4 col-sm-12 equal-height">-->
+      <!--        <div class="item">-->
+      <!--          <i class="fa fa-tablet"></i>-->
+      <!--          <h4>Responsive design</h4>-->
+      <!--          <p>-->
+      <!--            Navigation sur les formats: bureau, tablette et mobile-->
+      <!--          </p>-->
+      <!--        </div>-->
+      <!--      </div>-->
+      <!--      &lt;!&ndash; End Main Service &ndash;&gt;-->
+
+      <!-- Main Service -->
+      <div class="col-md-4 col-sm-12 equal-height">
+        <div class="item">
+          <i class="fa fa-recycle"></i>
+          <h4>Mise à jour logiciel</h4>
+          <p>
+            Traitement de code legacy et mise à jour complète des applications
+          </p>
+        </div>
+      </div>
+      <!-- End Main Service -->
+    </div>
+  </div>
+</section>
+<!--================ End Services Section =================-->
+
+<!--================ Whyus Section =================-->
+<section class="whyus" id="whyus">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+      <h2>Afin que vous puissiez décider</h2>
+      <p>Voici quelques points important pour nourrir votre décision</p>
+    </div>
+
+    <div class="row gy-4">
+      <div class="col-lg-6">
+        <img alt="" class="img-fluid rounded-4 mb-4" src="{{'assets/images/whyus.jpg'}}">
+      </div>
+      <div class="col-lg-6">
+        <div class="content ps-0 ps-lg-5">
+          <p>
+            Des années d'expérience en tant que développeur m'ont permis d'acquérir un environnement complet afin de créer et déployer une application, tenant
+            en compte les bonnes pratiques de création de logiciel.
+          </p>
+          <ul>
+            <li><i class="bi bi-arrow-right-square-fill"></i> Dockerisation des applications</li>
+            <li><i class="bi bi-arrow-right-square-fill"></i> Création de test, cycle d'intégration continue et de déploiement continue</li>
+            <li><i class="bi bi-arrow-right-square-fill"></i> Maintient de documentation afin de contribuer à la transmission de savoir</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!--================ End Whyus Section =================-->
+
+<!--================ Call to action Section =================-->
+<section class="call-to-action" id="call-to-action">
+  <div class="container text-center" data-aos="zoom-out">
+    <h3>Read to start something great?</h3>
+    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+    <a class="cta-btn" href="#contact">Conatct Us</a>
+  </div>
+</section>
+<!--================ End call to action Section =================-->
+
+<!--================ Porfolio Section =================-->
+<section class="portfolio section" id="portfolio">
+  <div class="container" data-aos="fade-up">
+    <div class="section-header">
+      <h2>Portfolio</h2>
+      <p>Quelques exemples de travaux accomplis. <a class="btn-get-started mx-1" href="javascript:void(0)">Voir tout les projets.</a></p>
+    </div>
+    <div class="portfolio-isotope" data-aos="fade-up" data-aos-delay="100" data-portfolio-filter="*" data-portfolio-layout="masonry"
+         data-portfolio-sort="original-order">
+
+      <div class="row gy-4 portfolio-container">
+
+        <div class="col-xl-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-wrap">
+            <a class="glightbox" data-gallery="portfolio-gallery-app" href="assets/images/portfolio/app-1.jpg">
+              <img alt="" class="img-fluid" src="{{'assets/images/portfolio/app-1.jpg'}}">
+            </a>
+            <div class="portfolio-info">
+              <h4><a href="project-details.html" title="More Details">App 1</a></h4>
+              <div class="project-deatils-aside">
+                <div class="portfolio-details">
+                  <ul>
+                    <li><strong>Category</strong> <span>Web design</span></li>
+                    <li><strong>Client</strong> <span>New Company</span></li>
+                    <li><strong>Project date</strong> <span>12 February, 2022</span></li>
+                    <li><strong>Project URL</strong> <a href="#">www.example.com</a></li>
+                  </ul>
+                </div>
+                <div class="testimonial-item">
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt
+                    aliqua noster fugiat irure amet legam anim culpa.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                  <div>
+                    <img alt="" class="testimonial-img" src="assets/images/testimonials/testimonial-1.jpg">
+                    <h3>Jhone Wilsson</h3>
+                    <h4>Graphic Designer</h4>
+                  </div>
+                </div>
+                <div class="project-btn"><a class="fill-btn" href="project-details.html">View Project</a></div>
+              </div>
+            </div>
+          </div>
+        </div><!-- End Portfolio Item -->
+
+        <div class="col-xl-4 col-md-6 portfolio-item filter-product">
+          <div class="portfolio-wrap">
+            <a class="glightbox" data-gallery="portfolio-gallery-app" href="assets/images/portfolio/product-1.jpg"><img
+              alt="" class="img-fluid" src="assets/images/portfolio/product-1.jpg"></a>
+            <div class="portfolio-info">
+              <h4><a href="project-details.html" title="More Details">Product 1</a></h4>
+              <div class="project-deatils-aside">
+                <div class="portfolio-details">
+                  <ul>
+                    <li><strong>Category</strong> <span>Web design</span></li>
+                    <li><strong>Client</strong> <span>New Company</span></li>
+                    <li><strong>Project date</strong> <span>12 February, 2022</span></li>
+                    <li><strong>Project URL</strong> <a href="#">www.example.com</a></li>
+                  </ul>
+                </div>
+                <div class="testimonial-item">
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt
+                    aliqua noster fugiat irure amet legam anim culpa.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                  <div>
+                    <img alt="" class="testimonial-img" src="assets/images/testimonials/testimonial-2.jpg">
+                    <h3>Jhone Wilsson</h3>
+                    <h4>Graphic Designer</h4>
+                  </div>
+                </div>
+                <div class="project-btn"><a class="fill-btn" href="project-details.html">View Project</a></div>
+              </div>
+            </div>
+          </div>
+        </div><!-- End Portfolio Item -->
+
+        <div class="col-xl-4 col-md-6 portfolio-item filter-branding">
+          <div class="portfolio-wrap">
+            <a class="glightbox" data-gallery="portfolio-gallery-app" href="assets/images/portfolio/branding-1.jpg"><img
+              alt="" class="img-fluid" src="assets/images/portfolio/branding-1.jpg"></a>
+            <div class="portfolio-info">
+              <h4><a href="project-details.html" title="More Details">Branding 1</a></h4>
+              <div class="project-deatils-aside">
+                <div class="portfolio-details">
+                  <ul>
+                    <li><strong>Category</strong> <span>Web design</span></li>
+                    <li><strong>Client</strong> <span>New Company</span></li>
+                    <li><strong>Project date</strong> <span>12 February, 2022</span></li>
+                    <li><strong>Project URL</strong> <a href="#">www.example.com</a></li>
+                  </ul>
+                </div>
+                <div class="testimonial-item">
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt
+                    aliqua noster fugiat irure amet legam anim culpa.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                  <div>
+                    <img alt="" class="testimonial-img" src="assets/images/testimonials/testimonial-3.jpg">
+                    <h3>Jhone Wilsson</h3>
+                    <h4>Graphic Designer</h4>
+                  </div>
+                </div>
+                <div class="project-btn"><a class="fill-btn" href="project-details.html">View Project</a></div>
+              </div>
+            </div>
+          </div>
+        </div><!-- End Portfolio Item -->
+
+      </div><!-- End Portfolio Container -->
+
+    </div>
+
+  </div>
+</section>
+<!--================ End Portfolio Section =================-->
+
+<!--================ Blog Section =================-->
+<section class="recent-posts sections-bg" id="recent-posts">
+  <div class="container" data-aos="fade-up">
+    <div class="section-header">
+      <h2>Recent Blog Posts</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+    </div>
+    <div class="row gy-4">
+      <div class="col-lg-4">
+        <article>
+          <div class="post-img">
+            <img alt="" class="img-fluid" src="assets/images/blog/blog-1.jpg">
+          </div>
+          <p class="post-category">Domain & Hosting</p>
+          <h2 class="title">
+            <a href="blog-details.html">How to host website on any hosting provider?</a>
+          </h2>
+          <div class="d-flex align-items-center">
+            <div class="post-meta">
+              <p class="post-author">William Bla</p>
+              <p class="post-date">
+                <time datetime="2022-01-01">Feb 1, 2022</time>
+              </p>
+            </div>
+          </div>
+        </article>
+      </div><!-- End post list item -->
+
+      <div class="col-lg-4">
+        <article>
+          <div class="post-img">
+            <img alt="" class="img-fluid" src="assets/images/blog/blog-2.jpg">
+          </div>
+          <p class="post-category">Advertisement</p>
+          <h2 class="title">
+            <a href="blog-details.html">How to create add on google adwords?</a>
+          </h2>
+          <div class="d-flex align-items-center">
+            <div class="post-meta">
+              <p class="post-author">Jobi Ret</p>
+              <p class="post-date">
+                <time datetime="2022-01-01">Oct 5, 2022</time>
+              </p>
+            </div>
+          </div>
+        </article>
+      </div><!-- End post list item -->
+
+      <div class="col-lg-4">
+        <article>
+          <div class="post-img">
+            <img alt="" class="img-fluid" src="assets/images/blog/blog-3.jpg">
+          </div>
+          <p class="post-category">Marketing</p>
+          <h2 class="title">
+            <a href="blog-details.html">What is digital marketing and why is important?</a>
+          </h2>
+          <div class="d-flex align-items-center">
+            <div class="post-meta">
+              <p class="post-author">Main Dow</p>
+              <p class="post-date">
+                <time datetime="2022-01-01">Dec 22, 2022</time>
+              </p>
+            </div>
+          </div>
+        </article>
+      </div><!-- End post list item -->
+
+    </div><!-- End recent posts list -->
+
+  </div>
+</section>
+<!--================ End Blog Section =================-->
+
+<!--================ Contact Section =================-->
+<section class="contact-section section" id="contact">
+  <div class="section-header">
+    <h2>Me contacter</h2>
+    <p>Réponse sous les 24h</p>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-12" data-aos="fade-left">
+        <div class="contact-form-box contact-form contact-form-3">
+          <div class="form-container-box">
+            <form action="assets/phpscripts/contact.php" class="contact-form form" id="ajax-contact" method="post">
+              <div class="controls">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group form-input-box">
+                      <input class="form-control" data-error="Name is required." id="name" name="name" placeholder="Name*"
+                             required="required" type="text">
+                      <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group form-input-box">
+                      <input class="form-control" data-error="Valid email is required." id="email" name="email" placeholder="Email*"
+                             required="required" type="email">
+                      <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group form-input-box">
+                      <input class="form-control" name="subject" placeholder="Subject" required="required"
+                             type="text">
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group form-input-box">
+                        <textarea class="form-control" data-error="Please, leave us a message." id="message" name="message"
+                                  placeholder="Write Your Message*" required="required"
+                                  rows="7"></textarea>
+                      <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <button data-text="Send Message" type="submit">Envoyer le message</button>
+                  </div>
+                  <div class="messages">
+                    <div class="alert alert alert-success alert-dismissable alert-dismissable hidden"
+                         id="msgSubmit">
+                      <button aria-hidden="true" class="close" data-dismiss="alert"
+                              type="button">&times;
+                      </button>
+                      Thank You! your message has been sent.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12" data-aos="fade-right">
+        <div class="contact-information-box-3">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="single-contact-info-box">
+                <div class="contact-info">
+                  <h6>Email :</h6>
+                  <p>cedric.badjah@gmail.com</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="single-contact-info-box">
+                <div class="contact-info">
+                  <h6>Téléphone :</h6>
+                  <p>06 46 60 34 61</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="single-contact-info-box">
+                <div class="contact-info">
+                  <h6>Période :</h6>
+                  <p>Du lundi au Vendredi : 9h00 à 18h00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--================ End Contact Section =================-->
+

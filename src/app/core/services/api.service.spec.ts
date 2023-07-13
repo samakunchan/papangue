@@ -21,9 +21,24 @@ describe('ApiService', (): void => {
     beforeEach((): void => {
       httpClientSpy = jasmine.createSpyObj<HttpClient>('HttpClient', ['get', 'post', 'patch', 'put', 'delete']);
       httpClientSpy.get.and.returnValue(of({ statusCode: 200, datas: [] } as IDummyReponseTest));
-      httpClientSpy.post.and.returnValue(of({ statusCode: 201, datas: { message: 'created' } } as IDummyReponseTest));
-      httpClientSpy.patch.and.returnValue(of({ statusCode: 200, datas: { message: 'updated' } } as IDummyReponseTest));
-      httpClientSpy.put.and.returnValue(of({ statusCode: 200, datas: { message: 'updated' } } as IDummyReponseTest));
+      httpClientSpy.post.and.returnValue(
+        of({
+          statusCode: 201,
+          datas: { message: 'created' },
+        } as IDummyReponseTest),
+      );
+      httpClientSpy.patch.and.returnValue(
+        of({
+          statusCode: 200,
+          datas: { message: 'updated' },
+        } as IDummyReponseTest),
+      );
+      httpClientSpy.put.and.returnValue(
+        of({
+          statusCode: 200,
+          datas: { message: 'updated' },
+        } as IDummyReponseTest),
+      );
       httpClientSpy.delete.and.returnValue(of({ statusCode: 200, datas: { deleted: true } } as IDummyReponseTest));
 
       TestBed.configureTestingModule({
@@ -245,7 +260,9 @@ function testSuccessFulResponse(statusCode: number, type: any): { next: (respons
  *   }
  * ```
  */
-function testCaseUnAuthorizedResponse(): { error: (error: ErrorResponseModel) => void } {
+function testCaseUnAuthorizedResponse(): {
+  error: (error: ErrorResponseModel) => void;
+} {
   return {
     error: (error: ErrorResponseModel): void => {
       expect(error).toBeInstanceOf(ErrorResponseModel);
@@ -275,7 +292,9 @@ function testCaseUnAuthorizedResponse(): { error: (error: ErrorResponseModel) =>
  *   }
  * ```
  */
-function testCaseForbiddenResponse(): { error: (error: ErrorResponseModel) => void } {
+function testCaseForbiddenResponse(): {
+  error: (error: ErrorResponseModel) => void;
+} {
   return {
     error: (error: ErrorResponseModel): void => {
       expect(error).toBeInstanceOf(ErrorResponseModel);
@@ -305,7 +324,9 @@ function testCaseForbiddenResponse(): { error: (error: ErrorResponseModel) => vo
  *   }
  * ```
  */
-function testCaseNotFoundResponse(): { error: (error: ErrorResponseModel) => void } {
+function testCaseNotFoundResponse(): {
+  error: (error: ErrorResponseModel) => void;
+} {
   return {
     error: (error: ErrorResponseModel): void => {
       expect(error).toBeInstanceOf(ErrorResponseModel);
