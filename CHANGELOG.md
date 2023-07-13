@@ -21,6 +21,7 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 - Ajout des dépendances bootstrap, aos, glighbox dans le package.json
 - Mise à jour des tests pour le page public component
+- Augmentation de la taille du bundle pour que le build passe
 
 ### Fixed
 
