@@ -16,6 +16,7 @@ import { AuthenticationService } from './authentication/services/authentication.
 import { dectectionApiReady, dectectionAuthUserConnected } from './core/utils/initializer';
 import { PagesPublicModule } from './pages/pages-public/pages-public.module';
 import { SecuredPagesModule } from './pages/secured-pages/secured-pages.module';
+import { WINDOW_PROVIDERS } from './core/services/windows.service';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -66,6 +67,7 @@ registerLocaleData(localeFr, 'fr');
       useClass: HttpApiInterceptor,
       multi: true,
     },
+    WINDOW_PROVIDERS,
   ],
   bootstrap: [AppComponent],
 })
