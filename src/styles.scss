@@ -361,7 +361,7 @@ section {
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 2px solid #fff;
+  //border: 2px solid #fff;
   border-color: #10bab9 transparent #10bab9 transparent;
   border-radius: 50%;
   width: 60px;
@@ -460,7 +460,7 @@ section {
 .header {
   transition: all 0.5s;
   z-index: 997;
-  height: 79px;
+  //height: 79px;
   background: transparent;
   position: fixed;
   top: 0;
@@ -931,7 +931,7 @@ section {
 
 .login .wrapper .striped-line {
   flex: auto;
-  flex-basis: auto;
+  //flex-basis: auto;
   border: none;
   outline: none;
   height: 2px;
@@ -1168,25 +1168,25 @@ section {
 
 @keyframes load {
   from {
-    width: 0%
+    width: 0
   }
 }
 
 @-webkit-keyframes load {
   from {
-    width: 0%
+    width: 0
   }
 }
 
 @-moz-keyframes load {
   from {
-    width: 0%
+    width: 0
   }
 }
 
 @-o-keyframes load {
   from {
-    width: 0%
+    width: 0
   }
 }
 
@@ -1294,7 +1294,7 @@ section {
 .clients .swiper-pagination .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
-  background-color: #fff;
+  //background-color: #fff;
   opacity: 1;
   background-color: #ddd;
 }
@@ -1559,7 +1559,7 @@ section {
 }
 
 .team .member img {
-  border-radius: 0;
+  //border-radius: 0;
   overflow: hidden;
   border-radius: 2px;
 }
@@ -3430,7 +3430,7 @@ section {
 .portfolio .portfolio-flters li {
   cursor: pointer;
   display: inline-block;
-  padding: 0;
+  //padding: 0;
   font-size: 18px;
   font-weight: 500;
   margin: 0 10px;
