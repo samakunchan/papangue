@@ -1,38 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
   /**
-   * Toggle mobile nav dropdowns
-   * TODO A faire en Angular
-   */
-  const navDropdowns = document.querySelectorAll('.navbar .dropdown > a');
-
-  navDropdowns.forEach((el) => {
-    el.addEventListener('click', function (event) {
-      if (document.querySelector('.mobile-nav-active')) {
-        event.preventDefault();
-        this.classList.toggle('active');
-        this.nextElementSibling.classList.toggle('dropdown-active');
-
-        let dropDownIndicator = this.querySelector('.dropdown-indicator');
-        dropDownIndicator.classList.toggle('bi-chevron-up');
-        dropDownIndicator.classList.toggle('bi-chevron-down');
-      }
-    });
-  });
-
-  /**
    * Porfolio isotope and filter
    */
-  let portfolionIsotope = document.querySelector('.portfolio-isotope');
+  let portfolioIsotope = document.querySelector('.portfolio-isotope');
 
-  if (portfolionIsotope) {
-    let portfolioFilter = portfolionIsotope.getAttribute('data-portfolio-filter')
-      ? portfolionIsotope.getAttribute('data-portfolio-filter')
+  if (portfolioIsotope) {
+    let portfolioFilter = portfolioIsotope.getAttribute('data-portfolio-filter')
+      ? portfolioIsotope.getAttribute('data-portfolio-filter')
       : '*';
-    let portfolioLayout = portfolionIsotope.getAttribute('data-portfolio-layout')
-      ? portfolionIsotope.getAttribute('data-portfolio-layout')
+    let portfolioLayout = portfolioIsotope.getAttribute('data-portfolio-layout')
+      ? portfolioIsotope.getAttribute('data-portfolio-layout')
       : 'masonry';
-    let portfolioSort = portfolionIsotope.getAttribute('data-portfolio-sort')
-      ? portfolionIsotope.getAttribute('data-portfolio-sort')
+    let portfolioSort = portfolioIsotope.getAttribute('data-portfolio-sort')
+      ? portfolioIsotope.getAttribute('data-portfolio-sort')
       : 'original-order';
 
     window.addEventListener('load', () => {

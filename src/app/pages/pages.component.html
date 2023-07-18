@@ -1,0 +1,101 @@
+<!--================ Header Area =================-->
+<header #navBar class="single-page-header header d-flex align-items-center" id="header">
+  <div class="container container-xl d-flex align-items-center justify-content-between">
+    <a (click)="toNavigateMenu()" class="logo d-flex align-items-center" href="javascript:void(0)">
+      <h1><span>Dev</span>Papangue<span>.</span></h1>
+    </a>
+    <nav class="navbar" id="navbar">
+      <ul>
+        <ng-container *ngFor="let menu of menus; let index = index">
+          <!--          <li class="dropdown">-->
+          <!--            <a #dropdownMenu-->
+          <!--               href="javascript:void(0)"-->
+          <!--               (click)="dropdownMenu.classList.toggle('active'); dropdownMenu.nextElementSibling!.classList.toggle('dropdown-active')">-->
+          <!--              <span>Projects</span>-->
+          <!--              <i class="bi bi-chevron-down dropdown-indicator"></i>-->
+          <!--            </a>-->
+          <!--            <ul>-->
+          <!--              <li><a href="javascript:void(0)">Projects</a></li>-->
+          <!--              <li><a href="javascript:void(0)">Project Details</a></li>-->
+          <!--            </ul>-->
+          <!--          </li>-->
+          <li><a (click)="toNavigateMenu(menu)" href="javascript:void(0)">{{ menu | parseMenu | ucFirst }}</a></li>
+        </ng-container>
+      </ul>
+    </nav>
+
+    <i (click)="mobileNavToogle()" class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+    <i (click)="mobileNavToogle()" class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+  </div>
+</header>
+
+<!--================ End Header Area =================-->
+<router-outlet></router-outlet>
+
+
+<!--================Footer Area =================-->
+<footer class="main-footer" id="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
+          <div class="logo-widget footer-widget">
+            <a class="logo d-flex align-items-center" href="index.html">
+              <h1><span>Dev</span>Papangue<span>.</span></h1>
+            </a>
+            <div class="text">
+              <p>Lorem ipsum dolor amet consectetur adi pisicing elit sed eiusm tempor incididunt ut labore dolore magna aliqua enim ad minim veniam
+                quis.nostrud exercita.laboris nisi ut aliquip ea commodo conse quatuis aute irure.</p>
+            </div>
+            <ul class="footer-social">
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-google"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 offset-lg-2 footer-column">
+          <div class="service-widget footer-widget">
+            <div class="footer-title">Services</div>
+            <ul class="list">
+              <li><a href="#">Web Design</a></li>
+              <li><a href="#">App Developemnt</a></li>
+              <li><a href="#">Cloud Services</a></li>
+              <li><a href="#">Domain adn Hosting</a></li>
+              <li><a href="#">Seo Optimization</a></li>
+              <li><a href="#">Social Media</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+          <div class="contact-widget footer-widget">
+            <div class="footer-title">Contacts</div>
+            <div class="text">
+              <p>101 West Town</p>
+              <p>PBo 12345, United States</p>
+              <p>+1 1234 56 789</p>
+              <p>contact@example.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- main-footer end -->
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 column">
+        <div class="copyright"><a href="#">Samakunchan Technology</a> Copyright © 2023 Tous droit réservés</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--================End Footer Area =================-->
+<a #scrollTo
+   href="javascript:void(0)"
+   class="scroll-top d-flex align-items-center justify-content-center active"
+   (click)="scrollToTop()">
+  <i class="bi bi-arrow-up-short"></i>
+</a>
