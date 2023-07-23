@@ -1,0 +1,24 @@
+<section class="{{section.uname}}" id="hero">
+  <div class="container position-relative">
+    <div class="row gy-5 h-full d-flex align-content-center" data-aos="fade-in">
+      <div class="col-lg-6 d-flex flex-column align-items-right justify-content-center text-left caption">
+        <h2>{{section.title}}</h2>
+        <h3 class="heading-secondy">{{section.subTitle}}</h3>
+        <p>{{section.payload.content}}</p>
+        <div class="d-flex">
+          <a class="btn-contact-me mx-1" href="javascript:void(0)">En savoir plus</a>
+          <a class="btn-get-started mx-1" href="javascript:void(0)">Me contacter</a>
+        </div>
+      </div>
+      <div class="col-lg-6 d-flex flex-column align-items-right justify-content-center">
+        <img
+          alt="Image de présentation logiciel"
+          class="img-fluid rounded-4 mb-4 mt-m70"
+          ngSrc="{{section.payload.picture}}"
+          width="800"
+          height="100"
+        >
+      </div>
+    </div>
+  </div>
+</section>

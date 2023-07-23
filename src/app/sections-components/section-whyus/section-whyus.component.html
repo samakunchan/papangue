@@ -1,0 +1,25 @@
+<section class="{{section.uname}}" id="whyus">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+      <h2>{{section.title}}</h2>
+      <p>{{section.subTitle}}</p>
+    </div>
+
+    <div class="row gy-4">
+      <div class="col-lg-6">
+        <img alt="" class="img-fluid rounded-4 mb-4" src="{{section.payload.picture}}">
+      </div>
+      <div class="col-lg-6">
+        <div class="content ps-0 ps-lg-5">
+          <p>{{section.payload.content}}</p>
+          <ul>
+            <ng-container *ngFor="let value of section.payload.values">
+              <li><i class="bi bi-arrow-right-square-fill"></i> {{value.content}}</li>
+            </ng-container>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
