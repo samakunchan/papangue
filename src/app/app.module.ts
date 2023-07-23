@@ -41,7 +41,7 @@ registerLocaleData(localeFr, 'fr');
   providers: [
     {
       provide: APP_INITIALIZER,
-      useFactory: dectectionApiReady,
+      useFactory: detectionApisReady,
       deps: [HttpClient],
       multi: true,
     },
