@@ -1,15 +1,19 @@
-import { APP_INITIALIZER, ErrorHandler, LOCALE_ID, NgModule } from '@angular/core';
+import { APP_INITIALIZER, ErrorHandler, isDevMode, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonAndHttpResponseError } from './core/errors/common-and-http-response.error';
 import localeFr from '@angular/common/locales/fr';
 import { registerLocaleData } from '@angular/common';
-import { dectectionApiReady } from './core/utils/initializer';
 import { WINDOW_PROVIDERS } from './core/services/windows.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { detectionApisReady } from './core/utils/initializer';
+import { environment } from '../environments/environment';
+import { HttpMockApiInterceptor } from './core/interceptors/http-mock-api.interceptor';
+import { HttpApiInterceptor } from './core/interceptors/http-api.interceptor';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -39,6 +43,12 @@ registerLocaleData(localeFr, 'fr');
       provide: APP_INITIALIZER,
       useFactory: dectectionApiReady,
       deps: [HttpClient],
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: environment.production ? HttpApiInterceptor : HttpMockApiInterceptor,
+      // useClass: HttpApiInterceptor,
       multi: true,
     },
     {
