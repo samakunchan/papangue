@@ -7,18 +7,6 @@
     <nav class="navbar" id="navbar">
       <ul>
         <ng-container *ngFor="let menu of menus; let index = index">
-          <!--          <li class="dropdown">-->
-          <!--            <a #dropdownMenu-->
-          <!--               href="javascript:void(0)"-->
-          <!--               (click)="dropdownMenu.classList.toggle('active'); dropdownMenu.nextElementSibling!.classList.toggle('dropdown-active')">-->
-          <!--              <span>Projects</span>-->
-          <!--              <i class="bi bi-chevron-down dropdown-indicator"></i>-->
-          <!--            </a>-->
-          <!--            <ul>-->
-          <!--              <li><a href="javascript:void(0)">Projects</a></li>-->
-          <!--              <li><a href="javascript:void(0)">Project Details</a></li>-->
-          <!--            </ul>-->
-          <!--          </li>-->
           <li><a (click)="toNavigateMenu(menu)" href="javascript:void(0)">{{ menu | parseMenu | ucFirst }}</a></li>
         </ng-container>
       </ul>
@@ -28,10 +16,9 @@
     <i (click)="mobileNavToogle()" class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
   </div>
 </header>
-
 <!--================ End Header Area =================-->
-<router-outlet></router-outlet>
 
+<router-outlet></router-outlet>
 
 <!--================Footer Area =================-->
 <footer class="main-footer" id="footer">
@@ -48,9 +35,9 @@
                 quis.nostrud exercita.laboris nisi ut aliquip ea commodo conse quatuis aute irure.</p>
             </div>
             <ul class="footer-social">
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-google"></i></a></li>
+              <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="javascript:void(0)"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="javascript:void(0)"><i class="fa fa-google"></i></a></li>
             </ul>
           </div>
         </div>
@@ -58,12 +45,12 @@
           <div class="service-widget footer-widget">
             <div class="footer-title">Services</div>
             <ul class="list">
-              <li><a href="#">Web Design</a></li>
-              <li><a href="#">App Developemnt</a></li>
-              <li><a href="#">Cloud Services</a></li>
-              <li><a href="#">Domain adn Hosting</a></li>
-              <li><a href="#">Seo Optimization</a></li>
-              <li><a href="#">Social Media</a></li>
+              <li><a href="javascript:void(0)">Web Design</a></li>
+              <li><a href="javascript:void(0)">App Developemnt</a></li>
+              <li><a href="javascript:void(0)">Cloud Services</a></li>
+              <li><a href="javascript:void(0)">Domain adn Hosting</a></li>
+              <li><a href="javascript:void(0)">Seo Optimization</a></li>
+              <li><a href="javascript:void(0)">Social Media</a></li>
             </ul>
           </div>
         </div>
