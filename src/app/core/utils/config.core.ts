@@ -1,3 +1,5 @@
+import { IRouteName } from '../interfaces/route-name.interface';
+
 export enum ErrorMessage {
   title = 'POOOLICEEEEE',
   internetOffline = 'Pas de connexion internet.',
@@ -13,65 +15,121 @@ export enum ErrorMessage {
 export class RouteName {
   /**
    * @description Navigation: /page-introuvable
+   @example ```
+   {
+     key: 'notFound',
+     value: 'page-introuvable',
+   }
+   ```
    */
-  static notFound: string = 'page-introuvable';
-  /**
-   * @description Navigation: /page-introuvable
-   */
-  static unAuthorized: string = 'page-non-autorisé';
-  /**
-   * @description Titre de l'application
-   */
-  static home: string = 'papangue';
+  static notFound: IRouteName = {
+    key: 'notFound',
+    value: 'page-introuvable',
+  };
 
   /**
-   * @description Navigation: /admin
+   * @description Navigation: /page-introuvable
+   @example ```
+   {
+     key: 'unAuthorized',
+     value: 'page-non-autorisé',
+   }
    */
-  static admin: string = 'admin';
+  static unAuthorized: IRouteName = {
+    key: 'unAuthorized',
+    value: 'page-non-autorisé',
+  };
+
   /**
-   * @description Navigation: /tableau-de-bord
+   * @description Titre de l'application
+   @example ```
+   {
+     key: 'home',
+     value: 'papangue',
+   }
    */
-  static dashboard: string = 'tableau-de-bord';
+  static home: IRouteName = {
+    key: 'home',
+    value: 'papangue',
+  };
+
   /**
-   * @description Navigation front: /mes-services
-   * @description Navigation back: /services
-   * @description NB: Pour la route back, utilisez le code suivant pour garder que le dernier mot clé:
+   * @description Navigation: /mes-services
+
+   @example ```
+   {
+      key: 'services',
+      value: 'mes-services',
+    } ```
+   */
+  static services: IRouteName = {
+    key: 'services',
+    value: 'mes-services',
+  };
+
+  /**
+   * @description Navigation: /mon-blog
+   @example ```
+   {
+      key: 'mon-blog',
+      value: 'mon-blog',
+    }
+   */
+  static blog: IRouteName = {
+    key: 'blog',
+    value: 'mon-blog',
+  };
+
+  /**
+   * @description Navigation: /mon-portfolio
    * @example```ts
-   * RouteName.services.split('-').reverse()[0]
-   */
-  static services: string = 'mes-services';
-  /**
-   * @description Navigation front: /mon-blog
-   * @description Navigation back: /blog
-   * @description NB: Pour la route back, utilisez le code suivant pour garder que le dernier mot clé:
-   * @example```ts
-   * RouteName.blog.split('-').reverse()[0]
+   {
+     key: 'portfolio',
+     value: 'mon-portfolio',
+   }
    * ```
    */
-  static blog: string = 'mon-blog';
-  /**
-   * @description Navigation front: /mon-portfolio
-   * @description Navigation back: /portfolio
-   * @description NB: Pour la route back, utilisez le code suivant pour garder que le dernier mot clé:
-   * @example```ts
-   * RouteName.portfolio.split('-').reverse()[0]
-   * ```
-   */
-  static portfolio: string = 'mon-portfolio';
-  /**
-   * @description Navigation: /bibliothèque
-   */
-  static documents: string = 'bibliothèque';
-  /**
-   * @description Navigation: /environnements
-   */
-  static environments: string = 'environnements';
+  static portfolio: IRouteName = {
+    key: 'portfolio',
+    value: 'mon-portfolio',
+  };
+
   /**
    * @description Navigation: /a-propos-de-moi
+   @example```ts
+   {
+     key: 'about',
+     value: 'a-propos-de-moi',
+   }
    */
-  static about: string = 'a-propos-de-moi';
+  static about: IRouteName = {
+    key: 'about',
+    value: 'a-propos-de-moi',
+  };
+
   /**
    * @description Navigation: /cgv
+   @example```ts
+   {
+     key: 'cgv',
+     value: 'cgv',
+   }
    */
-  static cgv: string = 'cgv';
+  static cgv: IRouteName = {
+    key: 'cgv',
+    value: 'cgv',
+  };
+
+  /**
+   * @description Navigation: /contacts
+   @example```ts
+   {
+     key: 'contacts',
+     value: 'contacts',
+   }
+   */
+  static contacts: IRouteName = {
+    key: 'contacts',
+    value: 'contacts',
+  };
 }
