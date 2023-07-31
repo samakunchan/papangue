@@ -26,6 +26,7 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### Fixed
 
 - Tout les tests unitaires. Juste l'initialisation.
+- Mise à jour du budget pour le style scss
 
 ## 🚀 0.4.0 - 13/07/2023
 
