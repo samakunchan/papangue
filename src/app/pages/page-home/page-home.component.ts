@@ -16,8 +16,6 @@ export class PageHomeComponent implements OnInit {
   constructor(private datasService: DatasService) {}
 
   ngOnInit(): void {
-    this.datasService.loadDatasPages().subscribe();
-
     this.sections$ = this.datasService.datasResult$.pipe(filter(this.passIfWeHaveHomeDatas), map(this.getHomeSectionsDatas));
   }
 
