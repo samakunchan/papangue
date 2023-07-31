@@ -1,8 +1,8 @@
 import { ParseServicePipe } from './parse-service.pipe';
 
-describe('ParseServicePipe', () => {
-  it('create an instance', () => {
-    const pipe = new ParseServicePipe();
+describe('ParseServicePipe', (): void => {
+  it('create an instance', (): void => {
+    const pipe: ParseServicePipe = new ParseServicePipe();
     expect(pipe).toBeTruthy();
   });
 });

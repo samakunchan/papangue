@@ -1,23 +1,27 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SectionServicesComponent } from './section-services.component';
+import { FakesDatas } from '../../core/interceptors/fakes-datas';
+import { NgOptimizedImage } from '@angular/common';
+import { PipesModule } from '../../core/pipes/pipes.module';
 
-describe('SectionServicesComponent', () => {
+describe('SectionServicesComponent', (): void => {
   let component: SectionServicesComponent;
   let fixture: ComponentFixture<SectionServicesComponent>;
 
-  beforeEach(async () => {
+  beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-      declarations: [ SectionServicesComponent ]
-    })
-    .compileComponents();
+      declarations: [SectionServicesComponent],
+      imports: [NgOptimizedImage, PipesModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SectionServicesComponent);
     component = fixture.componentInstance;
+    component.section = FakesDatas.sectionServices;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', (): void => {
     expect(component).toBeTruthy();
   });
 });

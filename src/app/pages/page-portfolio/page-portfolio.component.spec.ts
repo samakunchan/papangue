@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PagePortfolioComponent } from './page-portfolio.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { NgOptimizedImage } from '@angular/common';
 
 describe('PagePortfolioComponent', (): void => {
   let component: PagePortfolioComponent;
@@ -9,6 +11,7 @@ describe('PagePortfolioComponent', (): void => {
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
       declarations: [PagePortfolioComponent],
+      imports: [HttpClientTestingModule, NgOptimizedImage],
     }).compileComponents();
 
     fixture = TestBed.createComponent(PagePortfolioComponent);

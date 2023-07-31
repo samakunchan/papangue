@@ -1,8 +1,8 @@
 import { ParseBlogPipe } from './parse-blog.pipe';
 
-describe('ParseBlogPipe', () => {
-  it('create an instance', () => {
-    const pipe = new ParseBlogPipe();
+describe('ParseBlogPipe', (): void => {
+  it('create an instance', (): void => {
+    const pipe: ParseBlogPipe = new ParseBlogPipe();
     expect(pipe).toBeTruthy();
   });
 });

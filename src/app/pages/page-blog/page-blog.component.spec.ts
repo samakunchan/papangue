@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageBlogComponent } from './page-blog.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('PageBlogComponent', (): void => {
   let component: PageBlogComponent;
@@ -9,6 +10,7 @@ describe('PageBlogComponent', (): void => {
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
       declarations: [PageBlogComponent],
+      imports: [HttpClientTestingModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(PageBlogComponent);

@@ -1,8 +1,8 @@
 import { ParseStatsPipe } from './parse-stats.pipe';
 
-describe('ParseStatsPipe', () => {
-  it('create an instance', () => {
-    const pipe = new ParseStatsPipe();
+describe('ParseStatsPipe', (): void => {
+  it('create an instance', (): void => {
+    const pipe: ParseStatsPipe = new ParseStatsPipe();
     expect(pipe).toBeTruthy();
   });
 });

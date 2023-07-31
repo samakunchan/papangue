@@ -1,8 +1,8 @@
 import { LimitPipe } from './limit.pipe';
 
-describe('LimitPipe', () => {
-  it('create an instance', () => {
-    const pipe = new LimitPipe();
+describe('LimitPipe', (): void => {
+  it('create an instance', (): void => {
+    const pipe: LimitPipe = new LimitPipe();
     expect(pipe).toBeTruthy();
   });
 });

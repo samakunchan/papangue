@@ -1,8 +1,8 @@
 import { FilterLandingPagePipe } from './filter-landing-page.pipe';
 
-describe('FilterLandingPagePipe', () => {
-  it('create an instance', () => {
-    const pipe = new FilterLandingPagePipe();
+describe('FilterLandingPagePipe', (): void => {
+  it('create an instance', (): void => {
+    const pipe: FilterLandingPagePipe = new FilterLandingPagePipe();
     expect(pipe).toBeTruthy();
   });
 });
