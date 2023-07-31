@@ -1,0 +1,42 @@
+<main id="main">
+  <div class="breadcrumbs">
+    <div class="page-header d-flex">
+      <div class="container position-relative">
+        <div class="row d-flex justify-content-start position-relative">
+          <div class="col-lg-6 text-left">
+            <h2>A propos</h2>
+            <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <nav>
+              <ol>
+                <li><a [routerLink]="'/'">Home</a></li>
+                <li>A propos</li>
+              </ol>
+            </nav>
+          </div>
+          <div class="col-lg-6 d-flex justify-content-end">
+            <div class="pages-images">
+              <img alt="" class="img-fluid" src="{{'assets/images/about.jpg'}}">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngIf="sections$ | async as sections">
+    <ng-container *ngFor="let section of sections">
+      <ng-container *ngIf="section.uname === SectionName.stats || section.uname === SectionName.whyus || section.uname === SectionName.action">
+      </ng-container>
+      <div class="single-page">
+        <ng-container *ngIf="section.uname === SectionName.stats">
+          <app-section-stats [section]="section"></app-section-stats>
+        </ng-container>
+        <ng-container *ngIf="section.uname === SectionName.whyus">
+          <app-section-whyus [section]="section"></app-section-whyus>
+        </ng-container>
+        <ng-container *ngIf="section.uname === SectionName.action">
+          <app-section-call-to-action [section]="section"></app-section-call-to-action>
+        </ng-container>
+      </div>
+    </ng-container>
+  </ng-container>
+</main>

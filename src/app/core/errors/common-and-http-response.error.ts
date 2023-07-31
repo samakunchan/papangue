@@ -36,13 +36,6 @@ export class CommonAndHttpResponseError implements ErrorHandler {
       switch (true) {
         case error.message.includes(ErrorMessage.urlConstructor) && error.message.includes(ErrorMessage.isNotValidUrl):
           return this.zone.run(() => this.toast.error(ErrorMessage.serverOffline, ErrorMessage.title + ' Normal'));
-        case error.message.includes(ErrorMessage.noAccessToken):
-          this.router.navigate(['/']).then();
-          return this.zone.run(() => this.toast.error(ErrorMessage.sessionExpired, ErrorMessage.title + ' Normal'));
-        case error.message.includes(ErrorMessage.noUser):
-          return this.zone.run(() => this.toast.warning(ErrorMessage.noUser, ErrorMessage.title + ' Normal'));
-        case error.message.includes(ErrorMessage.sessionExpired):
-          return this.zone.run(() => this.toast.warning(ErrorMessage.sessionExpired, ErrorMessage.title + ' Normal'));
         default:
           return this.zone.run(() => this.toast.error(`${ErrorMessage.commonError}`, ErrorMessage.title + ' Normal'));
       }

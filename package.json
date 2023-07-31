@@ -1,10 +1,11 @@
 {
   "name": "papangue",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "ng test --watch=false --browsers=ChromeHeadless",
@@ -23,6 +24,7 @@
     "@angular/platform-browser": "^15.2.0",
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
+    "@angular/service-worker": "^15.2.0",
     "@auth0/angular-jwt": "^5.1.2",
     "aos": "^2.3.4",
     "bootstrap": "^5.3.0",

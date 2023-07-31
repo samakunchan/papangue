@@ -1,0 +1,26 @@
+<main id="main">
+  <div class="breadcrumbs">
+    <div class="page-header d-flex">
+      <div class="container position-relative">
+        <div class="row d-flex justify-content-start position-relative">
+          <div class="col-lg-6 text-left">
+            <h2>Projects / Portfolio</h2>
+            <p>Je présente ici une liste non hexaustive des projets sur lesquelles j'ai travaillé.</p>
+          </div>
+          <div class="col-lg-6 d-flex justify-content-end">
+            <div class="pages-images">
+              <img alt="Image de présentation de la page portfolio" class="img-fluid" ngSrc="{{'assets/images/common-page.jpg'}}" height="456" width="534">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngIf="sections$ | async as sections">
+    <ng-container *ngFor="let section of sections">
+      <ng-container *ngIf="section.uname === SectionName.portfolio">
+        <app-section-portfolio [section]="section" [isFullPage]="true"></app-section-portfolio>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</main>

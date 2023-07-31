@@ -1,0 +1,57 @@
+<main id="main">
+  <ng-container *ngIf="value$ | async as value else placeholder">
+    <ng-container *ngIf="value | parsePortfolio as portfolio">
+      <div class="breadcrumbs">
+        <div class="page-header d-flex">
+          <div class="container position-relative">
+            <div class="row d-flex justify-content-start position-relative">
+              <div class="col-lg-6 text-left">
+                <h2>Project Details</h2>
+                <p>{{portfolio.shortDescription}}</p>
+              </div>
+              <div class="col-lg-6 d-flex justify-content-end">
+                <div class="pages-images">
+                  <ng-container *ngIf="portfolio.picturesProject[0] else defaultImageDetail">
+                    <img ngSrc="{{portfolio.picturesProject[0].src}}" class="img-fluid" alt="{{portfolio.picturesProject[0].alt}}" height="456" width="534">
+                  </ng-container>
+                  <ng-template #defaultImageDetail>
+                    <img ngSrc="assets/images/common-page.jpg" class="img-fluid" alt="Image par défaut" height="456" width="534">
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <app-section-portfolio-details [portfolio]="portfolio"></app-section-portfolio-details>
+    </ng-container>
+  </ng-container>
+
+</main>
+<ng-template #placeholder>
+  <div class="breadcrumbs">
+    <div class="page-header d-flex">
+      <div class="container position-relative">
+        <div class="row d-flex justify-content-start position-relative">
+          <div class="col-lg-6 text-left">
+            <h2>Project Details</h2>
+            <p>Ce projet n'existe pas</p>
+          </div>
+          <div class="col-lg-6 d-flex justify-content-end">
+            <div class="pages-images">
+              <img ngSrc="assets/images/common-page.jpg" class="img-fluid" alt="Image par défaut" height="456" width="534">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="single-page">
+    <div id="portfolio-details" class="portfolio-details">
+      <div class="container"></div>
+    </div>
+  </section>
+
+</ng-template>
+
