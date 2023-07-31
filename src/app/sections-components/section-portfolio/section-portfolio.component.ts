@@ -12,4 +12,12 @@ import { showElementWith300msDelay, startByHideElement } from '../../core/utils/
 })
 export class SectionPortfolioComponent {
   @Input('section') section!: ISection;
+  @Input('isFullPage') isFullPage: boolean = false;
+  @Input('limit') limit: number = -1;
+  protected readonly RouteName = RouteName;
+  filterSelected: string = '*';
+
+  onFilter(category: string): void {
+    this.filterSelected = category;
+  }
 }

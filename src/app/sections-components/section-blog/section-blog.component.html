@@ -1,73 +1,122 @@
-<section class="recent-posts sections-bg" id="recent-posts">
-  <div class="container" data-aos="fade-up">
-    <div class="section-header">
-      <h2>{{section.title}}</h2>
-      <p>{{section.subTitle}}</p>
+<ng-container *ngIf="isFullPage else isHomePage">
+  <section class="recent-posts sections-bg">
+    <div class="container">
+      <div class="row gy-4">
+        <ng-container *ngFor="let value of section.payload!.values! | limit: limit">
+          <ng-container *ngIf="(value | parseBlog) as blog">
+            <div class="col-lg-4">
+              <article>
+                <div class="post-img">
+                  <img ngSrc="{{blog.picture.src}}" alt="{{blog.picture.alt}}" class="img-fluid" height="768" width="1024">
+                </div>
+                <p class="post-category">{{blog.category | titlecase}}</p>
+                <h2 class="title">
+                  <a href="{{RouteName.blog + '/' + blog.slug}}">{{blog.title | titlecase}}</a>
+                </h2>
+                <div class="d-flex align-items-center">
+                  <div class="post-meta">
+                    <p class="post-author">{{blog.author | titlecase}}</p>
+                    <p class="post-date">
+                      <time [attr.datetime]="blog.datePublish | date: 'yyyy-mm-dd'">{{blog.datePublish | date}}</time>
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
     </div>
 
-    <div class="row gy-4">
-
-      <div class="col-lg-4">
-        <article>
-          <div class="post-img">
-            <img alt="" class="img-fluid" src="../../../assets/images/blog/blog-1.jpg">
-          </div>
-          <p class="post-category">Domain & Hosting</p>
-          <h2 class="title">
-            <a href="javascript:void(0)">How to host website on any hosting provider?</a>
-          </h2>
-          <div class="d-flex align-items-center">
-            <div class="post-meta">
-              <p class="post-author">William Bla</p>
-              <p class="post-date">
-                <time datetime="2022-01-01">Feb 1, 2022</time>
-              </p>
-            </div>
-          </div>
-        </article>
+    <!--    &lt;!&ndash; Pagination &ndash;&gt;-->
+    <!--    <div class="pagination">-->
+    <!--      <button class="btn">-->
+    <!--        <svg-->
+    <!--          xmlns="http://www.w3.org/2000/svg"-->
+    <!--          class="btn&#45;&#45;icon"-->
+    <!--          fill="none"-->
+    <!--          viewBox="0 0 24 24"-->
+    <!--          stroke="currentColor"-->
+    <!--          stroke-width="2"-->
+    <!--        >-->
+    <!--          <path-->
+    <!--            stroke-linecap="round"-->
+    <!--            stroke-linejoin="round"-->
+    <!--            d="M15 19l-7-7 7-7"-->
+    <!--          />-->
+    <!--        </svg>-->
+    <!--      </button>-->
+    <!--      <div class="pages">-->
+    <!--        <a class="page">1</a>-->
+    <!--        <a class="page">2</a>-->
+    <!--        <a class="page">3</a>-->
+    <!--        <a class="page active">4</a>-->
+    <!--        <a class="page">5</a>-->
+    <!--        <a class="page">6</a>-->
+    <!--        <a class="page">...</a>-->
+    <!--        <a class="page">... ...</a>-->
+    <!--        <a class="page">100</a>-->
+    <!--      </div>-->
+    <!--      <button class="btn">-->
+    <!--        <svg-->
+    <!--          xmlns="http://www.w3.org/2000/svg"-->
+    <!--          class="btn&#45;&#45;icon"-->
+    <!--          fill="none"-->
+    <!--          viewBox="0 0 24 24"-->
+    <!--          stroke="currentColor"-->
+    <!--          stroke-width="2"-->
+    <!--        >-->
+    <!--          <path-->
+    <!--            stroke-linecap="round"-->
+    <!--            stroke-linejoin="round"-->
+    <!--            d="M9 5l7 7-7 7"-->
+    <!--          />-->
+    <!--        </svg>-->
+    <!--      </button>-->
+    <!--    </div>-->
+    <!--    &lt;!&ndash; Pagination &ndash;&gt;-->
+  </section>
+</ng-container>
+<ng-template #isHomePage>
+  <section class="recent-posts sections-bg" id="recent-posts">
+    <div class="container">
+      <div class="section-header">
+        <h2>{{section.title}}</h2>
+        <p>{{section.subTitle}}</p>
+        <ng-container *ngIf="section.redirectUrls?.length !== 0">
+          <ng-container *ngFor="let button of section.redirectUrls">
+            <a class="btn-get-started mx-1" href="{{button.path}}">{{button.label}}</a>
+          </ng-container>
+        </ng-container>
       </div>
 
-      <div class="col-lg-4">
-        <article>
-          <div class="post-img">
-            <img alt="" class="img-fluid" src="../../../assets/images/blog/blog-2.jpg">
-          </div>
-          <p class="post-category">Advertisement</p>
-          <h2 class="title">
-            <a href="javascript:void(0)">How to create add on google adwords?</a>
-          </h2>
-          <div class="d-flex align-items-center">
-            <div class="post-meta">
-              <p class="post-author">Jobi Ret</p>
-              <p class="post-date">
-                <time datetime="2022-01-01">Oct 5, 2022</time>
-              </p>
+      <div class="row gy-4">
+        <ng-container *ngFor="let value of section.payload!.values! | limit: limit">
+          <ng-container *ngIf="(value | parseBlog) as blog">
+            <div class="col-lg-4">
+              <article>
+                <div class="post-img">
+                  <img ngSrc="{{blog.picture.src}}" alt="{{blog.picture.alt}}" class="img-fluid" height="768" width="1024">
+                </div>
+                <p class="post-category">{{blog.category | titlecase}}</p>
+                <h2 class="title">
+                  <a href="{{RouteName.blog + '/' + blog.slug}}">{{blog.title | titlecase}}</a>
+                </h2>
+                <div class="d-flex align-items-center">
+                  <div class="post-meta">
+                    <p class="post-author">{{blog.author | titlecase}}</p>
+                    <p class="post-date">
+                      <time [attr.datetime]="blog.datePublish | date: 'yyyy-mm-dd'">{{blog.datePublish | date}}</time>
+                    </p>
+                  </div>
+                </div>
+              </article>
             </div>
-          </div>
-        </article>
-      </div>
-
-      <div class="col-lg-4">
-        <article>
-          <div class="post-img">
-            <img alt="" class="img-fluid" src="../../../assets/images/blog/blog-3.jpg">
-          </div>
-          <p class="post-category">Marketing</p>
-          <h2 class="title">
-            <a href="javascript:void(0)">What is digital marketing and why is important?</a>
-          </h2>
-          <div class="d-flex align-items-center">
-            <div class="post-meta">
-              <p class="post-author">Main Dow</p>
-              <p class="post-date">
-                <time datetime="2022-01-01">Dec 22, 2022</time>
-              </p>
-            </div>
-          </div>
-        </article>
+          </ng-container>
+        </ng-container>
       </div>
 
     </div>
+  </section>
 
-  </div>
-</section>
+</ng-template>

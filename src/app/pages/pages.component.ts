@@ -1,18 +1,21 @@
-import { Component, ElementRef, HostListener, Inject, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Inject, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 import { WINDOW } from '../core/services/windows.service';
 import { RouteName } from '../core/utils/config.core';
+import { map, Observable } from 'rxjs';
+import { DatasService } from '../core/services/datas.service';
+import { IResponseApi } from '../core/interfaces/response-api.interface';
 
 @Component({
   selector: 'app-pages',
   templateUrl: './pages.component.html',
   styleUrls: ['./pages.component.scss'],
 })
-export class PagesComponent {
-  menus: string[] = [RouteName.services, RouteName.about, RouteName.portfolio, RouteName.blog] as string[];
+export class PagesComponent implements OnInit {
   isScrolledTo100: boolean = false;
+  menus$: Observable<string[]> = new Observable<string[]>();
   @ViewChild('navBar', { static: true }) public navBar!: ElementRef;
   @ViewChild('mobileNavShow') public mobileNavShow!: ElementRef;
   @ViewChild('mobileNavHide') public mobileNavHide!: ElementRef;
@@ -23,7 +26,21 @@ export class PagesComponent {
     private titleService: Title,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) public window: Window,
+    private datasService: DatasService,
   ) {}
+
+  ngOnInit(): void {
+    this.menus$ = this.datasService.datasResult$.pipe(map(this.getMenus));
+  }
+
+  getMenus(response: IResponseApi): string[] {
+    return (
+      Object.keys(response.datasJson!)
+        .filter((menu: string): boolean => menu !== 'home')
+        // @ts-ignore
+        .map((menu: string): string => RouteName[menu].value)
+    );
+  }
 
   @HostListener('window:scroll', ['$event'])
   onWindowScrollStickyMenu(): void {

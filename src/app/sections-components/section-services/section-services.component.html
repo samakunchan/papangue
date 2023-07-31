@@ -5,14 +5,16 @@
   </div>
   <div class="container">
     <div class="row our-offer-items less-carousel">
-      <ng-container *ngFor="let value of section.payload.values">
-        <div class="col-md-4 col-sm-12 equal-height">
-          <div class="item">
-            <i class="{{value.picture}}"></i>
-            <h4>{{value.title}}</h4>
-            <p>{{value.content}}</p>
+      <ng-container *ngFor="let value of section.payload?.values">
+        <ng-container *ngIf="(value | parseService) as service">
+          <div class="col-md-4 col-sm-12 equal-height">
+            <div class="item">
+              <i class="{{service.picture!.icon}}"></i>
+              <h4>{{service.title}}</h4>
+              <p>{{service.content}}</p>
+            </div>
           </div>
-        </div>
+        </ng-container>
       </ng-container>
     </div>
   </div>

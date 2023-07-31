@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ISection } from '../../core/interfaces/section.interface';
+import { RouteName } from '../../core/utils/config.core';
 
 @Component({
   selector: 'app-section-hero',
@@ -8,4 +9,5 @@ import { ISection } from '../../core/interfaces/section.interface';
 })
 export class SectionHeroComponent {
   @Input('section') section!: ISection;
+  protected readonly RouteName = RouteName;
 }

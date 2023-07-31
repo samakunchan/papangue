@@ -13,10 +13,14 @@
       <app-section-call-to-action [section]="section"></app-section-call-to-action>
     </ng-container>
     <ng-container *ngIf="section.uname === SectionName.portfolio">
-      <app-section-portfolio [section]="section"></app-section-portfolio>
+      <ng-container *ngIf="section.payload?.values!.length !== 0">
+        <app-section-portfolio [section]="section" [limit]="3"></app-section-portfolio>
+      </ng-container>
     </ng-container>
     <ng-container *ngIf="section.uname === SectionName.blog">
-      <app-section-blog [section]="section"></app-section-blog>
+      <ng-container *ngIf="section.payload?.values!.length !== 0">
+        <app-section-blog [section]="section" [limit]="3"></app-section-blog>
+      </ng-container>
     </ng-container>
   </ng-container>
   <!--================ Contact Section =================-->
