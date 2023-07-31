@@ -14,6 +14,7 @@ import { detectionApisReady } from './core/utils/initializer';
 import { environment } from '../environments/environment';
 import { HttpMockApiInterceptor } from './core/interceptors/http-mock-api.interceptor';
 import { HttpApiInterceptor } from './core/interceptors/http-api.interceptor';
+import { DatasService } from './core/services/datas.service';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -42,7 +43,7 @@ registerLocaleData(localeFr, 'fr');
     {
       provide: APP_INITIALIZER,
       useFactory: detectionApisReady,
-      deps: [HttpClient],
+      deps: [HttpClient, DatasService],
       multi: true,
     },
     {
