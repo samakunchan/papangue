@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, ErrorHandler, LOCALE_ID, NgModule } from '@angular/core';
+import { APP_INITIALIZER, ErrorHandler, isDevMode, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -6,17 +6,15 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonAndHttpResponseError } from './core/errors/common-and-http-response.error';
-import { HttpApiInterceptor } from './core/interceptors/http-api.interceptor';
-import { JwtModule } from '@auth0/angular-jwt';
 import localeFr from '@angular/common/locales/fr';
 import { registerLocaleData } from '@angular/common';
-import { AuthenticationModule } from './authentication/authentication.module';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AuthenticationService } from './authentication/services/authentication.service';
-import { dectectionApiReady, dectectionAuthUserConnected } from './core/utils/initializer';
-import { PagesPublicModule } from './pages/pages-public/pages-public.module';
-import { SecuredPagesModule } from './pages/secured-pages/secured-pages.module';
 import { WINDOW_PROVIDERS } from './core/services/windows.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { detectionApisReady } from './core/utils/initializer';
+import { environment } from '../environments/environment';
+import { HttpMockApiInterceptor } from './core/interceptors/http-mock-api.interceptor';
+import { HttpApiInterceptor } from './core/interceptors/http-api.interceptor';
+import { DatasService } from './core/services/datas.service';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -27,15 +25,6 @@ registerLocaleData(localeFr, 'fr');
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AuthenticationModule,
-    PagesPublicModule,
-    SecuredPagesModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: () => '',
-        allowedDomains: ['localhost:4200'],
-      },
-    }),
     ToastrModule.forRoot({
       progressBar: true,
       closeButton: true,
@@ -43,18 +32,24 @@ registerLocaleData(localeFr, 'fr');
       positionClass: 'bottom-left',
       titleClass: 'underline',
     }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
   ],
   providers: [
     {
       provide: APP_INITIALIZER,
-      useFactory: dectectionApiReady,
-      deps: [HttpClient],
+      useFactory: detectionApisReady,
+      deps: [HttpClient, DatasService],
       multi: true,
     },
     {
-      provide: APP_INITIALIZER,
-      useFactory: dectectionAuthUserConnected,
-      deps: [ActivatedRoute, Router, AuthenticationService],
+      provide: HTTP_INTERCEPTORS,
+      useClass: environment.production ? HttpApiInterceptor : HttpMockApiInterceptor,
+      // useClass: HttpApiInterceptor,
       multi: true,
     },
     {
@@ -62,11 +57,6 @@ registerLocaleData(localeFr, 'fr');
       useClass: CommonAndHttpResponseError,
     },
     { provide: LOCALE_ID, useValue: 'fr-FR' },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpApiInterceptor,
-      multi: true,
-    },
     WINDOW_PROVIDERS,
   ],
   bootstrap: [AppComponent],

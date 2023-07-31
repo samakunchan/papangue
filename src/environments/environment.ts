@@ -1,22 +1,12 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-
+declare var require: any;
 export const environment = {
   production: false,
-  apiUrl: 'https://freelance-api.devpapangue.com',
-  // apiUrl: 'http://localhost:3000',
-  keycloak: {
-    domain: 'secure-connect.devpapangue.com',
-    realm: 'ppg-connect',
-    clientId: 'papangue',
-    redirectUri: 'http://localhost:4200',
-    codeChallenge: 'nOL61O-gDehx8hjOPEEG4yZ7GwoGG7MjrdIQ2Lkq1Zk',
-    codeChallengeMethod: 'S256',
-    scope: 'openid profile email siren offline_access',
-    state: 'samakunchan',
-    codeVerifier: 'VayNotLphbVpxoN7ogQk4ZfbnfRWK8Ux8J-xt0k3iF8GHfXRhBk2d9n491wIDf5619Z3xAOQwBc',
-  },
+  // apiUrl: 'https://freelance-api.devpapangue.com',
+  apiUrl: 'http://localhost:3000',
+  version: require('../../package.json').version + ' - DEV',
 };
 
 /*

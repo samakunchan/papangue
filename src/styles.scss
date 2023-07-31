@@ -1,7 +1,7 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
-// Plus imports for other components in your app.
+// Plus imports for other sections-components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -41,6 +41,10 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+app-root {
+  width: 100%;
 }
 
 .cursor-pointer {
@@ -357,7 +361,7 @@ section {
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 2px solid #fff;
+  //border: 2px solid #fff;
   border-color: #10bab9 transparent #10bab9 transparent;
   border-radius: 50%;
   width: 60px;
@@ -456,7 +460,7 @@ section {
 .header {
   transition: all 0.5s;
   z-index: 997;
-  height: 79px;
+  //height: 79px;
   background: transparent;
   position: fixed;
   top: 0;
@@ -927,7 +931,7 @@ section {
 
 .login .wrapper .striped-line {
   flex: auto;
-  flex-basis: auto;
+  //flex-basis: auto;
   border: none;
   outline: none;
   height: 2px;
@@ -1164,25 +1168,25 @@ section {
 
 @keyframes load {
   from {
-    width: 0%
+    width: 0
   }
 }
 
 @-webkit-keyframes load {
   from {
-    width: 0%
+    width: 0
   }
 }
 
 @-moz-keyframes load {
   from {
-    width: 0%
+    width: 0
   }
 }
 
 @-o-keyframes load {
   from {
-    width: 0%
+    width: 0
   }
 }
 
@@ -1290,7 +1294,7 @@ section {
 .clients .swiper-pagination .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
-  background-color: #fff;
+  //background-color: #fff;
   opacity: 1;
   background-color: #ddd;
 }
@@ -1555,7 +1559,7 @@ section {
 }
 
 .team .member img {
-  border-radius: 0;
+  //border-radius: 0;
   overflow: hidden;
   border-radius: 2px;
 }
@@ -3426,7 +3430,7 @@ section {
 .portfolio .portfolio-flters li {
   cursor: pointer;
   display: inline-block;
-  padding: 0;
+  //padding: 0;
   font-size: 18px;
   font-weight: 500;
   margin: 0 10px;
@@ -3618,7 +3622,7 @@ section {
   padding: 0;
 }
 
-.project-deatils-aside .testimonial-item {
+.project-details-aside .testimonial-item {
   padding: 30px 30px 0 30px;
   position: relative;
   background: white;
@@ -3626,7 +3630,7 @@ section {
   margin-bottom: 50px;
 }
 
-.project-deatils-aside .testimonial-item .testimonial-img {
+.project-details-aside .testimonial-item .testimonial-img {
   width: 90px;
   border-radius: 2px;
   border: 6px solid #fff;
@@ -3634,33 +3638,33 @@ section {
   margin: 0 10px 0 0;
 }
 
-.project-deatils-aside .testimonial-item h3 {
+.project-details-aside .testimonial-item h3 {
   font-size: 18px;
   font-weight: bold;
   margin: 15px 0 5px 0;
   padding-top: 20px;
 }
 
-.project-deatils-aside .testimonial-item h4 {
+.project-details-aside .testimonial-item h4 {
   font-size: 14px;
   color: #6c757d;
   margin: 0;
 }
 
-.project-deatils-aside .testimonial-item .quote-icon-left,
-.project-deatils-aside .testimonial-item .quote-icon-right {
+.project-details-aside .testimonial-item .quote-icon-left,
+.project-details-aside .testimonial-item .quote-icon-right {
   color: #10bab9;
   font-size: 26px;
   line-height: 0;
 }
 
-.project-deatils-aside .testimonial-item .quote-icon-left {
+.project-details-aside .testimonial-item .quote-icon-left {
   display: inline-block;
   left: -5px;
   position: relative;
 }
 
-.project-deatils-aside .testimonial-item .quote-icon-right {
+.project-details-aside .testimonial-item .quote-icon-right {
   display: inline-block;
   right: -5px;
   position: relative;
@@ -3668,7 +3672,7 @@ section {
   transform: scale(-1, -1);
 }
 
-.project-deatils-aside .testimonial-item p {
+.project-details-aside .testimonial-item p {
   font-style: italic;
   margin: 0 0 15px 0 0 0;
   padding: 0;

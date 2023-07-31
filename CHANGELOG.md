@@ -5,6 +5,29 @@ Toutes les modifications notables apportées à ce projet seront documentées da
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 et ce projet adhère à [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 🚀 0.5.0 - 31/07/2023
+
+### Added
+
+- Installation de la PWA
+- Ajout des pipes pour la transformation des données
+- Ajout des pages et sections manquantes (stats, portfolio-details, blog-details)
+- Ajout de la page contacts
+- Création d'une interface pour les routes
+- Création d'un fichier pour la gestion des animations
+- Création d'un fichier fake datas pour mieux gérer les mocks
+
+### Changed
+
+- Changement du format des données (voir mock)
+- Modification du format des routes name
+- Intégration complète des pages avec le nouveau format de données
+
+### Fixed
+
+- Tout les tests unitaires. Juste l'initialisation.
+- Mise à jour du budget pour le style scss
+
 ## 🚀 0.4.0 - 13/07/2023
 
 ### Added

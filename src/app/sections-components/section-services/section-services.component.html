@@ -1,0 +1,21 @@
+<section class="the-main-service text-center section" id="services">
+  <div class="section-header">
+    <h2>{{section.title}}</h2>
+    <p>{{section.subTitle}}</p>
+  </div>
+  <div class="container">
+    <div class="row our-offer-items less-carousel">
+      <ng-container *ngFor="let value of section.payload?.values">
+        <ng-container *ngIf="(value | parseService) as service">
+          <div class="col-md-4 col-sm-12 equal-height">
+            <div class="item">
+              <i class="{{service.picture!.icon}}"></i>
+              <h4>{{service.title}}</h4>
+              <p>{{service.content}}</p>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</section>

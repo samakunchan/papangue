@@ -1,0 +1,92 @@
+<ng-container *ngIf="isFullPage else isHomePage">
+  <section class="{{section.uname}} section" id="{{section.uname}}">
+    <div class="container">
+      <div class="portfolio-isotope">
+        <div>
+          <ul class="portfolio-flters">
+            <li (click)="onFilter('*')" [ngClass]="{'filter-active': filterSelected === '*'}">All</li>
+            <ng-container *ngFor="let category of section.payload!.values! | groupCategory">
+              <li (click)="onFilter(category)" [ngClass]="{'filter-active': filterSelected === category}">{{category}}</li>
+            </ng-container>
+          </ul>
+        </div>
+
+        <div class="row gy-4 portfolio-container">
+          <ng-container *ngFor="let value of section.payload!.values! | limit: limit | filterBy: 'category': filterSelected">
+            <ng-container *ngIf="(value | parsePortfolio) as portfolio">
+              <div class="col-xl-4 col-md-6 portfolio-item" @thumbState>
+                <div class="portfolio-wrap">
+                  <a class="glightbox" data-gallery="portfolio-gallery-app" routerLink="{{portfolio.slug}}">
+                    <img alt="{{portfolio.picturesProject[0].alt}}" class="img-fluid" ngSrc="{{portfolio.picturesProject[0].src}}" height="456" width="534">
+                  </a>
+                  <div class="portfolio-info">
+                    <h4><a routerLink="{{portfolio.slug}}" title="More Details">{{portfolio.title}}</a></h4>
+                    <div class="project-details-aside">
+                      <div class="portfolio-details">
+                        <ul>
+                          <li class="d-flex justify-content-between"><strong>Category</strong> <span>{{portfolio.category}}</span></li>
+                          <li class="d-flex justify-content-between"><strong>Client</strong> <span>{{portfolio.client}}</span></li>
+                          <li class="d-flex justify-content-between"><strong>Project date</strong> <span>{{portfolio.dateProjet | date}}</span></li>
+                          <li class="d-flex justify-content-between"><strong>Project URL</strong> <a href="javascript:void(0)">{{portfolio.urlProjet}}</a></li>
+                        </ul>
+                      </div>
+                      <div class="project-btn"><a class="fill-btn" routerLink="{{portfolio.slug}}">Détail du project</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</ng-container>
+<ng-template #isHomePage>
+  <section class="{{section.uname}} section" id="{{section.uname}}">
+    <div class="container">
+      <div class="section-header">
+        <h2>{{section.title}}</h2>
+        <p>{{section.subTitle}}.
+          <ng-container *ngIf="section.redirectUrls?.length !== 0">
+            <ng-container *ngFor="let button of section.redirectUrls">
+              <a class="btn-get-started mx-1" href="{{button.path}}">{{button.label}}</a>
+            </ng-container>
+          </ng-container>
+        </p>
+      </div>
+
+      <div class="portfolio-isotope">
+        <div class="row gy-4 portfolio-container">
+          <ng-container *ngFor="let value of section.payload!.values! | filterLandingPage | limit: limit">
+            <ng-container *ngIf="(value | parsePortfolio) as portfolio">
+              <div class="col-xl-4 col-md-6 portfolio-item">
+                <div class="portfolio-wrap">
+                  <a class="glightbox" data-gallery="portfolio-gallery-app" routerLink="{{RouteName.portfolio + '/' + portfolio.slug}}">
+                    <img alt="{{portfolio.picturesProject[0].alt}}" class="img-fluid" ngSrc="{{portfolio.picturesProject[0].src}}" height="456" width="534">
+                  </a>
+                  <div class="portfolio-info">
+                    <h4><a routerLink="{{RouteName.portfolio + '/' + portfolio.slug}}" title="More Details">{{portfolio.title}}</a></h4>
+                    <div class="project-details-aside">
+                      <div class="portfolio-details">
+                        <ul>
+                          <li class="d-flex justify-content-between"><strong>Category</strong> <span>{{portfolio.category}}</span></li>
+                          <li class="d-flex justify-content-between"><strong>Client</strong> <span>{{portfolio.client}}</span></li>
+                          <li class="d-flex justify-content-between"><strong>Project date</strong> <span>{{portfolio.dateProjet | date}}</span></li>
+                          <li class="d-flex justify-content-between"><strong>Project URL</strong> <a href="javascript:void(0)">{{portfolio.urlProjet}}</a></li>
+                        </ul>
+                      </div>
+                      <div class="project-btn"><a class="fill-btn" routerLink="{{RouteName.portfolio + '/' + portfolio.slug}}">Détail du project</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-template>
