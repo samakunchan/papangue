@@ -40,9 +40,7 @@
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-              "node_modules/aos/dist/aos.js",
-              "node_modules/glightbox/dist/js/glightbox.js",
-              "src/assets/js/main.js"
+              "node_modules/glightbox/dist/js/glightbox.js"
             ],
             "serviceWorker": true,
             "ngswConfigPath": "ngsw-config.json"
