@@ -9,7 +9,7 @@ export class GroupCategoryPipe implements PipeTransform {
     return Object.keys(
       elements.reduce((r: any, a: string) => {
         const json: IConfPortfolio = JSON.parse(a) as IConfPortfolio;
-        const categoryExtracted: string = json.category;
+        const categoryExtracted: string = json.category.title;
         r[categoryExtracted] = null;
         return r;
       }, {}),

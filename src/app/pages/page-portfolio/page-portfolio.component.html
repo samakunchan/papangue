@@ -18,7 +18,7 @@
   </div>
   <ng-container *ngIf="sections$ | async as sections">
     <ng-container *ngFor="let section of sections">
-      <ng-container *ngIf="section.uname === SectionName.portfolio">
+      <ng-container *ngIf="section.uname === SectionName.project">
         <app-section-portfolio [section]="section" [isFullPage]="true"></app-section-portfolio>
       </ng-container>
     </ng-container>

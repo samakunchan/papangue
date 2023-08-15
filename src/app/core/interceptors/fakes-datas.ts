@@ -51,6 +51,7 @@ export class FakesDatas {
         JSON.stringify({
           title: 'Création de projet',
           content: 'Etude de projet et choix de la stack technique (choix des outils)',
+          icon: 'fa fa-pencil',
           picture: {
             icon: 'fa fa-pencil',
           } as IPicture,
@@ -58,6 +59,7 @@ export class FakesDatas {
         JSON.stringify({
           title: 'Développement logiciel',
           content: 'Construction des web app, CRM, etc... avec une documentation et un versionning',
+          icon: 'fa fa-pie-chart',
           picture: {
             icon: 'fa fa-pie-chart',
           } as IPicture,
@@ -65,6 +67,7 @@ export class FakesDatas {
         JSON.stringify({
           title: 'Mise à jour logiciel',
           content: 'Traitement de code legacy et mise à jour complète des applications',
+          icon: 'fa fa-recycle',
           picture: {
             icon: 'fa fa-recycle',
           } as IPicture,
@@ -142,7 +145,7 @@ export class FakesDatas {
     redirectUrls: [
       {
         label: 'Voir tout les projets',
-        path: RouteName.portfolio.value,
+        path: RouteName.projects.value,
       } as IRedirectUrls,
     ] as IRedirectUrls[],
     type: 'grid',
@@ -154,7 +157,10 @@ export class FakesDatas {
         JSON.stringify({
           title: 'App 1',
           slug: 'app-1',
-          category: 'Web design',
+          category: {
+            id: 999,
+            title: 'Web design',
+          },
           client: 'New company',
           dateProjet: new Date().toISOString(),
           shortDescription:
@@ -176,7 +182,10 @@ export class FakesDatas {
         JSON.stringify({
           title: 'Product 1',
           slug: 'product-1',
-          category: 'Angular',
+          category: {
+            id: 999,
+            title: 'Angular',
+          },
           client: 'New company',
           dateProjet: new Date().toISOString(),
           shortDescription:
@@ -209,7 +218,10 @@ export class FakesDatas {
         JSON.stringify({
           title: 'Branding 1',
           slug: 'branding-1',
-          category: 'Web design',
+          category: {
+            id: 999,
+            title: 'Web design',
+          },
           client: 'New company',
           dateProjet: new Date().toISOString(),
           shortDescription:
@@ -232,7 +244,10 @@ export class FakesDatas {
         JSON.stringify({
           title: 'Books 1',
           slug: 'book-1',
-          category: 'Association',
+          category: {
+            id: 999,
+            title: 'Association',
+          },
           client: 'New company',
           dateProjet: new Date().toISOString(),
           shortDescription:
@@ -255,7 +270,10 @@ export class FakesDatas {
         JSON.stringify({
           title: 'App 2',
           slug: 'app-2',
-          category: 'Association',
+          category: {
+            id: 999,
+            title: 'Association',
+          },
           client: 'New company',
           dateProjet: new Date().toISOString(),
           shortDescription:
@@ -293,9 +311,16 @@ export class FakesDatas {
           slug: 'comment-heberger-site-web',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium laboriosam magnam perspiciatis quae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium laboriosam magnam perspiciatis quae.',
-          category: 'Web',
-          datePublish: new Date().toISOString(),
-          author: 'Samakunchan',
+          category: {
+            id: 999,
+            title: 'Web',
+            content: 'Yo',
+          },
+          createdAt: new Date().toISOString(),
+          author: {
+            id: 999,
+            nom_complet: 'Samakunchan',
+          },
           picture: {
             src: 'assets/images/blog/blog-1.jpg',
             alt: 'Image du blog blog-1',
@@ -307,9 +332,16 @@ export class FakesDatas {
           slug: 'comment-travailler-avec-google-adword',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium laboriosam magnam perspiciatis quae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium laboriosam magnam perspiciatis quae.',
-          category: 'Web',
-          datePublish: new Date().toISOString(),
-          author: 'Samakunchan',
+          category: {
+            id: 999,
+            title: 'Web',
+            content: 'Yo',
+          },
+          createdAt: new Date().toISOString(),
+          author: {
+            id: 999,
+            nom_complet: 'Samakunchan',
+          },
           picture: {
             src: 'assets/images/blog/blog-2.jpg',
             alt: 'Image du blog blog-2',
@@ -321,9 +353,16 @@ export class FakesDatas {
           slug: 'pourquoi-le-web-marketing-est-si-important',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium laboriosam magnam perspiciatis quae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium laboriosam magnam perspiciatis quae.',
-          category: 'Web',
-          datePublish: new Date().toISOString(),
-          author: 'Samakunchan',
+          category: {
+            id: 999,
+            title: 'Web',
+            content: 'Yo',
+          },
+          createdAt: new Date().toISOString(),
+          author: {
+            id: 999,
+            nom_complet: 'Samakunchan',
+          },
           picture: {
             src: 'assets/images/blog/blog-2.jpg',
             alt: 'Image du blog blog-2',
@@ -335,9 +374,16 @@ export class FakesDatas {
           slug: 'comment-travailler-avec-google-adword',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium laboriosam magnam perspiciatis quae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium laboriosam magnam perspiciatis quae.',
-          category: 'Web',
-          datePublish: new Date().toISOString(),
-          author: 'Samakunchan',
+          category: {
+            id: 999,
+            title: 'Web',
+            content: 'Yo',
+          },
+          createdAt: new Date().toISOString(),
+          author: {
+            id: 999,
+            nom_complet: 'Samakunchan',
+          },
           picture: {
             src: 'assets/images/blog/blog-2.jpg',
             alt: 'Image du blog blog-2',
@@ -349,9 +395,16 @@ export class FakesDatas {
           slug: 'comment-travailler-avec-google-adword',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium laboriosam magnam perspiciatis quae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium laboriosam magnam perspiciatis quae.',
-          category: 'Web',
-          datePublish: new Date().toISOString(),
-          author: 'Samakunchan',
+          category: {
+            id: 999,
+            title: 'Web',
+            content: 'Yo',
+          },
+          createdAt: new Date().toISOString(),
+          author: {
+            id: 999,
+            nom_complet: 'Samakunchan',
+          },
           picture: {
             src: 'assets/images/blog/blog-2.jpg',
             alt: 'Image du blog blog-2',
@@ -363,9 +416,16 @@ export class FakesDatas {
           slug: 'comment-travailler-avec-google-adword',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium laboriosam magnam perspiciatis quae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium laboriosam magnam perspiciatis quae.',
-          category: 'Web',
-          datePublish: new Date().toISOString(),
-          author: 'Samakunchan',
+          category: {
+            id: 999,
+            title: 'Web',
+            content: 'Yo',
+          },
+          createdAt: new Date().toISOString(),
+          author: {
+            id: 999,
+            nom_complet: 'Samakunchan',
+          },
           picture: {
             src: 'assets/images/blog/blog-2.jpg',
             alt: 'Image du blog blog-2',

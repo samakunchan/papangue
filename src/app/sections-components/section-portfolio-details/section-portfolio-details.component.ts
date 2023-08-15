@@ -8,6 +8,7 @@ import {
   startByRenderElement,
 } from '../../core/utils/animations';
 import { interval, Observable, Subscription, tap } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-section-portfolio-details',
@@ -21,6 +22,7 @@ import { interval, Observable, Subscription, tap } from 'rxjs';
   ],
 })
 export class SectionPortfolioDetailsComponent implements OnDestroy {
+  protected readonly environment = environment;
   @Input('portfolio') portfolio!: IConfPortfolio;
   @Output() change: EventEmitter<number> = new EventEmitter<number>();
   currentSlide: number = 0;

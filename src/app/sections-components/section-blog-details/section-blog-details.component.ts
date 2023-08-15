@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IConfBlog } from '../../core/interfaces/section.interface';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-section-blog-details',
@@ -8,4 +9,5 @@ import { IConfBlog } from '../../core/interfaces/section.interface';
 })
 export class SectionBlogDetailsComponent {
   @Input('blog') blog!: IConfBlog;
+  protected readonly environment = environment;
 }

@@ -24,7 +24,7 @@ const routes: Routes = [
         loadChildren: () => import('./page-services/page-services.module').then((m) => m.PageServicesModule),
       },
       {
-        path: RouteName.portfolio.value,
+        path: RouteName.projects.value,
         loadChildren: () => import('./page-portfolio/page-portfolio.module').then((m) => m.PagePortfolioModule),
       },
       {
