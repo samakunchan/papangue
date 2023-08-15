@@ -8,7 +8,7 @@ const noDatas = (): Observable<HttpResponse<IResponseApi>> => {
     new HttpResponse({
       status: 200,
       body: {
-        datas: '',
+        datas: {},
       },
     }),
   );
@@ -19,7 +19,7 @@ const getPages = (): Observable<HttpResponse<IResponseApi>> => {
     new HttpResponse<IResponseApi>({
       status: 200,
       body: {
-        datas: JSON.stringify({
+        datas: {
           home: [
             FakesDatas.sectionHero,
             FakesDatas.sectionServices,
@@ -33,7 +33,7 @@ const getPages = (): Observable<HttpResponse<IResponseApi>> => {
           services: [FakesDatas.sectionServices],
           portfolio: [FakesDatas.sectionPortfolio],
           blog: [FakesDatas.sectionBlog],
-        }),
+        },
       },
     }),
   );

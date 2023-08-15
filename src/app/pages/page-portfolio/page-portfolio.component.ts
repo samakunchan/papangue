@@ -20,10 +20,10 @@ export class PagePortfolioComponent implements OnInit {
   }
 
   private getHomeSectionsDatas(response: IResponseApi): ISection[] {
-    return response.datasJson![SectionName.portfolio] as ISection[];
+    return response.datas![SectionName.project] as ISection[];
   }
 
   private passIfWeHaveHomeDatas(response: IResponseApi): boolean {
-    return response.datasJson != null && response.datasJson.hasOwnProperty(SectionName.portfolio);
+    return response.datas != null && response.datas.hasOwnProperty(SectionName.project);
   }
 }
