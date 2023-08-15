@@ -4,7 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 import { WINDOW } from '../core/services/windows.service';
 import { RouteName } from '../core/utils/config.core';
-import { map, Observable } from 'rxjs';
+import { filter, map, Observable } from 'rxjs';
 import { DatasService } from '../core/services/datas.service';
 import { IResponseApi } from '../core/interfaces/response-api.interface';
 
@@ -30,12 +30,15 @@ export class PagesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.menus$ = this.datasService.datasResult$.pipe(map(this.getMenus));
+    this.menus$ = this.datasService.datasResult$.pipe(
+      filter((loaded: IResponseApi) => !!loaded.datas),
+      map(this.getMenus),
+    );
   }
 
   getMenus(response: IResponseApi): string[] {
     return (
-      Object.keys(response.datasJson!)
+      Object.keys(response.datas)
         .filter((menu: string): boolean => menu !== 'home')
         // @ts-ignore
         .map((menu: string): string => RouteName[menu].value)

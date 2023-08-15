@@ -71,7 +71,9 @@ export interface IPayload {
     title: "a title",
     slug: "a-title",
     content: "some content",
+    reason: "some reason",
     conf: "....",
+    icon: 'fa fa-pencil',
     picture: {
       src: 'assets/images/example.png',
       alt: 'some text',
@@ -85,9 +87,11 @@ export interface IPayload {
  */
 export interface IValue {
   title?: string | null;
+  reason?: string | null;
   slug: string;
   content?: string | null;
   conf: string;
+  icon?: string;
   picture?: IPicture | null;
 }
 
@@ -132,7 +136,11 @@ export interface IPicture {
     client: 'client',
     shortDescription: 'a short description',
     fullDescription: 'a full description',
-    category: 'exemple',
+    category:
+      id: 1;
+      title: 'a title';
+      content: 'a content';
+    },
     dateProjet: '2023-01-01',
     urlProjet: 'example.com',
     picturesProject:  [
@@ -151,7 +159,11 @@ export interface IConfPortfolio {
   client: string;
   shortDescription: string;
   fullDescription: string;
-  category: string;
+  category: {
+    id: number;
+    title: string;
+    content: string;
+  };
   dateProjet: string;
   urlProjet: string;
   picturesProject: IPicture[];
@@ -164,9 +176,15 @@ export interface IConfPortfolio {
     title: 'a title',
     slug: 'a-title',
     description: 'a full description',
-    category: 'exemple',
+    category:
+      id: 1;
+      title: 'a title';
+      content: 'a content';
+    },
     datePublish: '2023-01-01',
-    author: 'samakunchan'
+    author: {
+      mon_complet: 'samakunchan'
+    }
     picture:  {
       src: 'assets/images/example.png',
       alt: 'some text',
@@ -179,9 +197,15 @@ export interface IConfBlog {
   title: string;
   slug: string;
   description: string;
-  category: string;
-  datePublish: string;
-  author: string;
+  category: {
+    id: number;
+    title: string;
+    content: string;
+  };
+  createdAt: string;
+  author: {
+    nom_complet: string;
+  };
   picture: IPicture;
   toLandingPage: boolean;
 }
@@ -199,12 +223,12 @@ export enum Position {
 
 /**
  @example ```ts
- learning = 'learning',           //lvl 0
- basic = 'basic',                 //lvl 1
- intermediate = 'intermediate',   //lvl 2
- advanced = 'advanced',           //lvl 3
- expert = 'expert',               //lvl 4
- ```
+  learning = learning,           //lvl 0
+  basic = basic,                 //lvl 1
+  intermediate = intermediate,   //lvl 2
+  advanced = advanced,           //lvl 3
+  expert = expert,               //lvl 4
+  ```
  */
 export enum SkillLevel {
   learning = 'learning',
@@ -216,16 +240,16 @@ export enum SkillLevel {
 
 /**
  @example ```ts
- home = 'home',
- hero = 'hero',
- about = 'about',
- services = 'services',
- whyus = 'whyus',
- action = 'action',
- portfolio = 'portfolio',
- blog = 'blog',
- stats = 'stats',
- ```
+  home = home,
+  hero = hero,
+  about = about,
+  services = services,
+  whyus = whyus,
+  action = action,
+  portfolio = project,
+  blog = blog,
+  stats = stats,
+  ```
  */
 export enum SectionName {
   home = 'home',
@@ -234,7 +258,7 @@ export enum SectionName {
   services = 'services',
   whyus = 'whyus',
   action = 'action',
-  portfolio = 'portfolio',
+  project = 'project',
   blog = 'blog',
   stats = 'stats',
 }

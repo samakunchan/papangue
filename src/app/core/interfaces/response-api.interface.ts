@@ -1,4 +1,4 @@
 export interface IResponseApi {
-  datas: string;
+  datas: Record<string, any>;
   datasJson?: Record<string, any>;
 }

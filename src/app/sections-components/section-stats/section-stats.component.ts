@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ISection } from '../../core/interfaces/section.interface';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-section-stats',
@@ -8,4 +9,5 @@ import { ISection } from '../../core/interfaces/section.interface';
 })
 export class SectionStatsComponent {
   @Input('section') section!: ISection;
+  protected readonly environment = environment;
 }

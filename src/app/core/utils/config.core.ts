@@ -81,17 +81,17 @@ export class RouteName {
   };
 
   /**
-   * @description Navigation: /mon-portfolio
+   * @description Navigation: /mes-projets
    * @example```ts
    {
-     key: 'portfolio',
-     value: 'mon-portfolio',
+     key: 'projects',
+     value: 'mes-projets',
    }
    * ```
    */
-  static portfolio: IRouteName = {
-    key: 'portfolio',
-    value: 'mon-portfolio',
+  static projects: IRouteName = {
+    key: 'projects',
+    value: 'mes-projets',
   };
 
   /**
