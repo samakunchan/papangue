@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IPicture, ISection, IValue, SectionName } from '../../core/interfaces/section.interface';
-import { map, Observable } from 'rxjs';
+import { filter, map, Observable } from 'rxjs';
 import { DatasService } from '../../core/services/datas.service';
 import { ActivatedRoute } from '@angular/router';
 import { IResponseApi } from '../../core/interfaces/response-api.interface';
@@ -21,12 +21,15 @@ export class PageBlogDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.value$ = this.datasService.datasResult$.pipe(map((response: IResponseApi) => this.getHomeSectionsDatas(response, this.slug)));
+    this.value$ = this.datasService.datasResult$.pipe(
+      filter((loaded: IResponseApi): boolean => !!loaded.datas),
+      map((response: IResponseApi) => this.getHomeSectionsDatas(response, this.slug)),
+    );
   }
 
   private getHomeSectionsDatas(response: IResponseApi, slug: string): string {
     return (
-      (response.datasJson![SectionName.blog] as ISection[])
+      ((response.datas![SectionName.blog] as ISection[]) ?? (response.datas![SectionName.home] as ISection[]))
         .find((section: ISection): boolean => section.uname === SectionName.blog)
         ?.payload?.values.find((value: string): boolean => {
           const data: IValue = JSON.parse(value) as IValue;

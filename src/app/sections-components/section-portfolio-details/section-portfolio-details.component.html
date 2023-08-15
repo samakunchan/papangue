@@ -1,63 +1,68 @@
 <section class="single-page">
-  <div id="portfolio-details" class="portfolio-details">
-    <div class="container">
-      <div class="row justify-content-between gy-2">
-        <div class="col-lg-8">
-          <div class="position-relative">
-            <div class="slides-1 portfolio-details-slider swiper position-relative">
-              <div class="swiper-wrapper align-items-center">
-                <ng-container *ngIf="portfolio.picturesProject.length !== 0 else noPreviewPictures">
-                  <ng-container *ngFor="let picture of portfolio.picturesProject; trackBy:trackBySrc; let index = index">
-                    <div class="swiper-slide" @thumbState *ngIf="index === currentSlide">
-                      <img ngSrc="{{picture.src}}" alt="{{picture.alt}}" height="768" width="1024">
+    <div id="portfolio-details" class="portfolio-details">
+        <div class="container">
+            <div class="row justify-content-between gy-2">
+                <div class="col-lg-8">
+                    <div class="position-relative">
+                        <div class="slides-1 portfolio-details-slider swiper position-relative">
+                            <div class="swiper-wrapper align-items-center">
+                                <ng-container *ngIf="portfolio.picturesProject.length !== 0 else noPreviewPictures">
+                                    <ng-container
+                                            *ngFor="let picture of portfolio.picturesProject; trackBy:trackBySrc; let index = index">
+                                        <div class="swiper-slide" @thumbState *ngIf="index === currentSlide">
+                                            <img ngSrc="{{environment.apiUrl + '/documents/' + picture.src}}"
+                                                 alt="{{picture.alt}}" height="768" width="1024">
+                                        </div>
+                                    </ng-container>
+                                </ng-container>
+                                <ng-template #noPreviewPictures>
+                                    <div class="swiper-slide">
+                                        <img ngSrc="https://placehold.co/600x400" alt="Pas d'image" height="768"
+                                             width="1024">
+                                    </div>
+                                </ng-template>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="control-carousel row justify-content-between align-items-center w-100">
+                            <div class="swiper-button-prev" (click)="onPreviousClick()"></div>
+                            <div class="swiper-button-next" (click)="onNextClick()"></div>
+                        </div>
                     </div>
-                  </ng-container>
-                </ng-container>
-                <ng-template #noPreviewPictures>
-                  <div class="swiper-slide">
-                    <img ngSrc="https://placehold.co/600x400" alt="Pas d'image" height="768" width="1024">
-                  </div>
-                </ng-template>
-              </div>
-              <div class="swiper-pagination"></div>
+                    <div class="portfolio-description">
+                        <h2>This is an example of portfolio detail</h2>
+                        <p>{{portfolio.shortDescription}}</p>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-4 project-details-aside">
+                    <div class="portfolio-info">
+                        <h3>Information</h3>
+                        <ul>
+                            <ng-container *ngIf="portfolio.category">
+                                <li><strong>Categorie</strong> <span>{{portfolio.category.title}}</span></li>
+                            </ng-container>
+                            <ng-container *ngIf="portfolio.client">
+                                <li><strong>Client</strong> <span>{{portfolio.client}}</span></li>
+                            </ng-container>
+                            <ng-container *ngIf="portfolio.dateProjet">
+                                <li><strong>Date du projet</strong> <span>{{portfolio.dateProjet | date}}</span></li>
+                            </ng-container>
+                            <ng-container *ngIf="portfolio.urlProjet">
+                                <li><strong>URL du projet</strong> <a
+                                        href="javascript:void(0)">{{portfolio.urlProjet}}</a></li>
+                            </ng-container>
+                            <ng-container *ngIf="portfolio.urlProjet">
+                                <li><a href="javascript:void(0)" class="btn-visit align-self-start">Visit Website</a>
+                                </li>
+                            </ng-container>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
-            <div class="control-carousel row justify-content-between align-items-center w-100">
-              <div class="swiper-button-prev" (click)="onPreviousClick()"></div>
-              <div class="swiper-button-next" (click)="onNextClick()"></div>
-            </div>
-          </div>
-          <div class="portfolio-description">
-            <h2>This is an example of portfolio detail</h2>
-            <p>{{portfolio.shortDescription}}</p>
 
-          </div>
         </div>
-
-        <div class="col-lg-4 project-details-aside">
-          <div class="portfolio-info">
-            <h3>Information</h3>
-            <ul>
-              <ng-container *ngIf="portfolio.category">
-                <li><strong>Categorie</strong> <span>{{portfolio.category}}</span></li>
-              </ng-container>
-              <ng-container *ngIf="portfolio.client">
-                <li><strong>Client</strong> <span>{{portfolio.client}}</span></li>
-              </ng-container>
-              <ng-container *ngIf="portfolio.dateProjet">
-                <li><strong>Date du projet</strong> <span>{{portfolio.dateProjet | date}}</span></li>
-              </ng-container>
-              <ng-container *ngIf="portfolio.urlProjet">
-                <li><strong>URL du projet</strong> <a href="javascript:void(0)">{{portfolio.urlProjet}}</a></li>
-              </ng-container>
-              <ng-container *ngIf="portfolio.urlProjet">
-                <li><a href="javascript:void(0)" class="btn-visit align-self-start">Visit Website</a></li>
-              </ng-container>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-
     </div>
-  </div>
 </section>

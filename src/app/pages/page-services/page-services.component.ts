@@ -20,10 +20,10 @@ export class PageServicesComponent implements OnInit {
   }
 
   private getHomeSectionsDatas(response: IResponseApi): ISection[] {
-    return response.datasJson!['services'] as ISection[];
+    return response.datas!['services'] as ISection[];
   }
 
   private passIfWeHaveHomeDatas(response: IResponseApi): boolean {
-    return response.datasJson != null && response.datasJson.hasOwnProperty('services');
+    return response.datas != null && response.datas.hasOwnProperty('services');
   }
 }

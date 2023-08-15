@@ -20,10 +20,10 @@ export class PageBlogComponent implements OnInit {
   }
 
   private getHomeSectionsDatas(response: IResponseApi): ISection[] {
-    return response.datasJson![SectionName.blog] as ISection[];
+    return response.datas![SectionName.blog] as ISection[];
   }
 
   private passIfWeHaveHomeDatas(response: IResponseApi): boolean {
-    return response.datasJson != null && response.datasJson.hasOwnProperty(SectionName.blog);
+    return response.datas != null && response.datas.hasOwnProperty(SectionName.blog);
   }
 }

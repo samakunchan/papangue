@@ -3,6 +3,7 @@ import { ISection } from '../../core/interfaces/section.interface';
 import { RouteName } from '../../core/utils/config.core';
 import { transition, trigger } from '@angular/animations';
 import { showElementWith300msDelay, startByHideElement } from '../../core/utils/animations';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-section-portfolio',
@@ -15,6 +16,7 @@ export class SectionPortfolioComponent {
   @Input('isFullPage') isFullPage: boolean = false;
   @Input('limit') limit: number = -1;
   protected readonly RouteName = RouteName;
+  protected readonly environment = environment;
   filterSelected: string = '*';
 
   onFilter(category: string): void {

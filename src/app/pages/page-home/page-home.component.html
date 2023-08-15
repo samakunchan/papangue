@@ -1,29 +1,32 @@
 <ng-container *ngIf="sections$ | async as sections">
-  <ng-container *ngFor="let section of sections">
-    <ng-container *ngIf="section.uname === SectionName.hero">
-      <app-section-hero [section]="section"></app-section-hero>
+    <ng-container *ngFor="let section of sections">
+        <ng-container *ngIf="section.uname === SectionName.hero">
+            <app-section-hero [section]="section"></app-section-hero>
+        </ng-container>
+        <ng-container *ngIf="section.uname === SectionName.services">
+            <app-section-services [section]="section"></app-section-services>
+        </ng-container>
+        <ng-container *ngIf="section.uname === SectionName.whyus">
+            <app-section-whyus [section]="section"></app-section-whyus>
+        </ng-container>
+        <ng-container *ngIf="section.uname === SectionName.action">
+            <app-section-call-to-action [section]="section"></app-section-call-to-action>
+        </ng-container>
+        <ng-container *ngIf="section.uname === SectionName.project">
+            <ng-container *ngIf="section.payload?.values!.length !== 0">
+                <app-section-portfolio [section]="section" [limit]="3"></app-section-portfolio>
+            </ng-container>
+        </ng-container>
+        <ng-container *ngIf="section.uname === SectionName.blog">
+            <ng-container *ngIf="section.payload?.values!.length !== 0">
+                <app-section-blog [section]="section" [limit]="3"></app-section-blog>
+            </ng-container>
+        </ng-container>
+        <ng-container *ngIf="section.uname === SectionName.stats">
+            <app-section-stats [section]="section"></app-section-stats>
+        </ng-container>
     </ng-container>
-    <ng-container *ngIf="section.uname === SectionName.services">
-      <app-section-services [section]="section"></app-section-services>
-    </ng-container>
-    <ng-container *ngIf="section.uname === SectionName.whyus">
-      <app-section-whyus [section]="section"></app-section-whyus>
-    </ng-container>
-    <ng-container *ngIf="section.uname === SectionName.action">
-      <app-section-call-to-action [section]="section"></app-section-call-to-action>
-    </ng-container>
-    <ng-container *ngIf="section.uname === SectionName.portfolio">
-      <ng-container *ngIf="section.payload?.values!.length !== 0">
-        <app-section-portfolio [section]="section" [limit]="3"></app-section-portfolio>
-      </ng-container>
-    </ng-container>
-    <ng-container *ngIf="section.uname === SectionName.blog">
-      <ng-container *ngIf="section.payload?.values!.length !== 0">
-        <app-section-blog [section]="section" [limit]="3"></app-section-blog>
-      </ng-container>
-    </ng-container>
-  </ng-container>
-  <!--================ Contact Section =================-->
-  <app-section-contacts></app-section-contacts>
-  <!--================ End Contact Section =================-->
+    <!--================ Contact Section =================-->
+    <app-section-contacts></app-section-contacts>
+    <!--================ End Contact Section =================-->
 </ng-container>

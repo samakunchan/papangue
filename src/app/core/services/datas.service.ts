@@ -25,7 +25,7 @@ export class DatasService {
    * @type string
    * @description Endpoints pour call l'api
    */
-  private apiUrl: string = '/page-datas';
+  private apiUrl: string = '/pages-datas';
 
   constructor(private apiService: ApiService) {}
 
@@ -36,7 +36,9 @@ export class DatasService {
    */
   loadDatasPages(): Observable<IResponseApi> {
     return this.apiService.get<IResponseApi>(this.apiUrl).pipe(
-      tap((responseApi: IResponseApi) => this.datasSubject.next({ ...responseApi, datasJson: JSON.parse(responseApi.datas) })),
+      tap((responseApi: IResponseApi) => {
+        return this.datasSubject.next(responseApi); // Remettre le data dans l'API ou faire la modif pour se passe du string
+      }),
       catchError((err) => throwError(err)),
     );
   }
