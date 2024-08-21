@@ -9,7 +9,7 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ### Nouveautés
 
-- Ajout d'un helper pour les relatives path des images.
+- Mise à jour de la version angular qui passe de la **version 15** à la **version 16**.
 
 ### Changements
 
