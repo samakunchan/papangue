@@ -12,14 +12,14 @@ import { DatasService } from '../services/datas.service';
  * @return {() => Observable<[IFreelanceApi]>}
  * @author Samakunchan
  * @example ```ts
- providers: [
- {
-         provide: APP_INITIALIZER,
-         useFactory: detectionApisReady,
-         deps: [HttpClient],
-         multi: true,
-       },
- ]
+ * providers: [
+ * {
+ *    provide: APP_INITIALIZER,
+ *    useFactory: detectionApisReady,
+ *    deps: [HttpClient],
+ *    multi: true,
+ *  }
+ * ]
  * ```
  */
 export const detectionApisReady = (httpClient: HttpClient, datasService: DatasService): (() => Observable<[IFreelanceApi]>) => {

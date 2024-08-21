@@ -11,10 +11,10 @@ import { registerLocaleData } from '@angular/common';
 import { WINDOW_PROVIDERS } from './core/services/windows.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { detectionApisReady } from './core/utils/initializer';
-import { environment } from '../environments/environment';
-import { HttpMockApiInterceptor } from './core/interceptors/http-mock-api.interceptor';
 import { HttpApiInterceptor } from './core/interceptors/http-api.interceptor';
 import { DatasService } from './core/services/datas.service';
+import { environment } from '../environments/environment';
+import { HttpMockApiInterceptor } from './core/interceptors/http-mock-api.interceptor';
 
 registerLocaleData(localeFr, 'fr');
 

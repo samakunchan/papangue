@@ -5,6 +5,7 @@ import { DatasService } from '../../core/services/datas.service';
 import { IResponseApi } from '../../core/interfaces/response-api.interface';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../../environments/environment';
+import { getRelativePath } from '../../core/utils/path-image';
 
 @Component({
   selector: 'app-page-portfolio-details',
@@ -41,4 +42,5 @@ export class PagePortfolioDetailsComponent implements OnInit {
   }
 
   protected readonly environment = environment;
+  protected readonly getRelativePath = getRelativePath;
 }

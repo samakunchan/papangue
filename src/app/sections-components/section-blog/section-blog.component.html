@@ -7,7 +7,7 @@
                         <div class="col-lg-4">
                             <article>
                                 <div class="post-img">
-                                    <img ngSrc="{{environment.apiUrl + '/documents/' + blog.picture.src}}"
+                                    <img ngSrc="{{getRelativePath(blog.picture.src ?? '')}}"
                                          alt="{{blog.picture.alt}}" class="img-fluid" height="768"
                                          width="1024">
                                 </div>
@@ -98,7 +98,7 @@
                         <div class="col-lg-4">
                             <article>
                                 <div class="post-img">
-                                    <img ngSrc="{{environment.apiUrl + '/documents/' + blog.picture.src}}"
+                                    <img ngSrc="{{ getRelativePath(blog.picture.src ?? '')}}"
                                          alt="{{blog.picture.alt}}" class="img-fluid" height="768" width="1024">
                                 </div>
                                 <p class="post-category">{{blog.category.title | titlecase}}</p>
