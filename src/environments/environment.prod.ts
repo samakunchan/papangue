@@ -17,5 +17,6 @@ export const environment = {
   production: true,
   // apiUrl: 'https://freelance-api.devpapangue.com',
   apiUrl: 'http://localhost:3000',
+  rootUrl: 'http://localhost:4200',
   version: require('../../package.json').version,
 };
