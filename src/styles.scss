@@ -11,15 +11,15 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$papangue-primary: mat.define-palette(mat.$indigo-palette);
-$papangue-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$papangue-primary: mat.m2-define-palette(mat.$m2-indigo-palette);
+$papangue-accent: mat.m2-define-palette(mat.$m2-pink-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$papangue-warn: mat.define-palette(mat.$red-palette);
+$papangue-warn: mat.m2-define-palette(mat.$m2-red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$papangue-theme: mat.define-light-theme((
+$papangue-theme: mat.m2-define-light-theme((
   color: (
     primary: $papangue-primary,
     accent: $papangue-accent,
@@ -75,7 +75,7 @@ app-root {
 }
 
 body {
-  font-family: var(--font-default);
+  font-family: var(--font-default), sans-serif;
   color: var(--color-default);
 }
 
@@ -95,7 +95,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-primary);
+  font-family: var(--font-primary), sans-serif;
 }
 
 dl,
@@ -245,7 +245,7 @@ section {
   font-size: 56px;
   font-weight: 500;
   color: #02336e;
-  font-family: var(--font-secondary);
+  font-family: var(--font-secondary), sans-serif;
 }
 
 .breadcrumbs .page-header p {
@@ -493,7 +493,7 @@ section {
   font-weight: 600;
   letter-spacing: 0.8px;
   color: #10bab9;
-  font-family: var(--font-primary);
+  font-family: var(--font-primary), sans-serif;
 }
 
 .header .logo h1 span {
@@ -539,7 +539,7 @@ section {
     align-items: center;
     justify-content: space-between;
     padding: 0 3px;
-    font-family: var(--font-secondary);
+    font-family: var(--font-secondary), sans-serif;
     font-size: 16px;
     font-weight: 400;
     color: #02336e;
@@ -677,7 +677,7 @@ section {
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    font-family: var(--font-primary);
+    font-family: var(--font-primary), sans-serif;
     font-size: 15px;
     font-weight: 600;
     color: rgb(255 255 255);
@@ -1015,7 +1015,7 @@ section {
   font-weight: 700;
   font-size: 28px;
   margin-bottom: 20px;
-  font-family: var(--font-secondary);
+  font-family: var(--font-secondary), sans-serif;
 }
 
 .about .call-us {
@@ -1072,7 +1072,7 @@ section {
 .about .play-btn {
   width: 94px;
   height: 94px;
-  background: radial-gradient(var(--color-primary) 50%, rgba(0, 131, 116, 0.4) 52%);
+  background: radial-gradient(circle, var(--color-primary) 50%, rgba(0, 131, 116, 0.4) 52%);
   border-radius: 50%;
   display: block;
   position: absolute;
@@ -1088,14 +1088,12 @@ section {
   height: 120px;
   -webkit-animation-delay: 0s;
   animation-delay: 0s;
-  -webkit-animation: pulsate-btn 2s;
-  animation: pulsate-btn 2s;
-  -webkit-animation-direction: forwards;
-  animation-direction: forwards;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-timing-function: steps;
-  animation-timing-function: steps;
+  -webkit-animation: pulsate-btn 2s infinite;
+  animation: pulsate-btn 2s infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-timing-function: steps(5, end);
+  animation-timing-function: steps(5, end);
   opacity: 1;
   border-radius: 50%;
   border: 5px solid rgba(0, 131, 116, 0.7);
@@ -1308,14 +1306,11 @@ section {
 # Call To Action Section
 --------------------------------------------------------------*/
 .call-to-action {
-  background: linear-gradient(rgb(16 186 185 / 88%), rgb(16 186 185)), url(../src/assets/images/cta-bg.jpg) center center;
   background-size: cover;
   padding: 150px 60px;
   border-radius: 0;
   overflow: hidden;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
+  background: linear-gradient(rgb(16 186 185 / 88%), rgb(16 186 185)) url(../src/assets/images/cta-bg.jpg) no-repeat fixed center;
 }
 
 .call-to-action h3 {
@@ -1334,7 +1329,7 @@ section {
   width: 94px;
   height: 94px;
   margin-bottom: 20px;
-  background: radial-gradient(var(--color-primary) 50%, rgba(0, 131, 116, 0.4) 52%);
+  background: radial-gradient(circle, var(--color-primary) 50%, rgba(0, 131, 116, 0.4) 52%);
   border-radius: 50%;
   display: inline-block;
   position: relative;
@@ -1348,14 +1343,12 @@ section {
   height: 120px;
   -webkit-animation-delay: 0s;
   animation-delay: 0s;
-  -webkit-animation: pulsate-btn 2s;
-  animation: pulsate-btn 2s;
-  -webkit-animation-direction: forwards;
-  animation-direction: forwards;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-timing-function: steps;
-  animation-timing-function: steps;
+  -webkit-animation: pulsate-btn 2s infinite;
+  animation: pulsate-btn 2s infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-timing-function: steps(5, end);
+  animation-timing-function: steps(5, end);
   opacity: 1;
   border-radius: 50%;
   border: 5px solid rgba(0, 131, 116, 0.7);
@@ -1403,7 +1396,7 @@ section {
 }
 
 .call-to-action .cta-btn {
-  font-family: var(--font-primary);
+  font-family: var(--font-primary), sans-serif;
   font-weight: 500;
   font-size: 16px;
   letter-spacing: 1px;
@@ -2040,7 +2033,7 @@ section {
 }
 
 .hero .btn-get-started {
-  font-family: var(--font-primary);
+  font-family: var(--font-primary), sans-serif;
   font-weight: 500;
   font-size: 15px;
   letter-spacing: 1px;
@@ -2055,7 +2048,7 @@ section {
 }
 
 .hero .btn-contact-me {
-  font-family: var(--font-primary);
+  font-family: var(--font-primary), sans-serif;
   font-weight: 500;
   font-size: 15px;
   letter-spacing: 1px;
@@ -3674,7 +3667,7 @@ section {
 
 .project-details-aside .testimonial-item p {
   font-style: italic;
-  margin: 0 0 15px 0 0 0;
+  margin: 0 0 15px 0;
   padding: 0;
 }
 
