@@ -19,7 +19,6 @@ export class DatasService {
    * @description Observable qui fait référence au contenu du store.
    */
   datasResult$: Observable<IResponseApi> = this.datasSubject.asObservable();
-
   /**
    * @private
    * @type string

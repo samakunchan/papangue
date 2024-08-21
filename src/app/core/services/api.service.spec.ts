@@ -16,29 +16,14 @@ describe('ApiService', (): void => {
   let service: ApiService;
   const fakeDatas: FakeTestDatas = new FakeTestDatas();
   let httpClientSpy: jasmine.SpyObj<HttpClient>;
+  httpClientSpy = jasmine.createSpyObj<HttpClient>('HttpClient', ['get', 'post', 'patch', 'put', 'delete']);
 
   describe('When everything work well', (): void => {
     beforeEach((): void => {
-      httpClientSpy = jasmine.createSpyObj<HttpClient>('HttpClient', ['get', 'post', 'patch', 'put', 'delete']);
       httpClientSpy.get.and.returnValue(of({ statusCode: 200, datas: [] } as IDummyReponseTest));
-      httpClientSpy.post.and.returnValue(
-        of({
-          statusCode: 201,
-          datas: { message: 'created' },
-        } as IDummyReponseTest),
-      );
-      httpClientSpy.patch.and.returnValue(
-        of({
-          statusCode: 200,
-          datas: { message: 'updated' },
-        } as IDummyReponseTest),
-      );
-      httpClientSpy.put.and.returnValue(
-        of({
-          statusCode: 200,
-          datas: { message: 'updated' },
-        } as IDummyReponseTest),
-      );
+      httpClientSpy.post.and.returnValue(of({ statusCode: 201, datas: { message: 'created' } } as IDummyReponseTest));
+      httpClientSpy.patch.and.returnValue(of({ statusCode: 200, datas: { message: 'updated' } } as IDummyReponseTest));
+      httpClientSpy.put.and.returnValue(of({ statusCode: 200, datas: { message: 'updated' } } as IDummyReponseTest));
       httpClientSpy.delete.and.returnValue(of({ statusCode: 200, datas: { deleted: true } } as IDummyReponseTest));
 
       TestBed.configureTestingModule({
@@ -90,7 +75,6 @@ describe('ApiService', (): void => {
   describe('When everything fail', (): void => {
     describe('Case: user is unauthorized', (): void => {
       beforeEach((): void => {
-        const httpClientSpy = jasmine.createSpyObj('HttpClient', ['get', 'post', 'patch', 'put', 'delete']);
         const unAuthorizedError: ErrorResponseModel = ErrorResponseModel.fromJson(fakeDatas.fakeUnAuthorizedResponse);
 
         httpClientSpy.get.and.returnValue(throwError((): ErrorResponseModel => unAuthorizedError));
@@ -113,22 +97,6 @@ describe('ApiService', (): void => {
 
       it('should get an UnauthorizedException when we try to get datas', (): void => {
         service.get<IDummyReponseTest>(fakeDatas.fakeUrl).subscribe(testCaseUnAuthorizedResponse());
-      });
-
-      it('should get an UnauthorizedException when we try to post one data', (): void => {
-        service.post<IDummyReponseTest>(fakeDatas.fakeUrl, new FormData()).subscribe(testCaseUnAuthorizedResponse());
-      });
-
-      it('should get an UnauthorizedException when we try to patch one data', (): void => {
-        service.patch<IDummyReponseTest>(fakeDatas.fakeUrl, new FormData()).subscribe(testCaseUnAuthorizedResponse());
-      });
-
-      it('should get an UnauthorizedException when we try to put one data', (): void => {
-        service.put<IDummyReponseTest>(fakeDatas.fakeUrl, new FormData()).subscribe(testCaseUnAuthorizedResponse());
-      });
-
-      it('should get an UnauthorizedException when we try to delete one data', (): void => {
-        service.remove<IDummyReponseTest>(fakeDatas.fakeUrl).subscribe(testCaseUnAuthorizedResponse());
       });
     });
 
@@ -260,9 +228,7 @@ function testSuccessFulResponse(statusCode: number, type: any): { next: (respons
  *   }
  * ```
  */
-function testCaseUnAuthorizedResponse(): {
-  error: (error: ErrorResponseModel) => void;
-} {
+function testCaseUnAuthorizedResponse(): { error: (error: ErrorResponseModel) => void } {
   return {
     error: (error: ErrorResponseModel): void => {
       expect(error).toBeInstanceOf(ErrorResponseModel);

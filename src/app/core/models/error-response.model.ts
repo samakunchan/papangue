@@ -2,7 +2,7 @@ export class ErrorResponseModel {
   constructor(
     public statusCode: number,
     public errorName: string,
-    public description: DescripionErrorResponseModel,
+    public description: DescriptionErrorResponseModel,
     public path: string,
     public date: string,
   ) {}
@@ -11,17 +11,17 @@ export class ErrorResponseModel {
     return new ErrorResponseModel(
       json['statusCode'],
       json['errorName'],
-      DescripionErrorResponseModel.fromJson(json['description']),
+      DescriptionErrorResponseModel.fromJson(json['description']),
       json['path'],
       json['date'],
     );
   }
 }
 
-export class DescripionErrorResponseModel {
+export class DescriptionErrorResponseModel {
   constructor(public statusCode: number, public message: string) {}
 
-  static fromJson(json: Record<string, any>): DescripionErrorResponseModel {
-    return new DescripionErrorResponseModel(json['statusCode'], json['message']);
+  static fromJson(json: Record<string, any>): DescriptionErrorResponseModel {
+    return new DescriptionErrorResponseModel(json['statusCode'], json['message']);
   }
 }
