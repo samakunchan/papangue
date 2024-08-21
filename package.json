@@ -61,5 +61,12 @@
     "prettier": "^2.8.8",
     "typescript": "~5.5.4"
   },
+  "resolutions": {
+    "wrap-ansi": "7.0.0",
+    "string-width": "4.2.3"
+  },
+  "overrides": {
+    "wrap-ansi": "7.0.0",
+    "string-width": "4.2.3"
   }
 }
