@@ -5,6 +5,24 @@ Toutes les modifications notables apportées à ce projet seront documentées da
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 et ce projet adhère à [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 🚀 0.8.0 - 21/08/2024
+
+### Nouveautés
+
+- Mise à jour de la version angular qui passe de la **version 16** à la **version 17**.
+
+### Changements
+
+- Mise à jour des librairies `zone.js` et `typescript` selon la documentation pour effectuer la mise à jour d'Angular en toute sécurité.
+- Des caractères dans le HTML qui sont dépréciés ont été changés.
+- Des options dans le `angular.json` ont été remplacés.
+- Mise à jour de la version node des ci.
+
+### Correctifs
+
+- Pas de fixes.
+
+ 
 ## 🚀 0.7.0 - 21/08/2024
 
 ### Nouveautés
@@ -13,7 +31,7 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ### Changements
 
-- Pas de changements.
+- Mise à jour de la version node des ci.
 
 ### Correctifs
 
