@@ -5,6 +5,20 @@ Toutes les modifications notables apportées à ce projet seront documentées da
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 et ce projet adhère à [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 🚀 0.7.0 - 21/08/2024
+
+### Nouveautés
+
+- Ajout d'un helper pour les relatives path des images.
+
+### Changements
+
+- Pas de changements.
+
+### Correctifs
+
+- Pas de fixes.
+
 
 ## 🚀 0.6.0 - 21/08/2024
 
