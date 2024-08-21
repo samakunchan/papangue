@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ISection } from '../../core/interfaces/section.interface';
 import { RouteName } from '../../core/utils/config.core';
 import { environment } from '../../../environments/environment';
+import { getRelativePath } from '../../core/utils/path-image';
 
 @Component({
   selector: 'app-section-blog',
@@ -14,4 +15,5 @@ export class SectionBlogComponent {
   @Input('limit') limit: number = -1;
   protected readonly RouteName = RouteName;
   protected readonly environment = environment;
+  protected readonly getRelativePath = getRelativePath;
 }

@@ -16,7 +16,7 @@
                 </div>
                 <hr/>
                 <div class="col-lg-12">
-                    <img ngSrc="{{environment.apiUrl + '/documents/' + blog.picture.src}}" class="img-fluid mb-4"
+                    <img ngSrc="{{ getRelativePath(blog.picture.src ?? '')}}" class="img-fluid mb-4"
                          alt="{{blog.picture.alt}}" height="692" width="844">
                 </div>
                 <p>

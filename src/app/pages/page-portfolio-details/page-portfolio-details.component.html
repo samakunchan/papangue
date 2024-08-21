@@ -12,7 +12,7 @@
                             <div class="col-lg-6 d-flex justify-content-end">
                                 <div class="pages-images">
                                     <ng-container *ngIf="portfolio.picturesProject[0] else defaultImageDetail">
-                                        <img ngSrc="{{environment.apiUrl + '/documents/' + portfolio.picturesProject[0].src}}"
+                                        <img ngSrc="{{ getRelativePath(portfolio.picturesProject[0].src ?? '') }}"
                                              class="img-fluid" alt="{{portfolio.picturesProject[0].alt}}"
                                              height="456" width="534">
                                     </ng-container>

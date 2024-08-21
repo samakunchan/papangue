@@ -17,7 +17,7 @@
                     <ng-container
                             *ngIf="(section.payload?.picture !== null && section.payload?.picture?.src != null) else placeholder">
                         <img alt="{{section.payload?.picture?.alt}}"
-                             ngSrc="{{environment.apiUrl + '/documents/' + section.payload?.picture?.src}}"
+                             ngSrc="{{getRelativePath(section.payload?.picture?.src ?? '')}}"
                              class="img-fluid rounded-4 mb-4"
                              fill
                         >

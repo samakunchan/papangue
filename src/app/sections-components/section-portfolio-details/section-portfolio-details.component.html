@@ -10,7 +10,7 @@
                                     <ng-container
                                             *ngFor="let picture of portfolio.picturesProject; trackBy:trackBySrc; let index = index">
                                         <div class="swiper-slide" @thumbState *ngIf="index === currentSlide">
-                                            <img ngSrc="{{environment.apiUrl + '/documents/' + picture.src}}"
+                                            <img ngSrc="{{getRelativePath(picture.src ?? '')}}"
                                                  alt="{{picture.alt}}" height="768" width="1024">
                                         </div>
                                     </ng-container>
