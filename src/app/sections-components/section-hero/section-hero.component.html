@@ -26,7 +26,7 @@
                     <img
                         alt="{{section.payload?.picture?.alt}}"
                         class="img-fluid rounded-4 mb-4 mt-m70"
-                        ngSrc="{{ environment.apiUrl + '/documents/' + section.payload?.picture?.src}}"
+                        ngSrc="{{ getRelativePath(section.payload?.picture?.src ?? '')}}"
                         width="636"
                         height="571"
                     >

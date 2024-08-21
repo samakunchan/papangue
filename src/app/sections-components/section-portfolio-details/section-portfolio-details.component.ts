@@ -9,6 +9,7 @@ import {
 } from '../../core/utils/animations';
 import { interval, Observable, Subscription, tap } from 'rxjs';
 import { environment } from '../../../environments/environment';
+import { getRelativePath } from '../../core/utils/path-image';
 
 @Component({
   selector: 'app-section-portfolio-details',
@@ -62,4 +63,6 @@ export class SectionPortfolioDetailsComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
+
+  protected readonly getRelativePath = getRelativePath;
 }

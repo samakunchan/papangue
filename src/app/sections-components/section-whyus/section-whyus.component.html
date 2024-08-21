@@ -10,7 +10,7 @@
       <div class="col-lg-6">
         <ng-container *ngIf="section.payload !== null else placeholder">
           <img
-            ngSrc="{{environment.apiUrl + '/documents/' + section.payload?.picture?.src}}"
+            ngSrc="{{getRelativePath(section.payload?.picture?.src ?? '')}}"
             alt="{{section.payload?.picture?.alt}}"
             class="img-fluid rounded-4 mb-4"
             height="636"
