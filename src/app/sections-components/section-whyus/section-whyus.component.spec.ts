@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SectionWhyusComponent } from './section-whyus.component';
 import { FakesDatas } from '../../core/interceptors/fakes-datas';
 import { NgOptimizedImage } from '@angular/common';
-import { PipesModule } from '../../core/pipes/pipes.module';
+import { ParseWhyUsPipe } from '../../core/pipes/parse-why-us.pipe';
 
 describe('SectionWhyusComponent', (): void => {
   let component: SectionWhyusComponent;
@@ -11,8 +11,8 @@ describe('SectionWhyusComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-    imports: [NgOptimizedImage, PipesModule, SectionWhyusComponent],
-}).compileComponents();
+      imports: [NgOptimizedImage, ParseWhyUsPipe, SectionWhyusComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SectionWhyusComponent);
     component = fixture.componentInstance;

@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageContactsComponent } from './page-contacts.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('PageContactsComponent', (): void => {
   let component: PageContactsComponent;
@@ -10,9 +11,10 @@ describe('PageContactsComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-    imports: [HttpClientTestingModule, PageContactsComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-}).compileComponents();
+      imports: [PageContactsComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PageContactsComponent);
     component = fixture.componentInstance;

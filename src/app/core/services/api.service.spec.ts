@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ApiService } from './api.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { HttpClient, HttpEvent, HttpEventType, provideHttpClient } from '@angular/common/http';
 import { of, throwError } from 'rxjs';
 import { FakeTestDatas } from '../utils/fake-test-datas';
 import { ErrorResponseModel } from '../models/error-response.model';
@@ -27,8 +27,9 @@ describe('ApiService', (): void => {
       httpClientSpy.delete.and.returnValue(of({ statusCode: 200, datas: { deleted: true } } as IDummyReponseTest));
 
       TestBed.configureTestingModule({
-        imports: [HttpClientTestingModule],
         providers: [
+          provideHttpClient(),
+          provideHttpClientTesting(),
           {
             provide: HttpClient,
             useValue: httpClientSpy,
@@ -84,8 +85,9 @@ describe('ApiService', (): void => {
         httpClientSpy.delete.and.returnValue(throwError((): ErrorResponseModel => unAuthorizedError));
 
         TestBed.configureTestingModule({
-          imports: [HttpClientTestingModule],
           providers: [
+            provideHttpClient(),
+            provideHttpClientTesting(),
             {
               provide: HttpClient,
               useValue: httpClientSpy,
@@ -112,8 +114,9 @@ describe('ApiService', (): void => {
         httpClientSpy.delete.and.returnValue(throwError((): ErrorResponseModel => forbiddenError));
 
         TestBed.configureTestingModule({
-          imports: [HttpClientTestingModule],
           providers: [
+            provideHttpClient(),
+            provideHttpClientTesting(),
             {
               provide: HttpClient,
               useValue: httpClientSpy,
@@ -156,8 +159,9 @@ describe('ApiService', (): void => {
         httpClientSpy.delete.and.returnValue(throwError((): ErrorResponseModel => notFoundError));
 
         TestBed.configureTestingModule({
-          imports: [HttpClientTestingModule],
           providers: [
+            provideHttpClient(),
+            provideHttpClientTesting(),
             {
               provide: HttpClient,
               useValue: httpClientSpy,
