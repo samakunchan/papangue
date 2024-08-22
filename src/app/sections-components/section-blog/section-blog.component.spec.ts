@@ -1,10 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SectionBlogComponent } from './section-blog.component';
-import { NgOptimizedImage } from '@angular/common';
+import { DatePipe, NgOptimizedImage, TitleCasePipe } from '@angular/common';
 import { FakesDatas } from '../../core/interceptors/fakes-datas';
-import { PipesModule } from '../../core/pipes/pipes.module';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ParseBlogPipe } from '../../core/pipes/parse-blog.pipe';
+import { LimitPipe } from '../../core/pipes/limit.pipe';
 
 describe('SectionBlogComponent', (): void => {
   let component: SectionBlogComponent;
@@ -12,8 +13,8 @@ describe('SectionBlogComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-    imports: [NgOptimizedImage, PipesModule, RouterTestingModule, SectionBlogComponent],
-}).compileComponents();
+      imports: [NgOptimizedImage, ParseBlogPipe, TitleCasePipe, DatePipe, LimitPipe, RouterTestingModule, SectionBlogComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SectionBlogComponent);
     component = fixture.componentInstance;

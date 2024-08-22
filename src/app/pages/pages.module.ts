@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { PagesComponent } from './pages.component';
-import { PipesModule } from '../core/pipes/pipes.module';
+
 import { RouterModule, Routes } from '@angular/router';
 import { RouteName } from '../core/utils/config.core';
-import { SectionsComponentsModule } from '../sections-components/sections-components.module';
+
 
 const routes: Routes = [
   {
@@ -40,6 +40,6 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [CommonModule, PipesModule, RouterModule.forChild(routes), NgOptimizedImage, SectionsComponentsModule, PagesComponent],
+    imports: [CommonModule, RouterModule.forChild(routes), NgOptimizedImage, PagesComponent],
 })
 export class PagesModule {}
