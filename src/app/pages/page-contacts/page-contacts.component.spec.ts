@@ -10,10 +10,9 @@ describe('PageContactsComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-      declarations: [PageContactsComponent],
-      imports: [HttpClientTestingModule],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    }).compileComponents();
+    imports: [HttpClientTestingModule, PageContactsComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+}).compileComponents();
 
     fixture = TestBed.createComponent(PageContactsComponent);
     component = fixture.componentInstance;

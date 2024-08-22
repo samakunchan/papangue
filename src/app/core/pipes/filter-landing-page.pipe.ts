@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { IConfPortfolio } from '../interfaces/section.interface';
 
 @Pipe({
-  name: 'filterLandingPage',
+    name: 'filterLandingPage',
+    standalone: true,
 })
 export class FilterLandingPagePipe implements PipeTransform {
   transform(values: string[], ...args: unknown[]): string[] {

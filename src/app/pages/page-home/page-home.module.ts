@@ -7,7 +7,6 @@ import { SectionsComponentsModule } from '../../sections-components/sections-com
 const routes: Routes = [{ path: '', component: PageHomeComponent }];
 
 @NgModule({
-  declarations: [PageHomeComponent],
-  imports: [CommonModule, RouterModule.forChild(routes), SectionsComponentsModule],
+    imports: [CommonModule, RouterModule.forChild(routes), SectionsComponentsModule, PageHomeComponent],
 })
 export class PageHomeModule {}

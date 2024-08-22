@@ -12,9 +12,8 @@ describe('SectionPortfolioDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SectionPortfolioDetailsComponent],
-      imports: [NgOptimizedImage, BrowserAnimationsModule],
-    }).compileComponents();
+    imports: [NgOptimizedImage, BrowserAnimationsModule, SectionPortfolioDetailsComponent],
+}).compileComponents();
 
     fixture = TestBed.createComponent(SectionPortfolioDetailsComponent);
     component = fixture.componentInstance;

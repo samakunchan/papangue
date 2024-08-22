@@ -10,9 +10,8 @@ describe('PageAboutComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-      declarations: [PageAboutComponent],
-      imports: [HttpClientTestingModule, RouterTestingModule],
-    }).compileComponents();
+    imports: [HttpClientTestingModule, RouterTestingModule, PageAboutComponent],
+}).compileComponents();
 
     fixture = TestBed.createComponent(PageAboutComponent);
     component = fixture.componentInstance;

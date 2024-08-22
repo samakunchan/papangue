@@ -15,7 +15,6 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [PagePortfolioComponent, PagePortfolioDetailsComponent],
-  imports: [CommonModule, RouterModule.forChild(routes), SectionsComponentsModule, NgOptimizedImage, PipesModule],
+    imports: [CommonModule, RouterModule.forChild(routes), SectionsComponentsModule, NgOptimizedImage, PipesModule, PagePortfolioComponent, PagePortfolioDetailsComponent],
 })
 export class PagePortfolioModule {}

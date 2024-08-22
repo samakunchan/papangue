@@ -12,10 +12,9 @@ describe('PagesComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule, PipesModule, HttpClientTestingModule],
-      declarations: [PagesComponent],
-      providers: [{ provide: WINDOW, useValue: '', multi: true }],
-    }).compileComponents();
+    imports: [RouterTestingModule, PipesModule, HttpClientTestingModule, PagesComponent],
+    providers: [{ provide: WINDOW, useValue: '', multi: true }],
+}).compileComponents();
 
     fixture = TestBed.createComponent(PagesComponent);
     component = fixture.componentInstance;

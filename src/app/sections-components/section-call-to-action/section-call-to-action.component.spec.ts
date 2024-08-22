@@ -10,9 +10,8 @@ describe('SectionCallToActionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [SectionCallToActionComponent],
-    }).compileComponents();
+    imports: [RouterTestingModule, SectionCallToActionComponent],
+}).compileComponents();
 
     fixture = TestBed.createComponent(SectionCallToActionComponent);
     component = fixture.componentInstance;

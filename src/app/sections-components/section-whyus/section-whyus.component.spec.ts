@@ -11,9 +11,8 @@ describe('SectionWhyusComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-      declarations: [SectionWhyusComponent],
-      imports: [NgOptimizedImage, PipesModule],
-    }).compileComponents();
+    imports: [NgOptimizedImage, PipesModule, SectionWhyusComponent],
+}).compileComponents();
 
     fixture = TestBed.createComponent(SectionWhyusComponent);
     component = fixture.componentInstance;

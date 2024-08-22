@@ -10,17 +10,25 @@ import {
 import { interval, Observable, Subscription, tap } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { getRelativePath } from '../../core/utils/path-image';
+import { NgIf, NgFor, NgOptimizedImage, DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-section-portfolio-details',
-  templateUrl: './section-portfolio-details.component.html',
-  styleUrls: ['./section-portfolio-details.component.scss'],
-  animations: [
-    trigger('thumbState', [
-      transition('void => *', [startByHideElement, showElementWith300msDelay]),
-      transition('* => void', [startByRenderElement, hideElementWith300msDelay]),
-    ]),
-  ],
+    selector: 'app-section-portfolio-details',
+    templateUrl: './section-portfolio-details.component.html',
+    styleUrls: ['./section-portfolio-details.component.scss'],
+    animations: [
+        trigger('thumbState', [
+            transition('void => *', [startByHideElement, showElementWith300msDelay]),
+            transition('* => void', [startByRenderElement, hideElementWith300msDelay]),
+        ]),
+    ],
+    standalone: true,
+    imports: [
+        NgIf,
+        NgFor,
+        NgOptimizedImage,
+        DatePipe,
+    ],
 })
 export class SectionPortfolioDetailsComponent implements OnDestroy {
   protected readonly environment = environment;

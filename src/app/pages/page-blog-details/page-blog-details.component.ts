@@ -4,11 +4,22 @@ import { filter, map, Observable } from 'rxjs';
 import { DatasService } from '../../core/services/datas.service';
 import { ActivatedRoute } from '@angular/router';
 import { IResponseApi } from '../../core/interfaces/response-api.interface';
+import { NgIf, NgOptimizedImage, AsyncPipe } from '@angular/common';
+import { SectionBlogDetailsComponent } from '../../sections-components/section-blog-details/section-blog-details.component';
+import { ParseBlogPipe } from '../../core/pipes/parse-blog.pipe';
 
 @Component({
-  selector: 'app-page-blog-details',
-  templateUrl: './page-blog-details.component.html',
-  styleUrls: ['./page-blog-details.component.scss'],
+    selector: 'app-page-blog-details',
+    templateUrl: './page-blog-details.component.html',
+    styleUrls: ['./page-blog-details.component.scss'],
+    standalone: true,
+    imports: [
+        NgIf,
+        NgOptimizedImage,
+        SectionBlogDetailsComponent,
+        AsyncPipe,
+        ParseBlogPipe,
+    ],
 })
 export class PageBlogDetailsComponent implements OnInit {
   protected readonly SectionName = SectionName;

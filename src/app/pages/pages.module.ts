@@ -40,7 +40,6 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [PagesComponent],
-  imports: [CommonModule, PipesModule, RouterModule.forChild(routes), NgOptimizedImage, SectionsComponentsModule],
+    imports: [CommonModule, PipesModule, RouterModule.forChild(routes), NgOptimizedImage, SectionsComponentsModule, PagesComponent],
 })
 export class PagesModule {}

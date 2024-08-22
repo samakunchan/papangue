@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { IConfBlog } from '../interfaces/section.interface';
 
 @Pipe({
-  name: 'parseBlog',
+    name: 'parseBlog',
+    standalone: true,
 })
 export class ParseBlogPipe implements PipeTransform {
   transform(content: string): IConfBlog {

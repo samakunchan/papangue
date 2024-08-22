@@ -12,9 +12,8 @@ describe('SectionBlogComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-      declarations: [SectionBlogComponent],
-      imports: [NgOptimizedImage, PipesModule, RouterTestingModule],
-    }).compileComponents();
+    imports: [NgOptimizedImage, PipesModule, RouterTestingModule, SectionBlogComponent],
+}).compileComponents();
 
     fixture = TestBed.createComponent(SectionBlogComponent);
     component = fixture.componentInstance;

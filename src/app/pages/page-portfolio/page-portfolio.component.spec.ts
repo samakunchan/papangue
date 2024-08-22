@@ -10,9 +10,8 @@ describe('PagePortfolioComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-      declarations: [PagePortfolioComponent],
-      imports: [HttpClientTestingModule, NgOptimizedImage],
-    }).compileComponents();
+    imports: [HttpClientTestingModule, NgOptimizedImage, PagePortfolioComponent],
+}).compileComponents();
 
     fixture = TestBed.createComponent(PagePortfolioComponent);
     component = fixture.componentInstance;

@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'parseMenu',
+    name: 'parseMenu',
+    standalone: true,
 })
 export class ParseMenuPipe implements PipeTransform {
   transform(menu: string): string {

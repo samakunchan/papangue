@@ -9,9 +9,8 @@ describe('PageBlogComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-      declarations: [PageBlogComponent],
-      imports: [HttpClientTestingModule],
-    }).compileComponents();
+    imports: [HttpClientTestingModule, PageBlogComponent],
+}).compileComponents();
 
     fixture = TestBed.createComponent(PageBlogComponent);
     component = fixture.componentInstance;

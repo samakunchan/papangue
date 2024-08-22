@@ -11,9 +11,8 @@ describe('PageServicesComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-      declarations: [PageServicesComponent],
-      imports: [HttpClientTestingModule, RouterTestingModule, NgOptimizedImage],
-    }).compileComponents();
+    imports: [HttpClientTestingModule, RouterTestingModule, NgOptimizedImage, PageServicesComponent],
+}).compileComponents();
 
     fixture = TestBed.createComponent(PageServicesComponent);
     component = fixture.componentInstance;
