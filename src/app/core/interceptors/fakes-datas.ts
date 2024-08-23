@@ -141,7 +141,7 @@ export class FakesDatas {
   } as ISection;
 
   static sectionPortfolio: ISection = {
-    uname: 'portfolio',
+    uname: 'projects',
     redirectUrls: [
       {
         label: 'Voir tout les projets',
@@ -149,7 +149,7 @@ export class FakesDatas {
       } as IRedirectUrls,
     ] as IRedirectUrls[],
     type: 'grid',
-    title: 'Portfolio',
+    title: 'Projects',
     subTitle: 'Quelques exemples de travaux accomplis.',
     payload: {
       content: null,
