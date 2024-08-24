@@ -1,19 +1,7 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
-/**
- * Lazy loading
- * Route public
- * Route authentifié
- */
-const routes: Routes = [
-  {
-    path: '',
-    loadChildren: () => import('./pages/pages.module').then((m) => m.PagesModule),
-  },
-  { path: '', redirectTo: '', pathMatch: 'full' },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
-];
+import { PreloadAllModules, RouterModule } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common';
+import { routes } from './app.routes';
 
 @NgModule({
   imports: [
@@ -21,6 +9,7 @@ const routes: Routes = [
       preloadingStrategy: PreloadAllModules,
       scrollPositionRestoration: 'enabled',
     }),
+    NgOptimizedImage,
   ],
   exports: [RouterModule],
 })
