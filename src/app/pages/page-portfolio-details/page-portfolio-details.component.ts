@@ -11,17 +11,11 @@ import { SectionPortfolioDetailsComponent } from '../../sections-components/sect
 import { ParsePortfolioPipe } from '../../core/pipes/parse-portfolio.pipe';
 
 @Component({
-    selector: 'app-page-portfolio-details',
-    templateUrl: './page-portfolio-details.component.html',
-    styleUrls: ['./page-portfolio-details.component.scss'],
-    standalone: true,
-    imports: [
-        NgIf,
-        NgOptimizedImage,
-        SectionPortfolioDetailsComponent,
-        AsyncPipe,
-        ParsePortfolioPipe,
-    ],
+  selector: 'app-page-portfolio-details',
+  templateUrl: './page-portfolio-details.component.html',
+  styleUrls: ['./page-portfolio-details.component.scss'],
+  standalone: true,
+  imports: [NgIf, NgOptimizedImage, SectionPortfolioDetailsComponent, AsyncPipe, ParsePortfolioPipe],
 })
 export class PagePortfolioDetailsComponent implements OnInit {
   protected readonly SectionName = SectionName;

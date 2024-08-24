@@ -8,18 +8,11 @@ import { NgOptimizedImage, NgIf, NgFor, AsyncPipe } from '@angular/common';
 import { SectionServicesComponent } from '../../sections-components/section-services/section-services.component';
 
 @Component({
-    selector: 'app-page-services',
-    templateUrl: './page-services.component.html',
-    styleUrls: ['./page-services.component.scss'],
-    standalone: true,
-    imports: [
-        RouterLink,
-        NgOptimizedImage,
-        NgIf,
-        NgFor,
-        SectionServicesComponent,
-        AsyncPipe,
-    ],
+  selector: 'app-page-services',
+  templateUrl: './page-services.component.html',
+  styleUrls: ['./page-services.component.scss'],
+  standalone: true,
+  imports: [RouterLink, NgOptimizedImage, NgIf, NgFor, SectionServicesComponent, AsyncPipe],
 })
 export class PageServicesComponent implements OnInit {
   protected readonly SectionName = SectionName;

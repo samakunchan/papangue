@@ -6,16 +6,11 @@ import { NgIf, NgFor, NgOptimizedImage } from '@angular/common';
 import { ParseStatsPipe } from '../../core/pipes/parse-stats.pipe';
 
 @Component({
-    selector: 'app-section-stats',
-    templateUrl: './section-stats.component.html',
-    styleUrls: ['./section-stats.component.scss'],
-    standalone: true,
-    imports: [
-        NgIf,
-        NgFor,
-        NgOptimizedImage,
-        ParseStatsPipe,
-    ],
+  selector: 'app-section-stats',
+  templateUrl: './section-stats.component.html',
+  styleUrls: ['./section-stats.component.scss'],
+  standalone: true,
+  imports: [NgIf, NgFor, NgOptimizedImage, ParseStatsPipe],
 })
 export class SectionStatsComponent {
   @Input('section') section!: ISection;

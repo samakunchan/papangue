@@ -9,20 +9,11 @@ import { LimitPipe } from '../../core/pipes/limit.pipe';
 import { ParseBlogPipe } from '../../core/pipes/parse-blog.pipe';
 
 @Component({
-    selector: 'app-section-blog',
-    templateUrl: './section-blog.component.html',
-    styleUrls: ['./section-blog.component.scss'],
-    standalone: true,
-    imports: [
-        NgIf,
-        NgFor,
-        NgOptimizedImage,
-        RouterLink,
-        TitleCasePipe,
-        DatePipe,
-        LimitPipe,
-        ParseBlogPipe,
-    ],
+  selector: 'app-section-blog',
+  templateUrl: './section-blog.component.html',
+  styleUrls: ['./section-blog.component.scss'],
+  standalone: true,
+  imports: [NgIf, NgFor, NgOptimizedImage, RouterLink, TitleCasePipe, DatePipe, LimitPipe, ParseBlogPipe],
 })
 export class SectionBlogComponent {
   @Input('section') section!: ISection;

@@ -2,8 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { IConfPortfolio } from '../interfaces/section.interface';
 
 @Pipe({
-    name: 'groupCategory',
-    standalone: true,
+  name: 'groupCategory',
+  standalone: true,
 })
 export class GroupCategoryPipe implements PipeTransform {
   transform(elements: string[]): string[] {

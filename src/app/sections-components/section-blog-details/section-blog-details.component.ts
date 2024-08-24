@@ -5,15 +5,11 @@ import { getRelativePath } from '../../core/utils/path-image';
 import { NgOptimizedImage, TitleCasePipe, DatePipe } from '@angular/common';
 
 @Component({
-    selector: 'app-section-blog-details',
-    templateUrl: './section-blog-details.component.html',
-    styleUrls: ['./section-blog-details.component.scss'],
-    standalone: true,
-    imports: [
-        NgOptimizedImage,
-        TitleCasePipe,
-        DatePipe,
-    ],
+  selector: 'app-section-blog-details',
+  templateUrl: './section-blog-details.component.html',
+  styleUrls: ['./section-blog-details.component.scss'],
+  standalone: true,
+  imports: [NgOptimizedImage, TitleCasePipe, DatePipe],
 })
 export class SectionBlogDetailsComponent {
   @Input('blog') blog!: IConfBlog;

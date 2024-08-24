@@ -7,17 +7,11 @@ import { NgIf, NgFor, NgClass, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
-    selector: 'app-section-hero',
-    templateUrl: './section-hero.component.html',
-    styleUrls: ['./section-hero.component.scss'],
-    standalone: true,
-    imports: [
-        NgIf,
-        NgFor,
-        NgClass,
-        RouterLink,
-        NgOptimizedImage,
-    ],
+  selector: 'app-section-hero',
+  templateUrl: './section-hero.component.html',
+  styleUrls: ['./section-hero.component.scss'],
+  standalone: true,
+  imports: [NgIf, NgFor, NgClass, RouterLink, NgOptimizedImage],
 })
 export class SectionHeroComponent {
   @Input('section') section!: ISection;

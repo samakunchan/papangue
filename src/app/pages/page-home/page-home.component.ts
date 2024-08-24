@@ -14,23 +14,23 @@ import { SectionStatsComponent } from '../../sections-components/section-stats/s
 import { SectionContactsComponent } from '../../sections-components/section-contacts/section-contacts.component';
 
 @Component({
-    selector: 'app-page-home',
-    templateUrl: './page-home.component.html',
-    styleUrls: ['./page-home.component.scss'],
-    standalone: true,
-    imports: [
-        NgIf,
-        NgFor,
-        SectionHeroComponent,
-        SectionServicesComponent,
-        SectionWhyusComponent,
-        SectionCallToActionComponent,
-        SectionPortfolioComponent,
-        SectionBlogComponent,
-        SectionStatsComponent,
-        SectionContactsComponent,
-        AsyncPipe,
-    ],
+  selector: 'app-page-home',
+  templateUrl: './page-home.component.html',
+  styleUrls: ['./page-home.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    NgFor,
+    SectionHeroComponent,
+    SectionServicesComponent,
+    SectionWhyusComponent,
+    SectionCallToActionComponent,
+    SectionPortfolioComponent,
+    SectionBlogComponent,
+    SectionStatsComponent,
+    SectionContactsComponent,
+    AsyncPipe,
+  ],
 })
 export class PageHomeComponent implements OnInit {
   protected readonly SectionName = SectionName;

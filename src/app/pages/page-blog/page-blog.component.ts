@@ -7,17 +7,11 @@ import { NgOptimizedImage, NgIf, NgFor, AsyncPipe } from '@angular/common';
 import { SectionBlogComponent } from '../../sections-components/section-blog/section-blog.component';
 
 @Component({
-    selector: 'app-page-blog',
-    templateUrl: './page-blog.component.html',
-    styleUrls: ['./page-blog.component.scss'],
-    standalone: true,
-    imports: [
-        NgOptimizedImage,
-        NgIf,
-        NgFor,
-        SectionBlogComponent,
-        AsyncPipe,
-    ],
+  selector: 'app-page-blog',
+  templateUrl: './page-blog.component.html',
+  styleUrls: ['./page-blog.component.scss'],
+  standalone: true,
+  imports: [NgOptimizedImage, NgIf, NgFor, SectionBlogComponent, AsyncPipe],
 })
 export class PageBlogComponent implements OnInit {
   protected readonly SectionName = SectionName;

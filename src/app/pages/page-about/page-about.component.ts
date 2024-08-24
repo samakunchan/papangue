@@ -10,19 +10,11 @@ import { SectionWhyusComponent } from '../../sections-components/section-whyus/s
 import { SectionCallToActionComponent } from '../../sections-components/section-call-to-action/section-call-to-action.component';
 
 @Component({
-    selector: 'app-page-about',
-    templateUrl: './page-about.component.html',
-    styleUrls: ['./page-about.component.scss'],
-    standalone: true,
-    imports: [
-        RouterLink,
-        NgIf,
-        NgFor,
-        SectionStatsComponent,
-        SectionWhyusComponent,
-        SectionCallToActionComponent,
-        AsyncPipe,
-    ],
+  selector: 'app-page-about',
+  templateUrl: './page-about.component.html',
+  styleUrls: ['./page-about.component.scss'],
+  standalone: true,
+  imports: [RouterLink, NgIf, NgFor, SectionStatsComponent, SectionWhyusComponent, SectionCallToActionComponent, AsyncPipe],
 })
 export class PageAboutComponent implements OnInit {
   protected readonly SectionName = SectionName;

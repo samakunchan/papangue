@@ -262,9 +262,7 @@ function testCaseUnAuthorizedResponse(): { error: (error: ErrorResponseModel) =>
  *   }
  * ```
  */
-function testCaseForbiddenResponse(): {
-  error: (error: ErrorResponseModel) => void;
-} {
+function testCaseForbiddenResponse(): { error: (error: ErrorResponseModel) => void } {
   return {
     error: (error: ErrorResponseModel): void => {
       expect(error).toBeInstanceOf(ErrorResponseModel);
