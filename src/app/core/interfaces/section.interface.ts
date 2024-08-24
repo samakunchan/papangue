@@ -258,7 +258,7 @@ export enum SectionName {
   services = 'services',
   whyus = 'whyus',
   action = 'action',
-  project = 'project',
+  project = 'projects',
   blog = 'blog',
   stats = 'stats',
 }
