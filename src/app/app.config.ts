@@ -11,7 +11,6 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { detectionApisReady } from './core/utils/initializer';
@@ -28,7 +27,6 @@ export const appConfig: ApplicationConfig = {
   providers: [
     importProvidersFrom(
       BrowserModule,
-      AppRoutingModule,
       ToastrModule.forRoot({
         progressBar: true,
         closeButton: true,
