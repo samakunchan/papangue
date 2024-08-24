@@ -15,7 +15,7 @@
           </div>
           <div class="col-lg-6 d-flex justify-content-end">
             <div class="pages-images">
-              <img alt="" class="img-fluid" src="{{'assets/images/about.jpg'}}">
+              <img alt="" class="img-fluid" src="{{ 'assets/images/about.jpg' }}" />
             </div>
           </div>
         </div>
@@ -24,7 +24,8 @@
   </div>
   <ng-container *ngIf="sections$ | async as sections">
     <ng-container *ngFor="let section of sections">
-      <ng-container *ngIf="section.uname === SectionName.stats || section.uname === SectionName.whyus || section.uname === SectionName.action">
+      <ng-container
+        *ngIf="section.uname === SectionName.stats || section.uname === SectionName.whyus || section.uname === SectionName.action">
       </ng-container>
       <div class="single-page">
         <ng-container *ngIf="section.uname === SectionName.stats">

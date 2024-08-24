@@ -1,5 +1,5 @@
 <main id="main">
-  <ng-container *ngIf="value$ | async as value else placeholder">
+  <ng-container *ngIf="value$ | async as value; else placeholder">
     <ng-container *ngIf="value | parseBlog as blog">
       <div class="breadcrumbs">
         <div class="page-header d-flex">
@@ -11,13 +11,12 @@
               </div>
               <div class="col-lg-6 d-flex justify-content-end">
                 <div class="pages-images">
-                  <img ngSrc="assets/images/blogs-details.jpg" class="img-fluid" alt="" height="456" width="534">
+                  <img ngSrc="assets/images/blogs-details.jpg" class="img-fluid" alt="" height="456" width="534" />
                 </div>
               </div>
             </div>
           </div>
         </div>
-
       </div>
 
       <app-section-blog-details [blog]="blog"></app-section-blog-details>
@@ -35,18 +34,16 @@
           </div>
           <div class="col-lg-6 d-flex justify-content-end">
             <div class="pages-images">
-              <img ngSrc="assets/images/blogs-details.jpg" class="img-fluid" alt="" height="456" width="534">
+              <img ngSrc="assets/images/blogs-details.jpg" class="img-fluid" alt="" height="456" width="534" />
             </div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
   <section class="single-page">
     <div id="portfolio-details" class="portfolio-details">
       <div class="container"></div>
     </div>
   </section>
-
 </ng-template>

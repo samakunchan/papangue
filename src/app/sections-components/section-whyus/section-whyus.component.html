@@ -1,22 +1,20 @@
-<section class="{{section.uname}}" id="whyus">
+<section class="{{ section.uname }}" id="whyus">
   <div class="container">
-
     <div class="section-header">
-      <h2>{{section.title}}</h2>
-      <p>{{section.subTitle}}</p>
+      <h2>{{ section.title }}</h2>
+      <p>{{ section.subTitle }}</p>
     </div>
 
     <div class="row gy-4">
       <div class="col-lg-6">
-        <ng-container *ngIf="section.payload !== null else placeholder">
+        <ng-container *ngIf="section.payload !== null; else placeholder">
           <img
-            ngSrc="{{getRelativePath(section.payload?.picture?.src ?? '')}}"
-            alt="{{section.payload?.picture?.alt}}"
+            ngSrc="{{ getRelativePath(section.payload?.picture?.src ?? '') }}"
+            alt="{{ section.payload?.picture?.alt }}"
             class="img-fluid rounded-4 mb-4"
             width="844"
             height="692"
-            priority
-          >
+            priority />
         </ng-container>
 
         <ng-template #placeholder>
@@ -25,17 +23,16 @@
             alt="Image en placeholder parce que l'image ne se charge pas"
             class="img-fluid rounded-4 mb-4 mt-m70"
             width="800"
-            height="100"
-          >
+            height="100" />
         </ng-template>
       </div>
       <div class="col-lg-6">
         <div class="content ps-0 ps-lg-5">
-          <p>{{section.payload?.content}}</p>
+          <p>{{ section.payload?.content }}</p>
           <ul>
             <ng-container *ngFor="let value of section.payload?.values">
-              <ng-container *ngIf="(value | parseWhyUs) as data">
-                <li><i class="bi bi-arrow-right-square-fill"></i>{{data.reason}}</li>
+              <ng-container *ngIf="value | parseWhyUs as data">
+                <li><i class="bi bi-arrow-right-square-fill"></i>{{ data.reason }}</li>
               </ng-container>
             </ng-container>
           </ul>

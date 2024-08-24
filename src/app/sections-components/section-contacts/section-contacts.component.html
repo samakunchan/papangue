@@ -16,9 +16,11 @@
                       <input
                         class="form-control"
                         data-error="Name is required."
-                        id="name" name="name"
+                        id="name"
+                        name="name"
                         placeholder="Name*"
-                        required="required" type="text">
+                        required="required"
+                        type="text" />
                       <div class="help-block with-errors"></div>
                     </div>
                   </div>
@@ -30,29 +32,26 @@
                         id="email"
                         name="email"
                         placeholder="Email*"
-                        required="required" type="email">
+                        required="required"
+                        type="email" />
                       <div class="help-block with-errors"></div>
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group form-input-box">
-                      <input
-                        class="form-control"
-                        name="subject"
-                        placeholder="Subject"
-                        required="required"
-                        type="text">
+                      <input class="form-control" name="subject" placeholder="Subject" required="required" type="text" />
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="form-group form-input-box">
-                    <textarea
-                      class="form-control"
-                      data-error="Please, leave us a message."
-                      id="message"
-                      name="message"
-                      placeholder="Write Your Message*" required="required"
-                      rows="7"></textarea>
+                      <textarea
+                        class="form-control"
+                        data-error="Please, leave us a message."
+                        id="message"
+                        name="message"
+                        placeholder="Write Your Message*"
+                        required="required"
+                        rows="7"></textarea>
                       <div class="help-block with-errors"></div>
                     </div>
                   </div>
@@ -60,15 +59,8 @@
                     <button data-text="Send Message" type="submit">Envoyer le message</button>
                   </div>
                   <div class="messages">
-                    <div
-                      class="alert alert alert-success alert-dismissable alert-dismissable hidden"
-                      id="msgSubmit">
-                      <button
-                        aria-hidden="true"
-                        class="close"
-                        data-dismiss="alert"
-                        type="button">&times;
-                      </button>
+                    <div class="alert alert alert-success alert-dismissable alert-dismissable hidden" id="msgSubmit">
+                      <button aria-hidden="true" class="close" data-dismiss="alert" type="button">&times;</button>
                       Thank You! your message has been sent.
                     </div>
                   </div>
