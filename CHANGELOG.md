@@ -5,6 +5,20 @@ Toutes les modifications notables apportées à ce projet seront documentées da
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 et ce projet adhère à [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 🚀 0.9.1 - 25/08/2024
+
+### Nouveautés
+
+- Ajout de la nouvelle version d'Angular dans le README.
+
+### Changements
+
+- Pas de changements.
+
+### Correctifs
+
+- Pas de fixes.
+
 ## 🚀 0.9.0 - 25/08/2024
 
 ### Nouveautés
