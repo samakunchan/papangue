@@ -1,46 +1,44 @@
-<section class="{{section.uname}}" id="{{section.uname}}">
-    <div class="container position-relative">
-        <div class="row gy-5 h-full d-flex align-content-center">
-            <div class="col-lg-6 d-flex flex-column align-items-right justify-content-center text-left caption">
-                <h2>{{section.title}}</h2>
-                <h3 class="heading-secondy">{{section.subTitle}}</h3>
-                <p>{{section.payload?.content}}</p>
-                <div class="d-flex">
-                    <ng-container *ngIf="section.redirectUrls?.length !== 0">
-                        <ng-container *ngFor="let button of section.redirectUrls">
-                            <a class="mx-1"
-                               [ngClass]="{
-                                  'btn-contact-me': button.path === RouteName.contacts.value,
-                                  'btn-get-started': button.path === RouteName.about.value,
-                               }"
-                               routerLink="{{button.path}}">
-                                {{button.label}}
-                            </a>
-                        </ng-container>
-                    </ng-container>
-                </div>
-            </div>
-            <div class="col-lg-6 d-flex flex-column align-items-right justify-content-center">
-                <ng-container
-                        *ngIf="(section.payload?.picture !== null && section.payload?.picture?.src != null) else placeholder">
-                    <img
-                        alt="{{section.payload?.picture?.alt}}"
-                        class="img-fluid rounded-4 mb-4 mt-m70"
-                        ngSrc="{{ getRelativePath(section.payload?.picture?.src ?? '')}}"
-                        width="636"
-                        height="571"
-                    >
-                </ng-container>
-                <ng-template #placeholder>
-                    <img
-                        alt="Image en placeholder parce que l'image ne se charge pas"
-                        class="img-fluid rounded-4 mb-4 mt-m70"
-                        ngSrc="https://placehold.co/600x400"
-                        width="636"
-                        height="571"
-                    >
-                </ng-template>
-            </div>
+<section class="{{ section.uname }}" id="{{ section.uname }}">
+  <div class="container position-relative">
+    <div class="row gy-5 h-full d-flex align-content-center">
+      <div class="col-lg-6 d-flex flex-column align-items-right justify-content-center text-left caption">
+        <h2>{{ section.title }}</h2>
+        <h3 class="heading-secondy">{{ section.subTitle }}</h3>
+        <p>{{ section.payload?.content }}</p>
+        <div class="d-flex">
+          @if(section.redirectUrls?.length !== 0) {
+            @for(button of section.redirectUrls; track $index) {
+              <a
+                class="mx-1"
+                [ngClass]="{
+                 'btn-contact-me': button.path === RouteName.contacts.value,
+                 'btn-get-started': button.path === RouteName.about.value,
+                 }"
+                routerLink="{{ button.path }}">
+                {{ button.label }}
+              </a>
+            }
+          }
         </div>
+      </div>
+      <div class="col-lg-6 d-flex flex-column align-items-right justify-content-center">
+        @if(section.payload?.picture !== null && section.payload?.picture?.src != null) {
+          <img
+            alt="{{ section.payload?.picture?.alt }}"
+            class="img-fluid rounded-4 mb-4 mt-m70"
+            ngSrc="{{ getRelativePath(section.payload?.picture?.src ?? '') }}"
+            width="636"
+            height="571"
+            priority />
+        } @else {
+          <img
+            alt="Image en placeholder parce que l'image ne se charge pas"
+            class="img-fluid rounded-4 mb-4 mt-m70"
+            ngSrc="https://placehold.co/600x400"
+            width="636"
+            height="571" />
+        }
+      </div>
     </div>
+  </div>
 </section>

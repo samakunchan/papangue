@@ -3,6 +3,7 @@ import { IConfPortfolio } from '../interfaces/section.interface';
 
 @Pipe({
   name: 'filterLandingPage',
+  standalone: true,
 })
 export class FilterLandingPagePipe implements PipeTransform {
   transform(values: string[], ...args: unknown[]): string[] {

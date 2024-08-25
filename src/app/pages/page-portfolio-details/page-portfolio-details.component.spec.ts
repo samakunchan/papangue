@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PagePortfolioDetailsComponent } from './page-portfolio-details.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { provideRouter } from '@angular/router';
 
 describe('PagePortfolioDetailsComponent', (): void => {
   let component: PagePortfolioDetailsComponent;
@@ -10,8 +11,8 @@ describe('PagePortfolioDetailsComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-      declarations: [PagePortfolioDetailsComponent],
-      imports: [HttpClientTestingModule, RouterTestingModule],
+      imports: [PagePortfolioDetailsComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(PagePortfolioDetailsComponent);

@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SectionStatsComponent } from './section-stats.component';
 import { FakesDatas } from '../../core/interceptors/fakes-datas';
 import { NgOptimizedImage } from '@angular/common';
-import { PipesModule } from '../../core/pipes/pipes.module';
+import { ParseStatsPipe } from '../../core/pipes/parse-stats.pipe';
 
 describe('SectionStatsComponent', (): void => {
   let component: SectionStatsComponent;
@@ -11,8 +11,7 @@ describe('SectionStatsComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-      declarations: [SectionStatsComponent],
-      imports: [NgOptimizedImage, PipesModule],
+      imports: [NgOptimizedImage, ParseStatsPipe, SectionStatsComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SectionStatsComponent);

@@ -3,11 +3,15 @@ import { filter, map, Observable } from 'rxjs';
 import { ISection, SectionName } from '../../core/interfaces/section.interface';
 import { DatasService } from '../../core/services/datas.service';
 import { IResponseApi } from '../../core/interfaces/response-api.interface';
+import { AsyncPipe, NgFor, NgIf, NgOptimizedImage } from '@angular/common';
+import { SectionPortfolioComponent } from '../../sections-components/section-portfolio/section-portfolio.component';
 
 @Component({
   selector: 'app-page-portfolio',
   templateUrl: './page-portfolio.component.html',
   styleUrls: ['./page-portfolio.component.scss'],
+  standalone: true,
+  imports: [NgOptimizedImage, NgIf, NgFor, SectionPortfolioComponent, AsyncPipe],
 })
 export class PagePortfolioComponent implements OnInit {
   protected readonly SectionName = SectionName;

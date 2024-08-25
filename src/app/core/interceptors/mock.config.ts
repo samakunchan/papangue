@@ -31,7 +31,7 @@ const getPages = (): Observable<HttpResponse<IResponseApi>> => {
           ],
           about: [FakesDatas.sectionStats, FakesDatas.sectionWhyus, FakesDatas.sectionCallToAction2],
           services: [FakesDatas.sectionServices],
-          portfolio: [FakesDatas.sectionPortfolio],
+          projects: [FakesDatas.sectionPortfolio],
           blog: [FakesDatas.sectionBlog],
         },
       },

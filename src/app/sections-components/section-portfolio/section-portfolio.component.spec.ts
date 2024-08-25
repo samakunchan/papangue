@@ -2,9 +2,12 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SectionPortfolioComponent } from './section-portfolio.component';
 import { FakesDatas } from '../../core/interceptors/fakes-datas';
-import { NgOptimizedImage } from '@angular/common';
-import { PipesModule } from '../../core/pipes/pipes.module';
-import { RouterTestingModule } from '@angular/router/testing';
+import { DatePipe, NgOptimizedImage } from '@angular/common';
+
+import { GroupCategoryPipe } from '../../core/pipes/group-category.pipe';
+import { LimitPipe } from '../../core/pipes/limit.pipe';
+import { FilterByPipe } from '../../core/pipes/filter-by.pipe';
+import { provideRouter } from '@angular/router';
 
 describe('SectionPortfolioComponent', (): void => {
   let component: SectionPortfolioComponent;
@@ -12,8 +15,8 @@ describe('SectionPortfolioComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-      declarations: [SectionPortfolioComponent],
-      imports: [NgOptimizedImage, PipesModule, RouterTestingModule],
+      imports: [NgOptimizedImage, GroupCategoryPipe, LimitPipe, FilterByPipe, DatePipe, SectionPortfolioComponent],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SectionPortfolioComponent);

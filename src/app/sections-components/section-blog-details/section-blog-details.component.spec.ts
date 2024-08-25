@@ -11,8 +11,7 @@ describe('SectionBlogDetailsComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-      declarations: [SectionBlogDetailsComponent],
-      imports: [NgOptimizedImage],
+      imports: [NgOptimizedImage, SectionBlogDetailsComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SectionBlogDetailsComponent);
