@@ -3,6 +3,7 @@ import { IConfBlog } from '../interfaces/section.interface';
 
 @Pipe({
   name: 'parseBlog',
+  standalone: true,
 })
 export class ParseBlogPipe implements PipeTransform {
   transform(content: string): IConfBlog {

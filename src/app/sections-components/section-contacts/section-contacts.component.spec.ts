@@ -9,7 +9,7 @@ describe('SectionContactsComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-      declarations: [SectionContactsComponent],
+      imports: [SectionContactsComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
 

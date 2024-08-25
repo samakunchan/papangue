@@ -1,17 +1,21 @@
 import { Component, ElementRef, HostListener, Inject, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import { DOCUMENT } from '@angular/common';
+import { AsyncPipe, DOCUMENT, NgFor, NgIf } from '@angular/common';
 import { WINDOW } from '../core/services/windows.service';
 import { RouteName } from '../core/utils/config.core';
 import { filter, map, Observable } from 'rxjs';
 import { DatasService } from '../core/services/datas.service';
 import { IResponseApi } from '../core/interfaces/response-api.interface';
+import { ParseMenuPipe } from '../core/pipes/parse-menu.pipe';
+import { UcFirstPipe } from '../core/pipes/uc-first.pipe';
 
 @Component({
   selector: 'app-pages',
   templateUrl: './pages.component.html',
   styleUrls: ['./pages.component.scss'],
+  standalone: true,
+  imports: [NgIf, NgFor, RouterLink, RouterOutlet, AsyncPipe, ParseMenuPipe, UcFirstPipe],
 })
 export class PagesComponent implements OnInit {
   isScrolledTo100: boolean = false;
@@ -37,12 +41,18 @@ export class PagesComponent implements OnInit {
   }
 
   getMenus(response: IResponseApi): string[] {
-    return (
-      Object.keys(response.datas)
-        .filter((menu: string): boolean => menu !== 'home')
-        // @ts-ignore
-        .map((menu: string): string => RouteName[menu].value)
-    );
+    return Object.keys(response.datas)
+      .filter((menu: string): boolean => menu !== 'home')
+      .map((menu: string): string => {
+        // Retourne : ['text', {key: ..., value: ...}]
+        const menuFiltered = Object.entries(RouteName)
+          .filter(([key, _]): boolean => key === menu)
+          .find(([key, data]): boolean => data.key === key);
+
+        const [_, menuFound] = menuFiltered ?? [];
+
+        return menuFound.value;
+      });
   }
 
   @HostListener('window:scroll', ['$event'])

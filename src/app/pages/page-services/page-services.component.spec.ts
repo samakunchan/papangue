@@ -1,9 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageServicesComponent } from './page-services.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { NgOptimizedImage } from '@angular/common';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideRouter } from '@angular/router';
 
 describe('PageServicesComponent', (): void => {
   let component: PageServicesComponent;
@@ -11,8 +12,8 @@ describe('PageServicesComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-      declarations: [PageServicesComponent],
-      imports: [HttpClientTestingModule, RouterTestingModule, NgOptimizedImage],
+      imports: [NgOptimizedImage, PageServicesComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(PageServicesComponent);

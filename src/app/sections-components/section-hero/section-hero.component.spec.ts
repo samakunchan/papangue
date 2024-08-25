@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SectionHeroComponent } from './section-hero.component';
 import { FakesDatas } from '../../core/interceptors/fakes-datas';
 import { NgOptimizedImage } from '@angular/common';
-import { RouterTestingModule } from '@angular/router/testing';
+import { provideRouter } from '@angular/router';
 
 describe('SectionHeroComponent', (): void => {
   let component: SectionHeroComponent;
@@ -11,8 +11,8 @@ describe('SectionHeroComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-      declarations: [SectionHeroComponent],
-      imports: [NgOptimizedImage, RouterTestingModule],
+      imports: [NgOptimizedImage, SectionHeroComponent],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SectionHeroComponent);

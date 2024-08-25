@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageHomeComponent } from './page-home.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 describe('PageHomeComponent', (): void => {
   let component: PageHomeComponent;
@@ -9,8 +10,8 @@ describe('PageHomeComponent', (): void => {
 
   beforeEach(async (): Promise<void> => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      declarations: [PageHomeComponent],
+      imports: [PageHomeComponent],
+      providers: [provideHttpClient(), provideHttpClientTesting()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(PageHomeComponent);

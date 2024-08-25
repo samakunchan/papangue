@@ -5,6 +5,25 @@ Toutes les modifications notables apportées à ce projet seront documentées da
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 et ce projet adhère à [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 🚀 0.9.0 - 25/08/2024
+
+### Nouveautés
+
+- Mise à jour de la version angular qui passe de la **version 17** à la **version 18**.
+- Ajout de la nouvelle version du router.
+- Ajout de la nouvelle version de configuration qui remplace `app.module.ts`
+
+### Changements
+
+- Suppression des modules.
+- Changement de la syntaxe des conditions et boucle dans tout les fichiers html. Il y avait une commande pour ça : `ng generate @angular/core:control-flow`.
+
+### Correctifs
+
+- Fix bug sur les menus avec le quiproquo sur la typo `project`/`projects`.
+- Fix optimation des images.
+- Fix tout les tests.
+ 
 ## 🚀 0.8.0 - 21/08/2024
 
 ### Nouveautés

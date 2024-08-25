@@ -23,6 +23,9 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Suppression du cache de npm
+        run: npm cache clean --force
+
       - name: 📚 Installation des dépendences
         run: |
           npm install

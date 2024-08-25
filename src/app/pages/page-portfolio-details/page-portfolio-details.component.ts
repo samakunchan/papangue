@@ -6,11 +6,16 @@ import { IResponseApi } from '../../core/interfaces/response-api.interface';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { getRelativePath } from '../../core/utils/path-image';
+import { NgIf, NgOptimizedImage, AsyncPipe } from '@angular/common';
+import { SectionPortfolioDetailsComponent } from '../../sections-components/section-portfolio-details/section-portfolio-details.component';
+import { ParsePortfolioPipe } from '../../core/pipes/parse-portfolio.pipe';
 
 @Component({
   selector: 'app-page-portfolio-details',
   templateUrl: './page-portfolio-details.component.html',
   styleUrls: ['./page-portfolio-details.component.scss'],
+  standalone: true,
+  imports: [NgIf, NgOptimizedImage, SectionPortfolioDetailsComponent, AsyncPipe, ParsePortfolioPipe],
 })
 export class PagePortfolioDetailsComponent implements OnInit {
   protected readonly SectionName = SectionName;
