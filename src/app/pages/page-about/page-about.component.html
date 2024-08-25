@@ -22,22 +22,23 @@
       </div>
     </div>
   </div>
-  <ng-container *ngIf="sections$ | async as sections">
-    <ng-container *ngFor="let section of sections">
-      <ng-container
-        *ngIf="section.uname === SectionName.stats || section.uname === SectionName.whyus || section.uname === SectionName.action">
-      </ng-container>
-      <div class="single-page">
-        <ng-container *ngIf="section.uname === SectionName.stats">
-          <app-section-stats [section]="section"></app-section-stats>
-        </ng-container>
-        <ng-container *ngIf="section.uname === SectionName.whyus">
-          <app-section-whyus [section]="section"></app-section-whyus>
-        </ng-container>
-        <ng-container *ngIf="section.uname === SectionName.action">
-          <app-section-call-to-action [section]="section"></app-section-call-to-action>
-        </ng-container>
-      </div>
-    </ng-container>
-  </ng-container>
+  @if (sections$ | async; as sections) {
+    @for (section of sections; track section.uname) {
+      @if (section.uname === SectionName.stats || section.uname === SectionName.whyus || section.uname === SectionName.action) {
+        <div class="single-page">
+          @switch (section.uname) {
+            @case (SectionName.stats) {
+              <app-section-stats [section]="section"></app-section-stats>
+            }
+            @case (SectionName.whyus) {
+              <app-section-whyus [section]="section"></app-section-whyus>
+            }
+            @case (SectionName.action) {
+              <app-section-call-to-action [section]="section"></app-section-call-to-action>
+            }
+          }
+        </div>
+      }
+    }
+  }
 </main>

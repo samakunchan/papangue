@@ -2,10 +2,10 @@
   <div class="container text-center">
     <h3>{{ section.title }}</h3>
     <p>{{ section.subTitle }}</p>
-    <ng-container *ngIf="section.redirectUrls?.length !== 0">
-      <ng-container *ngFor="let button of section.redirectUrls">
+    @if(section.redirectUrls?.length !== 0) {
+      @for (button of section.redirectUrls; track $index) {
         <a class="cta-btn" routerLink="{{ button.path }}">{{ button.label }}</a>
-      </ng-container>
-    </ng-container>
+      }
+    }
   </div>
 </section>

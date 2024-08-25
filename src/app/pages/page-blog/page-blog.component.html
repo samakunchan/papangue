@@ -31,11 +31,11 @@
       </div>
     </div>
   </div>
-  <ng-container *ngIf="sections$ | async as sections">
-    <ng-container *ngFor="let section of sections">
-      <ng-container *ngIf="section.uname === SectionName.blog">
+  @if (sections$ | async; as sections) {
+    @for (section of sections; track section.uname) {
+      @if (section.uname === SectionName.blog) {
         <app-section-blog [section]="section" [isFullPage]="true"></app-section-blog>
-      </ng-container>
-    </ng-container>
-  </ng-container>
+      }
+    }
+  }
 </main>

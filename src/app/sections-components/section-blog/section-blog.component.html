@@ -1,9 +1,9 @@
-<ng-container *ngIf="isFullPage; else isHomePage">
+@if(isFullPage) {
   <section class="recent-posts sections-bg">
     <div class="container">
       <div class="row gy-4">
-        <ng-container *ngFor="let value of section.payload!.values! | limit : limit">
-          <ng-container *ngIf="value | parseBlog as blog">
+        @for (value of section.payload!.values | limit: limit; track $index) {
+          @if (value | parseBlog; as blog) {
             <div class="col-lg-4">
               <article>
                 <div class="post-img">
@@ -12,7 +12,8 @@
                     alt="{{ blog.picture.alt }}"
                     class="img-fluid"
                     height="768"
-                    width="1024" />
+                    width="1024"
+                  />
                 </div>
                 <p class="post-category">{{ blog.category.title | titlecase }}</p>
                 <h2 class="title">
@@ -28,8 +29,8 @@
                 </div>
               </article>
             </div>
-          </ng-container>
-        </ng-container>
+          }
+        }
       </div>
     </div>
 
@@ -81,23 +82,22 @@
     <!--    </div>-->
     <!--    &lt;!&ndash; Pagination &ndash;&gt;-->
   </section>
-</ng-container>
-<ng-template #isHomePage>
+} @else {
   <section class="recent-posts sections-bg" id="recent-posts">
     <div class="container">
       <div class="section-header">
         <h2>{{ section.title }}</h2>
         <p>{{ section.subTitle }}</p>
-        <ng-container *ngIf="section.redirectUrls?.length !== 0">
-          <ng-container *ngFor="let button of section.redirectUrls">
+        @if (section.redirectUrls?.length !== 0) {
+          @for (button of section.redirectUrls; track $index) {
             <a class="btn-get-started mx-1" routerLink="{{ button.path }}">{{ button.label }}</a>
-          </ng-container>
-        </ng-container>
+          }
+        }
       </div>
 
       <div class="row gy-4">
-        <ng-container *ngFor="let value of section.payload!.values! | limit : limit">
-          <ng-container *ngIf="value | parseBlog as blog">
+        @for (value of section.payload!.values! | limit : limit; track $index) {
+          @if (value | parseBlog; as blog) {
             <div class="col-lg-4">
               <article>
                 <div class="post-img">
@@ -106,7 +106,8 @@
                     alt="{{ blog.picture.alt }}"
                     class="img-fluid"
                     height="768"
-                    width="1024" />
+                    width="1024"
+                  />
                 </div>
                 <p class="post-category">{{ blog.category.title | titlecase }}</p>
                 <h2 class="title">
@@ -122,9 +123,9 @@
                 </div>
               </article>
             </div>
-          </ng-container>
-        </ng-container>
+          }
+        }
       </div>
     </div>
   </section>
-</ng-template>
+}

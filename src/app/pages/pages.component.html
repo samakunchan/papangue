@@ -6,15 +6,15 @@
     </a>
     <nav class="navbar" id="navbar">
       <ul>
-        <ng-container *ngIf="menus$ | async as menus">
-          <ng-container *ngFor="let menu of menus">
+        @if (menus$ | async; as menus) {
+          @for (menu of menus; track $index) {
             <li>
               <a routerLink="{{ menu }}" (click)="toNavigateMenu(menu)" href="javascript:void(0)">
                 {{ menu | parseMenu | ucFirst }}
               </a>
             </li>
-          </ng-container>
-        </ng-container>
+          }
+        }
       </ul>
     </nav>
     <i (click)="mobileNavToogle()" class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>

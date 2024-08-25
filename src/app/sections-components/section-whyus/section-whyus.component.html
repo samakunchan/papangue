@@ -7,34 +7,34 @@
 
     <div class="row gy-4">
       <div class="col-lg-6">
-        <ng-container *ngIf="section.payload !== null; else placeholder">
+        @if(section.payload !== null) {
           <img
             ngSrc="{{ getRelativePath(section.payload?.picture?.src ?? '') }}"
             alt="{{ section.payload?.picture?.alt }}"
             class="img-fluid rounded-4 mb-4"
             width="844"
             height="692"
-            priority />
-        </ng-container>
-
-        <ng-template #placeholder>
+            priority
+          />
+        } @else {
           <img
             ngSrc="https://placehold.co/600x400"
             alt="Image en placeholder parce que l'image ne se charge pas"
             class="img-fluid rounded-4 mb-4 mt-m70"
             width="800"
-            height="100" />
-        </ng-template>
+            height="100"
+          />
+        }
       </div>
       <div class="col-lg-6">
         <div class="content ps-0 ps-lg-5">
           <p>{{ section.payload?.content }}</p>
           <ul>
-            <ng-container *ngFor="let value of section.payload?.values">
-              <ng-container *ngIf="value | parseWhyUs as data">
+            @for (value of section.payload?.values; track $index) {
+              @if (value | parseWhyUs; as data) {
                 <li><i class="bi bi-arrow-right-square-fill"></i>{{ data.reason }}</li>
-              </ng-container>
-            </ng-container>
+              }
+            }
           </ul>
         </div>
       </div>

@@ -1,21 +1,21 @@
-<ng-container *ngIf="isFullPage; else isHomePage">
+@if(isFullPage) {
   <section class="{{ section.uname }} section" id="{{ section.uname }}">
     <div class="container">
       <div class="portfolio-isotope">
         <div>
           <ul class="portfolio-flters">
             <li (click)="onFilter('*')" [ngClass]="{ 'filter-active': filterSelected === '*' }">All</li>
-            <ng-container *ngFor="let category of section.payload!.values! | groupCategory">
+            @for (category of section.payload!.values! | groupCategory; track $index) {
               <li (click)="onFilter(category)" [ngClass]="{ 'filter-active': filterSelected === category }">
                 {{ category }}
               </li>
-            </ng-container>
+            }
           </ul>
         </div>
 
         <div class="row gy-4 portfolio-container">
-          <ng-container *ngFor="let value of section.payload!.values! | limit : limit | filterBy : 'category' : filterSelected">
-            <ng-container *ngIf="value | parsePortfolio as portfolio">
+          @for (value of section.payload!.values! | limit : limit | filterBy : 'category' : filterSelected; track $index) {
+            @if (value | parsePortfolio; as portfolio) {
               <div class="col-xl-4 col-md-6 portfolio-item" @thumbState>
                 <div class="portfolio-wrap">
                   <a class="glightbox" data-gallery="portfolio-gallery-app" routerLink="{{ portfolio.slug }}">
@@ -24,7 +24,9 @@
                       class="img-fluid"
                       ngSrc="{{ getRelativePath(portfolio.picturesProject[0].src ?? '') }}"
                       height="768"
-                      width="1024" />
+                      width="1024"
+                      priority
+                    />
                   </a>
                   <div class="portfolio-info">
                     <h4>
@@ -58,32 +60,31 @@
                   </div>
                 </div>
               </div>
-            </ng-container>
-          </ng-container>
+            }
+          }
         </div>
       </div>
     </div>
   </section>
-</ng-container>
-<ng-template #isHomePage>
+} @else {
   <section class="{{ section.uname }} section" id="{{ section.uname }}">
     <div class="container">
       <div class="section-header">
         <h2>{{ section.title }}</h2>
         <p>
           {{ section.subTitle }}.
-          <ng-container *ngIf="section.redirectUrls?.length !== 0">
-            <ng-container *ngFor="let button of section.redirectUrls">
+          @if (section.redirectUrls?.length !== 0) {
+            @for (button of section.redirectUrls; track $index) {
               <a class="btn-get-started mx-1" routerLink="{{ button.path }}">{{ button.label }}</a>
-            </ng-container>
-          </ng-container>
+            }
+          }
         </p>
       </div>
 
       <div class="portfolio-isotope">
         <div class="row gy-4 portfolio-container">
-          <ng-container *ngFor="let value of section.payload!.values! | limit : limit">
-            <ng-container *ngIf="value | parsePortfolio as portfolio">
+          @for (value of section.payload!.values! | limit : limit; track $index) {
+            @if (value | parsePortfolio; as portfolio) {
               <div class="col-xl-4 col-md-6 portfolio-item">
                 <div class="portfolio-wrap">
                   <a
@@ -94,8 +95,10 @@
                       alt="{{ portfolio.picturesProject[0].alt }}"
                       class="img-fluid"
                       ngSrc="{{ getRelativePath(portfolio.picturesProject[0].src ?? '') }}"
-                      height="456"
-                      width="534" />
+                      height="768"
+                      width="1024"
+                      priority
+                    />
                   </a>
                   <div class="portfolio-info">
                     <h4>
@@ -129,10 +132,10 @@
                   </div>
                 </div>
               </div>
-            </ng-container>
-          </ng-container>
+            }
+          }
         </div>
       </div>
     </div>
   </section>
-</ng-template>
+}

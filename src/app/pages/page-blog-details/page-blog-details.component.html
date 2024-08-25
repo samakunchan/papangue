@@ -1,6 +1,6 @@
 <main id="main">
-  <ng-container *ngIf="value$ | async as value; else placeholder">
-    <ng-container *ngIf="value | parseBlog as blog">
+  @if(value$ | async; as value) {
+    @if (value | parseBlog; as blog) {
       <div class="breadcrumbs">
         <div class="page-header d-flex">
           <div class="container position-relative">
@@ -20,30 +20,30 @@
       </div>
 
       <app-section-blog-details [blog]="blog"></app-section-blog-details>
-    </ng-container>
-  </ng-container>
-</main>
-<ng-template #placeholder>
-  <div class="breadcrumbs">
-    <div class="page-header d-flex">
-      <div class="container position-relative">
-        <div class="row d-flex justify-content-start position-relative">
-          <div class="col-lg-6 text-left">
-            <h2>Blog Details</h2>
-            <p>Le post n'existe pas.</p>
-          </div>
-          <div class="col-lg-6 d-flex justify-content-end">
-            <div class="pages-images">
-              <img ngSrc="assets/images/blogs-details.jpg" class="img-fluid" alt="" height="456" width="534" />
+    } @else {
+      <div class="breadcrumbs">
+        <div class="page-header d-flex">
+          <div class="container position-relative">
+            <div class="row d-flex justify-content-start position-relative">
+              <div class="col-lg-6 text-left">
+                <h2>Blog Details</h2>
+                <p>Le post n'existe pas.</p>
+              </div>
+              <div class="col-lg-6 d-flex justify-content-end">
+                <div class="pages-images">
+                  <img ngSrc="assets/images/blogs-details.jpg" class="img-fluid" alt="" height="456" width="534" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <section class="single-page">
-    <div id="portfolio-details" class="portfolio-details">
-      <div class="container"></div>
-    </div>
-  </section>
-</ng-template>
+      <section class="single-page">
+        <div id="portfolio-details" class="portfolio-details">
+          <div class="container"></div>
+        </div>
+      </section>
+    }
+  }
+</main>
+

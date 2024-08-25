@@ -5,8 +5,8 @@
   </div>
   <div class="container">
     <div class="row our-offer-items less-carousel">
-      <ng-container *ngFor="let value of section.payload?.values">
-        <ng-container *ngIf="value | parseService as service">
+      @for (value of section.payload?.values; track $index) {
+        @if (value | parseService; as service) {
           <div class="col-md-4 col-sm-12 equal-height">
             <div class="item">
               <i class="{{ service.icon }}"></i>
@@ -14,8 +14,8 @@
               <p>{{ service.content }}</p>
             </div>
           </div>
-        </ng-container>
-      </ng-container>
+        }
+      }
     </div>
   </div>
 </section>

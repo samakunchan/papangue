@@ -4,8 +4,8 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'filterBy',
   standalone: true,
 })
-export class FilterByPipe<T> implements PipeTransform {
-  transform(elements: T[], property: string, filter: string): T[] {
-    return filter === '*' ? elements : elements.filter((element: any): boolean => JSON.parse(element)[property] === filter);
+export class FilterByPipe implements PipeTransform {
+  transform(elements: string[], property: string, filter: string): string[] {
+    return filter === '*' ? elements : elements.filter((element: string): boolean => JSON.parse(element)[property] === filter);
   }
 }

@@ -6,23 +6,23 @@
         <h3 class="heading-secondy">{{ section.subTitle }}</h3>
         <p>{{ section.payload?.content }}</p>
         <div class="d-flex">
-          <ng-container *ngIf="section.redirectUrls?.length !== 0">
-            <ng-container *ngFor="let button of section.redirectUrls">
+          @if(section.redirectUrls?.length !== 0) {
+            @for(button of section.redirectUrls; track $index) {
               <a
                 class="mx-1"
                 [ngClass]="{
-                                  'btn-contact-me': button.path === RouteName.contacts.value,
-                                  'btn-get-started': button.path === RouteName.about.value,
-                               }"
+                 'btn-contact-me': button.path === RouteName.contacts.value,
+                 'btn-get-started': button.path === RouteName.about.value,
+                 }"
                 routerLink="{{ button.path }}">
                 {{ button.label }}
               </a>
-            </ng-container>
-          </ng-container>
+            }
+          }
         </div>
       </div>
       <div class="col-lg-6 d-flex flex-column align-items-right justify-content-center">
-        <ng-container *ngIf="section.payload?.picture !== null && section.payload?.picture?.src != null; else placeholder">
+        @if(section.payload?.picture !== null && section.payload?.picture?.src != null) {
           <img
             alt="{{ section.payload?.picture?.alt }}"
             class="img-fluid rounded-4 mb-4 mt-m70"
@@ -30,15 +30,14 @@
             width="636"
             height="571"
             priority />
-        </ng-container>
-        <ng-template #placeholder>
+        } @else {
           <img
             alt="Image en placeholder parce que l'image ne se charge pas"
             class="img-fluid rounded-4 mb-4 mt-m70"
             ngSrc="https://placehold.co/600x400"
             width="636"
             height="571" />
-        </ng-template>
+        }
       </div>
     </div>
   </div>

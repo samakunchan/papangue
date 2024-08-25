@@ -6,18 +6,19 @@
           <div class="position-relative">
             <div class="slides-1 portfolio-details-slider swiper position-relative">
               <div class="swiper-wrapper align-items-center">
-                <ng-container *ngIf="portfolio.picturesProject.length !== 0; else noPreviewPictures">
-                  <ng-container *ngFor="let picture of portfolio.picturesProject; trackBy: trackBySrc; let index = index">
-                    <div class="swiper-slide" @thumbState *ngIf="index === currentSlide">
-                      <img ngSrc="{{ getRelativePath(picture.src ?? '') }}" alt="{{ picture.alt }}" height="768" width="1024" />
-                    </div>
-                  </ng-container>
-                </ng-container>
-                <ng-template #noPreviewPictures>
+                @if (portfolio.picturesProject.length !== 0) {
+                  @for (picture of portfolio.picturesProject; track trackBySrc;) {
+                    @if ($index === currentSlide) {
+                      <div class="swiper-slide" @thumbState>
+                        <img ngSrc="{{ getRelativePath(picture.src ?? '') }}" alt="{{ picture.alt }}" height="768" width="1024" />
+                      </div>
+                    }
+                  }
+                } @else {
                   <div class="swiper-slide">
                     <img ngSrc="https://placehold.co/600x400" alt="Pas d'image" height="768" width="1024" />
                   </div>
-                </ng-template>
+                }
               </div>
               <div class="swiper-pagination"></div>
             </div>
@@ -36,29 +37,27 @@
           <div class="portfolio-info">
             <h3>Information</h3>
             <ul>
-              <ng-container *ngIf="portfolio.category">
+              @if (portfolio.category) {
                 <li>
                   <strong>Categorie</strong> <span>{{ portfolio.category.title }}</span>
                 </li>
-              </ng-container>
-              <ng-container *ngIf="portfolio.client">
+              }
+              @if (portfolio.client) {
                 <li>
                   <strong>Client</strong> <span>{{ portfolio.client }}</span>
                 </li>
-              </ng-container>
-              <ng-container *ngIf="portfolio.dateProjet">
+              }
+              @if (portfolio.dateProjet) {
                 <li>
                   <strong>Date du projet</strong> <span>{{ portfolio.dateProjet | date }}</span>
                 </li>
-              </ng-container>
-              <ng-container *ngIf="portfolio.urlProjet">
+              }
+              @if (portfolio.urlProjet) {
                 <li>
                   <strong>URL du projet</strong> <a href="javascript:void(0)">{{ portfolio.urlProjet }}</a>
                 </li>
-              </ng-container>
-              <ng-container *ngIf="portfolio.urlProjet">
                 <li><a href="javascript:void(0)" class="btn-visit align-self-start">Visit Website</a></li>
-              </ng-container>
+              }
             </ul>
           </div>
         </div>

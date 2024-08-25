@@ -15,18 +15,19 @@
                 ngSrc="{{ 'assets/images/common-page.jpg' }}"
                 height="456"
                 width="534"
-                priority />
+                priority
+              />
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <ng-container *ngIf="sections$ | async as sections">
-    <ng-container *ngFor="let section of sections">
-      <ng-container *ngIf="section.uname === SectionName.project">
+  @if (sections$ | async; as sections) {
+    @for (section of sections; track section.uname) {
+      @if (section.uname === SectionName.project) {
         <app-section-portfolio [section]="section" [isFullPage]="true"></app-section-portfolio>
-      </ng-container>
-    </ng-container>
-  </ng-container>
+      }
+    }
+  }
 </main>

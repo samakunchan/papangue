@@ -1,34 +1,36 @@
-<ng-container *ngIf="(section.payload?.values)!.length !== 0">
+@if ((section.payload?.values)!.length !== 0) {
   <div class="about section" id="about">
     <div class="container">
       <div class="row gy-4">
         <div class="col-lg-6">
           <div class="content ps-0">
-            <ng-container *ngFor="let value of section.payload?.values">
-              <ng-container *ngIf="value | parseStats as skill">
+            @for (value of section.payload?.values; track $index) {
+              @if (value | parseStats; as skill) {
                 <div class="bar {{ skill.position }} {{ skill.level }}" [attr.data-skill]="skill.techno"></div>
-              </ng-container>
-            </ng-container>
+              }
+            }
+
           </div>
         </div>
         <div class="col-lg-6 image-design-box">
-          <ng-container *ngIf="section.payload?.picture !== null && section.payload?.picture?.src != null; else placeholder">
+          @if (section.payload?.picture !== null && section.payload?.picture?.src != null) {
             <img
               alt="{{ section.payload?.picture?.alt }}"
               ngSrc="{{ getRelativePath(section.payload?.picture?.src ?? '') }}"
               class="img-fluid rounded-4 mb-4"
-              fill />
-          </ng-container>
-          <ng-template #placeholder>
+              fill
+            />
+          } @else {
             <img
               alt="Image en placeholder parce que l'image ne se charge pas"
               class="img-fluid rounded-4 mb-4 mt-m70"
               ngSrc="https://placehold.co/600x400"
               width="800"
-              height="100" />
-          </ng-template>
+              height="100"
+            />
+          }
         </div>
       </div>
     </div>
   </div>
-</ng-container>
+}
