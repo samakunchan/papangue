@@ -1,5 +1,5 @@
 [![Owner](https://img.shields.io/badge/Owner-Samakunchan%20Technology-blue)](https://samakunchan-technology.com/)
-[![Owner](https://img.shields.io/badge/PAPANGUE-v0.8.0-orange)](https://samakunchan-technology.com/)
+[![Owner](https://img.shields.io/badge/PAPANGUE-v0.9.0-orange)](https://samakunchan-technology.com/)
 [![Owner](https://img.shields.io/badge/ANGULAR-v17.3.8-red)]()
 
 # PAPANGUE
