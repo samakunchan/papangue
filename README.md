@@ -10,7 +10,7 @@ Interface graphique de mon portfolio et de mon blog.
 
 | Dépendences | Versions |
 |-------------|----------|
-| Node        | 18.2.3   |
+| Node        | 18.20.0  |
 | NPM         | 10.5.0   |
 
 Pour mettre à jour la version Node, utilisez ou installer `nvm`, c'est plus pratique.
