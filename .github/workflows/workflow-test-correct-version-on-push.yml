@@ -5,6 +5,7 @@ on:
       - 'features/**'
       - 'fix/**'
       - 'docs/**'
+      - 'doc/**'
       - 'ci/**'
       - 'test/**'
 
