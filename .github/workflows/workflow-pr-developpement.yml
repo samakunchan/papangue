@@ -1,14 +1,20 @@
 on:
   pull_request:
     branches:
-      - main
+      - developpement
 
-name: 🚚 [PR MAIN] Workflow pour le lancement des tests lors de la PR pour le main
+name: 🚚 [PR DEVELOPPEMENT] Workflow pour le lancement des tests lors de la PR pour le developpement
 jobs:
   test-devppg-api:
     name: 🛂 Test de Papangue
     runs-on: ubuntu-latest
     steps:
+      - run: echo "🎉 Bravo 🎉. Le job se lance sur l'évènement ${{ github.event_name }}."
+      - run: echo "Le nom de la ref est ${{ github.ref }}."
+      - run: echo "Le nom du repository est ${{ github.repository }}."
+      - run: echo "Le nom de la branche d'origine est ${{ github.event.pull_request.head.ref }}."
+      - run: echo "Le nom de la branche de destination est ${{ github.event.pull_request.base.ref }}."
+
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
 

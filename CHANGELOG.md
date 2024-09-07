@@ -5,6 +5,34 @@ Toutes les modifications notables apportées à ce projet seront documentées da
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 et ce projet adhère à [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 🚀 0.10.0 - 07/09/2024
+
+### Nouveautés
+
+- Ajout d'un workflow pour tester l'incrémentation de la version.
+
+### Changements
+
+- Mise à jour de la version node de `actions/checkout@v7`.
+- Amélioration de la visibilité des noms (ref, repository, branches).
+- Ajout d'une protection de la branche main pour eviter les PR non controler.
+
+### Correctifs
+
+- Fixe version de angular pour faire fonctionner la ci.
+- Erreur de push vers le github (voir ci-dessous).
+
+Type d'érreur : 
+```
+error: RPC failed; HTTP 400 curl 22 The requested URL returned error: 400
+send-pack: unexpected disconnect while reading sideband packet
+```
+Solution :
+```shell
+git config --global http.postBuffer 524288000
+```
+
+
 ## 🚀 0.9.1 - 25/08/2024
 
 ### Nouveautés
