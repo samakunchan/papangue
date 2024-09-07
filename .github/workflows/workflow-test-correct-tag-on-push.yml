@@ -44,9 +44,3 @@ jobs:
         with:
           script: |
             core.setFailed("La version dans package.json n'a pas été mise à jour. Veuillez mettre à jour la version. N'oubliez pas de vérifier le CHANGELOG et le README également.")
-
-      - uses: mukunku/tag-exists-action@v1.6.0
-        id: check-tag
-        with:
-          tag: ${{ env.CURRENT_VERSION }}
-          repo: ${{ github.repository }}
