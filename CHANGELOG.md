@@ -5,6 +5,23 @@ Toutes les modifications notables apportées à ce projet seront documentées da
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 et ce projet adhère à [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 🚀 0.10.0 - 07/09/2024
+
+### Nouveautés
+
+- Pas de nouveautés.
+
+### Changements
+
+- Mise à jour de la version node de `actions/checkout@v7`.
+- Amélioration de la visibilité des noms (ref, repository, branches).
+- Ajout d'une protection de la branche main pour eviter les PR non controler.
+
+### Correctifs
+
+- Pas de fixes.
+
+
 ## 🚀 0.9.1 - 25/08/2024
 
 ### Nouveautés
