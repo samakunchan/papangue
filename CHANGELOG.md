@@ -19,7 +19,18 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ### Correctifs
 
-- Pas de fixes.
+- Fixe version de angular pour faire fonctionner la ci.
+- Erreur de push vers le github (voir ci-dessous).
+
+Type d'érreur : 
+```
+error: RPC failed; HTTP 400 curl 22 The requested URL returned error: 400
+send-pack: unexpected disconnect while reading sideband packet
+```
+Solution :
+```shell
+git config --global http.postBuffer 524288000
+```
 
 
 ## 🚀 0.9.1 - 25/08/2024
