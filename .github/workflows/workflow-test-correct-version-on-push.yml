@@ -21,10 +21,9 @@ jobs:
         run: |
           $version = (Get-Content package.json | ConvertFrom-Json).version
           echo "CURRENT_VERSION=$version" >> $env:GITHUB_OUTPUT
-          echo "Version courante: $version"
 
       - name: Checkout main branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
 
@@ -33,28 +32,15 @@ jobs:
         run: |
           $version = (Get-Content package.json | ConvertFrom-Json).version
           echo "MAIN_VERSION=$version" >> $env:GITHUB_OUTPUT
-          echo "Version main: $version"
 
-      - name: Debug - Affichage des versions
+      - name: Debug
         run: |
           echo "Current branch version: ${{ steps.current_version.outputs.CURRENT_VERSION }}"
           echo "Main branch version: ${{ steps.main_version.outputs.MAIN_VERSION }}"
 
-      - name: Debug - Test de comparaison
-        run: |
-          $currentVersion = "${{ steps.current_version.outputs.CURRENT_VERSION }}"
-          $mainVersion = "${{ steps.main_version.outputs.MAIN_VERSION }}"
-          echo "Current Version: $currentVersion"
-          echo "Main Version: $mainVersion"
-          if ($currentVersion -eq $mainVersion) {
-            echo "Les versions sont identiques"
-            exit 1
-          } else {
-            echo "Les versions sont différentes"
-          }
-
       - name: Comparaison des versions
-        if: failure()
-        run: |
-          echo "La version dans package.json n'a pas été mise à jour. Veuillez mettre à jour la version. N'oubliez pas de vérifier le CHANGELOG et le README également."
-          exit 1
+        uses: actions/github-script@v7
+        if: steps.current_version.outputs.CURRENT_VERSION != steps.main_version.outputs.MAIN_VERSION
+        with:
+          script: |
+            core.setFailed("La version dans package.json n'a pas été mise à jour. Veuillez mettre à jour la version. N'oubliez pas de vérifier le CHANGELOG et le README également.")
