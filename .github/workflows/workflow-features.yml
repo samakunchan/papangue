@@ -16,7 +16,7 @@ jobs:
       - run: echo "🎉 Bravo 🎉. Le job se lance sur l'évènement ${{ github.event_name }}."
       - run: echo "Le nom de la branche est ${{ github.ref }} et le nom du repository est ${{ github.repository }}."
       - name: 🚚 Get latest code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
 
       - name: 💿 Use Node.js 18
         uses: actions/setup-node@v3
