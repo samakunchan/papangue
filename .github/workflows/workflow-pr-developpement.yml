@@ -16,7 +16,7 @@ jobs:
       - run: echo "Le nom de la branche de destination est ${{ github.event.pull_request.base.ref }}."
 
       - name: 🚚 Get latest code
-        uses: actions/checkout@v7
+        uses: actions/checkout@v3
 
       - name: 💿 Use Node.js 18
         uses: actions/setup-node@v3
