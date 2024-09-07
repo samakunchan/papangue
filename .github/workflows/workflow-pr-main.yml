@@ -7,7 +7,7 @@ name: 🚓 [PROTECTION MAIN] Workflow qui test la PR.
 jobs:
   good_branch:
     name: 📟 Destination de la PR.
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - run: echo "🎉 Bravo 🎉. Le job se lance sur l'évènement ${{ github.event_name }}."
