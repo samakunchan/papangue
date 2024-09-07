@@ -8,7 +8,7 @@ on:
       - 'ci/**'
       - 'test/**'
 
-name: 🔎 [VERSION] Peut on créer un nouveau tag ?
+name: 🔎 [VERSION] La version est elle différente ?
 jobs:
   test-tag-avaibility:
     runs-on: windows-latest
@@ -16,7 +16,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Récupération de la version dans le `package.json` de la branche '${{ github.event.pull_request.head.ref }}'.
+      - name: Récupération de la version dans le `package.json` de la branche courante.
         id: current_version
         run: |
           $version = (Get-Content package.json | ConvertFrom-Json).version
