@@ -5,6 +5,22 @@ Toutes les modifications notables apportées à ce projet seront documentées da
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 et ce projet adhère à [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+## 📘 0.11.0 - 07/09/2024
+
+### Nouveautés
+
+- Pas de nouveautés.
+
+### Changements
+
+- Mise à jour du Readme.
+
+### Correctifs
+
+- Fix ci pour le lancement des tests de version pour les PR `doc/**`.
+
+
 ## 🚀 0.10.0 - 07/09/2024
 
 ### Nouveautés
