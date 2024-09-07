@@ -14,7 +14,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Récupération de la version dans le `package.json` de la branche courante
         id: current_version
@@ -23,7 +23,7 @@ jobs:
           echo "CURRENT_VERSION=$version" >> $env:GITHUB_OUTPUT
 
       - name: Checkout main branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
 
