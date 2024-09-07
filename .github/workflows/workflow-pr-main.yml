@@ -1,36 +1,30 @@
 on:
-  push:
+  pull_request:
     branches:
-      - 'feat/**'
-      - 'features/**'
-      - 'fix/**'
-      - 'docs/**'
-      - 'ci/**'
+      - main
 
-name: 🚀 [PUSH] Workflow pour le lancement des tests lors du push
+name: 🚚 [PR MAIN] Workflow pour le lancement des tests lors de la PR pour le main
 jobs:
   test-devppg-api:
     name: 🛂 Test de Papangue
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 Bravo 🎉. Le job se lance sur l'évènement ${{ github.event_name }}."
-      - run: echo "Le nom de la branche est ${{ github.ref }} et le nom du repository est ${{ github.repository }}."
-      - name: 🚚 Get latest code
-        uses: actions/checkout@v7
+      - run: echo "Le nom de la ref est ${{ github.ref }}."
+      - run: echo "Le nom du repository est ${{ github.repository }}."
+      - run: echo "Le nom de la branche d'origine est ${{ github.event.pull_request.head.ref }}."
+      - run: echo "Le nom de la branche de destination est ${{ github.event.pull_request.base.ref }}."
 
       - name: 💿 Use Node.js 18
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      - name: Suppression du cache de npm
-        run: npm cache clean --force
-
       - name: 📚 Installation des dépendences
         run: |
           npm install
 
-      - name: 🔨 Construction du projet
+      - name: 🚧 Construction du projet
         run: |
           npm run build
 
