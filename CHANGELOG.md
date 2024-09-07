@@ -18,7 +18,7 @@ et ce projet adhère à [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ### Correctifs
 
-- Pas de fixes.
+- Fix ci pour le lancement des tests de version pour les PR `doc/**`.
 
 
 ## 🚀 0.10.0 - 07/09/2024
