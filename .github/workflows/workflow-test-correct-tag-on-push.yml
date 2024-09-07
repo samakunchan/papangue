@@ -10,37 +10,37 @@ on:
 
 name: 🔎 [VERSION] La version est elle différente ?
 jobs:
-  test-tag-avaibility:
+  test-tag-availability:
     runs-on: windows-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Récupération de la version dans le `package.json` de la branche courante.
+      - name: Récupération de la version dans le `package.json` de la branche courante
         id: current_version
         run: |
           $version = (Get-Content package.json | ConvertFrom-Json).version
-          echo "CURRENT_VERSION=$version" | Out-File -FilePath $env:GITHUB_ENV -Append
+          echo "CURRENT_VERSION=$version" >> $env:GITHUB_OUTPUT
 
       - name: Checkout main branch
         uses: actions/checkout@v3
         with:
           ref: main
 
-      - name: Récupération de la version dans le `package.json` de la branche 'main'.
+      - name: Récupération de la version dans le `package.json` de la branche 'main'
         id: main_version
         run: |
           $version = (Get-Content package.json | ConvertFrom-Json).version
-          echo "MAIN_VERSION=$version" | Out-File -FilePath $env:GITHUB_ENV -Append
+          echo "MAIN_VERSION=$version" >> $env:GITHUB_OUTPUT
 
-      - name: Debug.
+      - name: Debug
         run: |
-          echo "Current branch version: ${{ env.CURRENT_VERSION }}"
-          echo "Main branch version: ${{ env.MAIN_VERSION }}"
+          echo "Current branch version: ${{ steps.current_version.outputs.CURRENT_VERSION }}"
+          echo "Main branch version: ${{ steps.main_version.outputs.MAIN_VERSION }}"
 
-      - name: Comparaison des versions.
+      - name: Comparaison des versions
         uses: actions/github-script@v7
-        if: env.CURRENT_VERSION == env.MAIN_VERSION
+        if: steps.current_version.outputs.CURRENT_VERSION == steps.main_version.outputs.MAIN_VERSION
         with:
           script: |
             core.setFailed("La version dans package.json n'a pas été mise à jour. Veuillez mettre à jour la version. N'oubliez pas de vérifier le CHANGELOG et le README également.")
