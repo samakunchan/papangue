@@ -3,11 +3,12 @@ on:
     branches:
       - main
 
-name: 🚚 [PR MAIN] Workflow pour le lancement des tests lors de la PR pour le main
+name: 🚓 [PROTECTION MAIN] Workflow qui test la PR.
 jobs:
-  test-devppg-api:
-    name: 🛂 Test de Papangue
-    runs-on: ubuntu-latest
+  good_branch:
+    name: 📟 Destination de la PR.
+    runs-on: windows-latest
+
     steps:
       - run: echo "🎉 Bravo 🎉. Le job se lance sur l'évènement ${{ github.event_name }}."
       - run: echo "Le nom de la ref est ${{ github.ref }}."
@@ -15,19 +16,16 @@ jobs:
       - run: echo "Le nom de la branche d'origine est ${{ github.event.pull_request.head.ref }}."
       - run: echo "Le nom de la branche de destination est ${{ github.event.pull_request.base.ref }}."
 
-      - name: 💿 Use Node.js 18
-        uses: actions/setup-node@v3
+      - name: Test de la branche d'origine.
+        uses: actions/github-script@v7
+        if: github.event.pull_request.base.ref == 'refs/heads/developpement'
         with:
-          node-version: '18'
+          script: |
+            core.setFailed("La branche d'origine doit être : 'developpement'. Actuelle la branche c'est '${{ github.event.pull_request.base.ref }}'.")
 
-      - name: 📚 Installation des dépendences
-        run: |
-          npm install
-
-      - name: 🚧 Construction du projet
-        run: |
-          npm run build
-
-      - name: 🛂 Test du projet
-        run: |
-          npm run test
+      - name: Test de la branche de destination.
+        uses: actions/github-script@v7
+        if: github.event.pull_request.head.ref == 'refs/heads/main'
+        with:
+          script: |
+            core.setFailed("La branche de destination doit être : 'main'. Actuellement la branche c'est '${{ github.event.pull_request.head.ref }}'.")
